@@ -1,6 +1,6 @@
 ---
 title: "Premier article"
-date: 2022-06-26T20:02:25+02:00
+date: 2022-06-20T20:02:25+02:00
 draft: false
 comment: false
 ---

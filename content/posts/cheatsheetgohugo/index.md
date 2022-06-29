@@ -1,7 +1,7 @@
 ---
 title: "Cheatsheet pour gohugo"
 date: 2022-06-26T20:42:44+02:00
-draft: true
+draft: false
 comment: false
 ---
 

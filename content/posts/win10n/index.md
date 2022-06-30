@@ -1,7 +1,7 @@
 ---
 title: "Windows 10 N et les codecs vidéos manquant"
 date: 2022-06-30T20:42:14+02:00
-draft: true
+draft: false
 comment: false
 ---
 

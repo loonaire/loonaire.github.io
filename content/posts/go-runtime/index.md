@@ -21,10 +21,10 @@ import (
 
 func main() {
 
-	m := &runtime.MemStats{}
+	var m runtime.MemStats
 	time.Sleep(2 * time.Second)
 	log.Println("# goroutines: ", runtime.NumGoroutine())
-	runtime.ReadMemStats(m)
+	runtime.ReadMemStats(&m)
 	log.Println("Memory Acquired: ", m.Sys)
 	log.Println("Memory Acquired (MB) :", float64(m.Sys)/1000000)
 	log.Println("Memory Used    : ", m.Alloc)

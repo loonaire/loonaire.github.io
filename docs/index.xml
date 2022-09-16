@@ -6,7 +6,16 @@
     <description>Accueil de mon blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 14:08:36 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Sep 2022 18:01:15 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Activer l&#39;accès aux partages smb sans mot de passe sur Windows 10 Pro / Education</title>
+        <link>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</link>
+        <pubDate>Fri, 16 Sep 2022 18:01:15 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</guid>
+        <description>En voulant mettre en place un partage accessible sans mot de passe, je me suis retrouvé face à un problème d&amp;rsquo;accès avec Windows 10 Education. Le partage était situé sur un Windows 10 Famille, un autre ordinateur pouvais accéder à ce partage mais impossible depuis un Windows 10 Education. Le problème viens de la désactivation de l&amp;rsquo;accès aux partages sans mot de passe, ce problème est résolu en modifiant les GPO de l&amp;rsquo;ordinateur.</description>
+      </item>
+    
       <item>
         <title>Passer des arguments à un programme Go avec les flags</title>
         <link>https://loonaire.github.io/posts/go-flags/</link>

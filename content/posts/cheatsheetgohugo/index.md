@@ -49,10 +49,6 @@ Pour voir le site sur l'ordinateur, il faut utiliser la commande:
 hugo serve
 ```
 
-
-
-### 
-
 ### Automatiser la génération du site via Github
 
 Il est possible d'automatiser la génération du site, pour cela il faut activer les github actions, plus d'informations sont disponible [ici](https://gohugo.io/hosting-and-deployment/hosting-on-github/)

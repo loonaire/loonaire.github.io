@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.103.0">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+<title>Golang: Voir la mémoire utilisée par le programme</title>
+
+
+
+
+
+<meta name="robots" content="index follow">
+
+
+
+
+  
+    <link rel="canonical" href="https://loonaire.github.io/posts/go-runtime/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Blog">
+<meta property="og:title" content="Golang: Voir la mémoire utilisée par le programme">
+
+  <meta property="og:url" content="https://loonaire.github.io/posts/go-runtime/">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2022-08-03">
+    <meta property="article:modified_time" content="2022-08-03">
+    <meta property="og:updated_time" content="2022-08-03">
+  
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https://loonaire.github.io/"
+      },
+      "headline": "Golang: Voir la mémoire utilisée par le programme",
+      "description": "",
+      
+      "url": "https://loonaire.github.io/posts/go-runtime/",
+      "inLanguage": "en",
+      "datePublished": "2022-08-03",
+      "dateModified": "2022-08-03",
+      "wordCount" : "148",
+      "publisher": {
+        "@type": "Person",
+        "name": ""
+      },
+      "author": {
+        "@type": "Person",
+        "name": "",
+        
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://loonaire.github.io/css/main.min.b7cae01e1ea25f73e9581737f2e02bf4238a5131a157840a836736587fa3f69c.css" integrity="sha256-t8rgHh6iX3PpWBc38uAr9COKUTGhV4QKg2c2WH&#43;j9pw=" crossorigin="anonymous">
+
+
+
+<noscript>
+
+  
+  
+
+  
+    <meta name="theme-color" content="#1dbc91" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#1f676b" media="(prefers-color-scheme: light)">
+  
+
+  
+  <link rel="stylesheet" href="https://loonaire.github.io/css/noscript.min.3f3b95436b19eaeb9223fb12c0b86737d53ee0a47fdba271a886c244bc03975c.css" integrity="sha256-PzuVQ2sZ6uuSI/sSwLhnN9U&#43;4KR/26JxqIbCRLwDl1w=" crossorigin="anonymous">
+
+</noscript>
+
+
+
+<link rel="preload" href="/fonts/OpenSans-Bold.ttf" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/OpenSans-Italic.ttf" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/OpenSans-Regular.ttf" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/Oswald-Bold.ttf" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="https://loonaire.github.io/js/main.f1da21dfea83dc0c36cea0b202c14a97e00aedab567e32702eb120f5ab8d974b.js" integrity="sha256-8doh3&#43;qD3Aw2zqCyAsFKl&#43;AK7atWfjJwLrEg9auNl0s=" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/">Blog</a>
+
+
+
+
+  
+    <nav aria-label="Main menu.">
+      <ul>
+        
+          <li>
+            <a class="btn" href="/about/">About</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/posts/">Posts</a>
+          </li>
+        
+          <li>
+            <a class="btn" href="/other/">Other content</a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>Golang: Voir la mémoire utilisée par le programme</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2022-08-03">2022-08-03</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<p>Je cherchais un moyen d&rsquo;afficher en Go la mémoire utilisée par un programme en Go.
+La solution se trouve dans la librairie standard avec le package runtime.</p>
+<p>Voici un exemple de code (l&rsquo;exemple parle de lui même):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;runtime&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">m</span> <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">MemStats</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;# goroutines: &#34;</span>, <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">NumGoroutine</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">ReadMemStats</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">m</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Memory Acquired: &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Sys</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Memory Acquired (MB) :&#34;</span>, float64(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Sys</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">1000000</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Memory Used    : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Alloc</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Memory Used  (MB)  : &#34;</span>, float64(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Alloc</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">1000000</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;TotalAlloc :&#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">TotalAlloc</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;TotalAlloc (MB):&#34;</span>, float64(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">TotalAlloc</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">1000000</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;# malloc       : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Mallocs</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;# free         : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Frees</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;GC enabled     : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">EnableGC</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;# GC           : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">NumGC</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Last GC time   : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">LastGC</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Next GC        : &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">NextGC</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//runtime.GC() // retirer le commentaire pour forcer un passage du garbage collector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Si vous souhaite executer ce code en boucle, mettez une boucle for{} enrre les println après le ReadMemStats(m)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="/img/bundle.min.fc89b321aa39dfb355170fc007ce5b94.svg#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#1dbc91" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#1f676b"><option value="#1dbc91"><option value="#225670"><option value="#dd587c"><option value="#902b37"><option value="#f3a530"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"><option value="#805080"><option value="#9d629d"><option value="#a064a0"><option value="#7daa50"><option value="#284531"><option value="#285790"><option value="#F5A83D"><option value="#88aa33"><option value="#015660"><option value="#bf274e"><option value="#bf4242"><option value="#51b37c"></datalist>
+</div>
+
+
+
+
+
+    </footer>
+    
+    
+    
+
+    
+    
+
+  </body>
+</html>

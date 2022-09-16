@@ -3,82 +3,106 @@
   <channel>
     <title>Blog</title>
     <link>https://loonaire.github.io/</link>
-    <description>Recent content on Blog</description>
+    <description>Accueil de mon blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Aug 2022 12:18:27 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Utiliser Flash Player en 2022</title>
-      <link>https://loonaire.github.io/posts/flashplayer2022/</link>
-      <pubDate>Wed, 03 Aug 2022 12:18:27 +0200</pubDate>
-      
-      <guid>https://loonaire.github.io/posts/flashplayer2022/</guid>
-      <description>Flash player est aujourd&amp;rsquo;hui totalement mort, même adobe a retirer les liens vers Flash. Pour les applications AIR, une entreprise à repris le support, plus d&amp;rsquo;infos par ici.
+    <lastBuildDate>Thu, 04 Aug 2022 14:08:36 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Passer des arguments à un programme Go avec les flags</title>
+        <link>https://loonaire.github.io/posts/go-flags/</link>
+        <pubDate>Thu, 04 Aug 2022 14:08:36 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/go-flags/</guid>
+        <description>Go permet de se passer de Os.args pour la gestion des arguments à l&amp;rsquo;execution de l&amp;rsquo;application avec le package flag.
+Les arguments créeront l&amp;rsquo;argument -h ou &amp;ndash;help.
+Pour les arguments de type bool, il faut mettre par défaut la valeur false, sinon l&amp;rsquo;argument sera toujours à true.
+Voici un exemple de base, chaque argument est envoyé dans un pointeur vers l&amp;rsquo;argument:
+package main import ( &amp;#34;flag&amp;#34; &amp;#34;log&amp;#34; ) func main() { // crée les variables qui contiendront les arguments // attention: chaque paramètre est précédé d&amp;#39;un - boolArg := flag.</description>
+      </item>
+    
+      <item>
+        <title>Golang: Voir la mémoire utilisée par le programme</title>
+        <link>https://loonaire.github.io/posts/go-runtime/</link>
+        <pubDate>Wed, 03 Aug 2022 20:06:58 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/go-runtime/</guid>
+        <description>Je cherchais un moyen d&amp;rsquo;afficher en Go la mémoire utilisée par un programme en Go. La solution se trouve dans la librairie standard avec le package runtime.
+Voici un exemple de code (l&amp;rsquo;exemple parle de lui même):
+package main import ( &amp;#34;log&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { var m runtime.MemStats time.Sleep(2 * time.Second) log.Println(&amp;#34;# goroutines: &amp;#34;, runtime.NumGoroutine()) runtime.ReadMemStats(&amp;amp;m) log.Println(&amp;#34;Memory Acquired: &amp;#34;, m.Sys) log.Println(&amp;#34;Memory Acquired (MB) :&amp;#34;, float64(m.Sys)/1000000) log.Println(&amp;#34;Memory Used : &amp;#34;, m.</description>
+      </item>
+    
+      <item>
+        <title>Utiliser Flash Player en 2022</title>
+        <link>https://loonaire.github.io/posts/flashplayer2022/</link>
+        <pubDate>Wed, 03 Aug 2022 12:18:27 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/flashplayer2022/</guid>
+        <description>Flash player est aujourd&amp;rsquo;hui totalement mort, même adobe a retirer les liens vers Flash. Pour les applications AIR, une entreprise à repris le support, plus d&amp;rsquo;infos par ici.
 Dans mon cas, je cherchais surtout sur les applications Flash.
 Lancer une application Flash player Lancer une application est plutot simple, il suffit de se munir du fichier swf de l&amp;rsquo;application ainsi que d&amp;rsquo;un lecteur flash player standalone.
 Le lecteur flash player peux être trouver sur archive.</description>
-    </item>
+      </item>
     
-    <item>
-      <title>Windows 10 N et les codecs vidéos manquant</title>
-      <link>https://loonaire.github.io/posts/win10n/</link>
-      <pubDate>Thu, 30 Jun 2022 20:42:14 +0200</pubDate>
-      
-      <guid>https://loonaire.github.io/posts/win10n/</guid>
-      <description>Ayant des clés pour Windows 10 Education N, j&amp;rsquo;ai décider de l&amp;rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.
+      <item>
+        <title>Windows 10 N et les codecs vidéos manquant</title>
+        <link>https://loonaire.github.io/posts/win10n/</link>
+        <pubDate>Thu, 30 Jun 2022 20:42:14 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/win10n/</guid>
+        <description>Ayant des clés pour Windows 10 Education N, j&amp;rsquo;ai décider de l&amp;rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.
 Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack.</description>
-    </item>
+      </item>
     
-    <item>
-      <title>Cheatsheet pour gohugo</title>
-      <link>https://loonaire.github.io/posts/cheatsheetgohugo/</link>
-      <pubDate>Sun, 26 Jun 2022 20:42:44 +0200</pubDate>
-      
-      <guid>https://loonaire.github.io/posts/cheatsheetgohugo/</guid>
-      <description>Voici un rapide mémo pour l&amp;rsquo;utilisation de gohugo pour la création et l&amp;rsquo;ajout de contenu.
+      <item>
+        <title>Cheatsheet pour gohugo</title>
+        <link>https://loonaire.github.io/posts/cheatsheetgohugo/</link>
+        <pubDate>Sun, 26 Jun 2022 20:42:44 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/cheatsheetgohugo/</guid>
+        <description>Voici un rapide mémo pour l&amp;rsquo;utilisation de gohugo pour la création et l&amp;rsquo;ajout de contenu.
 Création d&amp;rsquo;un site Crée un projet Pour créer un projet avec gohugo:
 hugo new site ./ Si le dossier n&amp;rsquo;est pas vide, il faut utiliser la commande:
 hugo new site ./ --force Utiliser un thème Pour ajouter un thème à notre projet, il faut récupérer les fichier d&amp;rsquo;un thème et le placer dans le dossier themes du projet.</description>
-    </item>
+      </item>
     
-    <item>
-      <title>Retour Experience Laptop de 2021</title>
-      <link>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</link>
-      <pubDate>Sun, 26 Jun 2022 20:00:47 +0200</pubDate>
-      
-      <guid>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</guid>
-      <description>J&amp;rsquo;ai récemment fait l&amp;rsquo;acquisition d&amp;rsquo;un nouvel ordinateur portable, il s&amp;rsquo;agit d&amp;rsquo;un Asus TUF706HM, coté composant, il possède un processeur intel core i5 11400h avec une carte graphique nvidia RTX3060 Max-q. Le chassis est en plastique complet et en pleine charge le ventilateur est très bruyant et s&amp;rsquo;entend de loin. Ce problème semble commun aux processeurs intel core iX depuis la gen 10, il semble également un peu présent sur les ordinateurs avec des processeurs AMD Ryzen 5xxxx, en charge le processeur et la carte graphique montent beaucoup en température.</description>
-    </item>
+      <item>
+        <title>Retour Experience Laptop de 2021</title>
+        <link>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</link>
+        <pubDate>Sun, 26 Jun 2022 20:00:47 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</guid>
+        <description>J&amp;rsquo;ai récemment fait l&amp;rsquo;acquisition d&amp;rsquo;un nouvel ordinateur portable, il s&amp;rsquo;agit d&amp;rsquo;un Asus TUF706HM, coté composant, il possède un processeur intel core i5 11400h avec une carte graphique nvidia RTX3060 Max-q. Le chassis est en plastique complet et en pleine charge le ventilateur est très bruyant et s&amp;rsquo;entend de loin. Ce problème semble commun aux processeurs intel core iX depuis la gen 10, il semble également un peu présent sur les ordinateurs avec des processeurs AMD Ryzen 5xxxx, en charge le processeur et la carte graphique montent beaucoup en température.</description>
+      </item>
     
-    <item>
-      <title>Premier article</title>
-      <link>https://loonaire.github.io/posts/premierpost/</link>
-      <pubDate>Mon, 20 Jun 2022 20:02:25 +0200</pubDate>
-      
-      <guid>https://loonaire.github.io/posts/premierpost/</guid>
-      <description>Salut!
+      <item>
+        <title>Premier article</title>
+        <link>https://loonaire.github.io/posts/premierpost/</link>
+        <pubDate>Mon, 20 Jun 2022 20:02:25 +0200</pubDate>
+        
+        <guid>https://loonaire.github.io/posts/premierpost/</guid>
+        <description>Salut!
 Comme il faut bien un premier poste, j&amp;rsquo;ai décidé de créer ce blog pour centraliser mes contenus et mes retours sur mes exprériences, il y aura également de la documentation sur la mise en place de certains outils et de la configuration.
 Pour ce blog, j&amp;rsquo;ai choisi de l&amp;rsquo;héberger sur github grâce aux github pages, cela me permet de gérer simplement la mise en page et je n&amp;rsquo;ai pas besoin du tout de gérer le coté serveur.</description>
-    </item>
+      </item>
     
-    <item>
-      <title></title>
-      <link>https://loonaire.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://loonaire.github.io/about/</guid>
-      <description>A propos Suite à ma formation TSSR auprès le l&amp;rsquo;ENI, j&amp;rsquo;ai ressenti le besoin de mettre en place un endroit ou je poste mes différentes procédures et expériences, ce blog servira à ça.
+      <item>
+        <title></title>
+        <link>https://loonaire.github.io/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://loonaire.github.io/about/</guid>
+        <description>A propos Suite à ma formation TSSR auprès le l&amp;rsquo;ENI, j&amp;rsquo;ai ressenti le besoin de mettre en place un endroit ou je poste mes différentes procédures et expériences, ce blog servira à ça.
 Il y aura tout type de contenu sur l&amp;rsquo;informatique, du dev, de l&amp;rsquo;administration systèmes, du réseau.</description>
-    </item>
+      </item>
     
-    <item>
-      <title></title>
-      <link>https://loonaire.github.io/other/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://loonaire.github.io/other/</guid>
-      <description>Informations Section à venir, l&amp;rsquo;objectif est d&amp;rsquo;intégré le dépot de procédures ici un jour.</description>
-    </item>
+      <item>
+        <title></title>
+        <link>https://loonaire.github.io/other/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://loonaire.github.io/other/</guid>
+        <description>Informations Section à venir, l&amp;rsquo;objectif est d&amp;rsquo;intégré le dépot de procédures ici un jour.</description>
+      </item>
     
   </channel>
 </rss>

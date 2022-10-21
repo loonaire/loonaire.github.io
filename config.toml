@@ -1,7 +1,7 @@
 baseurl      = "https://loonaire.github.io/"
 title        = "Blog"
 languageCode = "en-us"
-theme        = "hugo-theme-color-your-world"
+theme        = "color-your-world"
 paginate     = 10
 publishDir = "docs"
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>loonaire Blog</title>
+    <title>Loonaire Blog</title>
     <link>https://loonaire.github.io/posts/</link>
-    <description>Recent content on loonaire Blog</description>
+    <description>Recent content on Loonaire Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Oct 2022 15:57:16 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/posts/index.xml" rel="self" type="application/rss+xml" />

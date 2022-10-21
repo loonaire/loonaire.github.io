@@ -1,6 +1,7 @@
 baseurl      = "https://loonaire.github.io/"
 title        = "Loonaire Blog"
-languageCode = "en-us"
+author 		 = "Loonaire"
+languageCode = "fr-fr"
 theme        = "holy"
 paginate     = 10
 publishDir = "docs"
@@ -16,6 +17,9 @@ publishDir = "docs"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04"
+  
+  #Copyright
+  copyright = "copyright ©Loonaire"
 
   # Subtitle for home
   homeSubtitle = "This is an example to show how cool Hugo and GitHub pages are together"
@@ -74,22 +78,43 @@ publishDir = "docs"
     changeTransition = ".3s ease"
 
 
-[languages]
-  [languages.en]
-    languageName = "English"
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-       name = "About"
-        weight = 1
-        url = "about/"
-      [[languages.en.menu.main]]
-        name = "Posts"
-        weight = 2
-        url = "posts/"      
-      [[languages.en.menu.main]]
-        name = "Other content"
-        weight = 3
-        url = "other/"
+[menu]
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "other"
+    name = "Other content"
+    url = "/other/"
+    weight = 2
+
+
+#[languages]
+#  [languages.en]
+#    languageName = "English"
+#    [languages.en.menu]
+#      [[languages.en.menu.main]]
+#       name = "About"
+#        weight = 1
+#        url = "about/"
+#      [[languages.en.menu.main]]
+#        name = "Posts"
+#        weight = 2
+#        url = "posts/"      
+#      [[languages.en.menu.main]]
+#        name = "Other content"
+#        weight = 3
+#        url = "other/"
 
 
       # Pour la partie des contacts, desactivé ici, contact dispo sur le about

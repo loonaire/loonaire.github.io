@@ -22,4 +22,10 @@ Si il s'agit d'un fichier non lié à un fichier go.mod, il est possible de lanc
 dlv debug nomFichier.go
 ```
 
-ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande **help**. Pour avoir des informations sur les différentes commandes, il faut utiliser la commande **help commande**
+Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande **help**. Pour avoir des informations sur les différentes commandes, il faut utiliser la commande **help commande**.  
+
+Divers liens:
+[Github officiel du projet](https://github.com/go-delve/delve/tree/master/Documentation/installation)
+[Video tuto](https://www.youtube.com/watch?v=r033vEzL6a4)
+[Petit tuto de base](https://opensource.com/article/20/6/debug-go-delve)
+[Un autre petit tuto](https://golang.cafe/blog/golang-debugging-with-delve.html)

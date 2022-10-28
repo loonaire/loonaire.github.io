@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://loonaire.github.io/</loc>
-    <lastmod>2022-10-21T15:57:16+02:00</lastmod>
+    <lastmod>2022-10-28T10:58:29+02:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>https://loonaire.github.io/posts/golanggettersetter/</loc>
-    <lastmod>2022-10-21T15:57:16+02:00</lastmod>
+    <loc>https://loonaire.github.io/posts/droitslinux/</loc>
+    <lastmod>2022-10-28T10:58:29+02:00</lastmod>
   </url><url>
     <loc>https://loonaire.github.io/posts/</loc>
+    <lastmod>2022-10-28T10:58:29+02:00</lastmod>
+  </url><url>
+    <loc>https://loonaire.github.io/posts/golangdelve/</loc>
+    <lastmod>2022-10-24T15:06:05+02:00</lastmod>
+  </url><url>
+    <loc>https://loonaire.github.io/posts/linuxisodumporcreate/</loc>
+    <lastmod>2022-10-23T12:06:18+02:00</lastmod>
+  </url><url>
+    <loc>https://loonaire.github.io/posts/disableedgeonstartup/</loc>
+    <lastmod>2022-10-23T10:43:15+02:00</lastmod>
+  </url><url>
+    <loc>https://loonaire.github.io/posts/golanggettersetter/</loc>
     <lastmod>2022-10-21T15:57:16+02:00</lastmod>
   </url><url>
     <loc>https://loonaire.github.io/posts/w10sleeppassword/</loc>

@@ -4,12 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Windows 10 N et les codecs vidéos manquant - Loonaire Blog</title>
+    <title>Droitslinux - Loonaire Blog</title>
 
     
     
-    <meta name="description" content="Ayant des clés pour Windows 10 Education N, j&rsquo;ai décider de l&rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.
-Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack." />
+    <meta name="description" content="Les droits Les droits de base Lettre Valeur en Octal Nom du mode Effet sur un dossier Effet sur fichier x 1 Execution Permet de se déplacer dans un dossier Permet de rendre executable le fichier, utiliser seul ne permet rien w 2 Ecriture Permet la création de fichier et dossier Autorise la modification du fichier r 4 Lecture Permet de voir le contenu d&rsquo;un dossier permet de lire le contenu du fichier, ce droit doit être présent pour permettre l&rsquo;éxecution du fichier Les droits spéciaux Ces droits donnent des droits supplémentaires, dans le cas lors de l&rsquo;utilisation de la commande ls -l, le x sera remplacé par un autre caractère." />
     <meta name="author" content="" />
     
 
@@ -78,9 +77,9 @@ Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer
         <div class="max-w:700 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
-        <div class="font:40 font:extrabold">Windows 10 N et les codecs vidéos manquant</div>
+        <div class="font:40 font:extrabold">Droitslinux</div>
         <div class="mt:16 f:fade-60">
-            <time>Jun 30, 2022</time>
+            <time>Oct 28, 2022</time>
             </div>
     </header><div class="
     _:where(a):hover{text-decoration-color:fade}
@@ -118,9 +117,56 @@ Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer
     _:where(ul,ol,blockquote){pl:1.5em}
     _:where(video,img){max-width:full}
     _:where(a,mark){text-underline-offset:3}
-"><p>Ayant des clés pour Windows 10 Education N, j&rsquo;ai décider de l&rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.</p>
-<p>Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack.</p>
-<p>Pour plus d&rsquo;infos, c&rsquo;est par <a href="https://support.microsoft.com/fr-fr/topic/pack-de-fonctionnalit%C3%A9s-multim%C3%A9dia-pour-windows-10-n-2020-ebbdf559-b84c-0fc2-bd51-e23c9f6a4439">ici</a></p>
+"><h2 id="les-droits">Les droits</h2>
+<h3 id="les-droits-de-base">Les droits de base</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Lettre</th>
+<th style="text-align:center">Valeur en Octal</th>
+<th style="text-align:center">Nom du mode</th>
+<th style="text-align:center">Effet sur un dossier</th>
+<th style="text-align:center">Effet sur fichier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Execution</td>
+<td style="text-align:center">Permet de se déplacer dans un dossier</td>
+<td style="text-align:center">Permet de rendre executable le fichier, utiliser seul ne permet rien</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Ecriture</td>
+<td style="text-align:center">Permet la création de fichier et dossier</td>
+<td style="text-align:center">Autorise la modification du fichier</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Lecture</td>
+<td style="text-align:center">Permet de voir le contenu d&rsquo;un dossier</td>
+<td style="text-align:center">permet de lire le contenu du fichier, ce droit doit être présent pour permettre l&rsquo;éxecution du fichier</td>
+</tr>
+</tbody>
+</table>
+<h3 id="les-droits-spéciaux">Les droits spéciaux</h3>
+<p>Ces droits donnent des droits supplémentaires, dans le cas lors de l&rsquo;utilisation de la commande ls -l, le x sera remplacé par un autre caractère.</p>
+<p>|Lettre|Valeur en Octal|Nom du droit spécial|Position du droit spécial|Effet|
+|:&mdash;-:|:&mdash;&mdash;&mdash;&mdash;-:|:&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;:|:&mdash;:|
+|t|1|sticky bit|Utilisateur|Droit qui se place sur un dossier, empêche les autres utilisateur de supprimer les fichiers de quelqu&rsquo;un d&rsquo;autre|
+|s|2|SGID|Groupe propriétaire|Même chose que SUID mais au niveau du groupe propriétaire|
+|s|4|SUID|Tout le monde|S&rsquo;applique à un fichier executable, execute le fichier en tant que utilisateur propriétaire du fichier|</p>
+<h2 id="remarques-sur-la-commande-chmod">Remarques sur la commande chmod</h2>
+<p>Une bonne pratique sur la commande chmod est lors de la modification des droits, la commande <code>sh chmod 755</code> ou ````sh chmod 777<code>est une mauvaise pratique, il faut préciser le sticky bit pour éviter de se retrouver avec n'importe quel utilisateur qui peux faire n'importe quoi, un exemple de commande serait plutot</code>sh chmod 1777```</p>
+<h2 id="liens">Liens</h2>
+<p><a href="https://fr.wikipedia.org/wiki/Permissions_UNIX">wikipedia permissions unix</a>
+<a href="https://fr.wikipedia.org/wiki/Chmod">Wikipedia chmod</a>
+<a href="https://linux.goffinet.org/administration/securite-locale/permissions-linux/">cours permissions linux</a>
+<a href="https://www.cyberciti.biz/faq/howto-set-readonly-file-permission-in-linux-unix/">Petit article sur les permissions</a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div>

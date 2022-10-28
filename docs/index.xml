@@ -6,7 +6,50 @@
     <description>Recent content on Loonaire Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Fri, 21 Oct 2022 15:57:16 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 10:58:29 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Droitslinux</title>
+      <link>https://loonaire.github.io/posts/droitslinux/</link>
+      <pubDate>Fri, 28 Oct 2022 10:58:29 +0200</pubDate>
+      
+      <guid>https://loonaire.github.io/posts/droitslinux/</guid>
+      <description>Les droits Les droits de base Lettre Valeur en Octal Nom du mode Effet sur un dossier Effet sur fichier x 1 Execution Permet de se déplacer dans un dossier Permet de rendre executable le fichier, utiliser seul ne permet rien w 2 Ecriture Permet la création de fichier et dossier Autorise la modification du fichier r 4 Lecture Permet de voir le contenu d&amp;rsquo;un dossier permet de lire le contenu du fichier, ce droit doit être présent pour permettre l&amp;rsquo;éxecution du fichier Les droits spéciaux Ces droits donnent des droits supplémentaires, dans le cas lors de l&amp;rsquo;utilisation de la commande ls -l, le x sera remplacé par un autre caractère.</description>
+    </item>
+    
+    <item>
+      <title>Go: Debuggage avec Delve</title>
+      <link>https://loonaire.github.io/posts/golangdelve/</link>
+      <pubDate>Mon, 24 Oct 2022 15:06:05 +0200</pubDate>
+      
+      <guid>https://loonaire.github.io/posts/golangdelve/</guid>
+      <description>Delve est un debugger pour les programmes Go, il est même recommandé par rapport à gdb. Il est écris en Go. Pour plus d&amp;rsquo;informations, voici son Github
+Pour l&amp;rsquo;installer:
+go install github.com/go-delve/delve/cmd/dlv@latest Pour lancer le debug il faut utiliser la commande:
+dlv debug Si il s&amp;rsquo;agit d&amp;rsquo;un fichier non lié à un fichier go.mod, il est possible de lancer le debuggage d&amp;rsquo;un fichier avec la commande:
+dlv debug nomFichier.go Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande help.</description>
+    </item>
+    
+    <item>
+      <title>Créer ou dumper un iso sur cd/dvd sur Linux</title>
+      <link>https://loonaire.github.io/posts/linuxisodumporcreate/</link>
+      <pubDate>Sun, 23 Oct 2022 12:06:18 +0200</pubDate>
+      
+      <guid>https://loonaire.github.io/posts/linuxisodumporcreate/</guid>
+      <description>Je me suis longtemps demander comment dumper un fichier iso d&amp;rsquo;un cd ou dvd ou créer ce même fichier iso. Sous Windows, il existe le logiciel imgburn qui permet d&amp;rsquo;extraire des isos ou d&amp;rsquo;en créer simplement, je souhaite aller un peu plus loin ici, surtout en le faisant manuellement, sous linux il suffit d&amp;rsquo;une commande pour extraire des fichiers iso.
+0. Prérequis Pour la suite du tutoriel, il faut installer le paquet qui contiendra les commandes que je vais utiliser:</description>
+    </item>
+    
+    <item>
+      <title>Désactiver Edge au démarrage de Windows</title>
+      <link>https://loonaire.github.io/posts/disableedgeonstartup/</link>
+      <pubDate>Sun, 23 Oct 2022 10:43:15 +0200</pubDate>
+      
+      <guid>https://loonaire.github.io/posts/disableedgeonstartup/</guid>
+      <description>Depuis quelques versions de Edge (mi 2022), Edge se lance automatiquement au démarrage de Windows, désactiver simplement le service ne suffit pas.
+Pour désactiver le démarrage automatique de Edge, il faut aller dans les paramètres de Edge puis Système et performances, catégorie Système, désactiver les options Démarrage rapide et Continuer à exécuter les extensions et les applications en arrière-plan lorsque Microsoft Edge est fermé.
+Il y a d&amp;rsquo;autres manières de faire, notamment via le registre, plus d&amp;rsquo;information ici</description>
+    </item>
+    
     <item>
       <title>Go: Les fonction Get et Set des structs</title>
       <link>https://loonaire.github.io/posts/golanggettersetter/</link>

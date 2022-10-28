@@ -4,12 +4,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Windows 10 N et les codecs vidéos manquant - Loonaire Blog</title>
+    <title>Go: Debuggage avec Delve - Loonaire Blog</title>
 
     
     
-    <meta name="description" content="Ayant des clés pour Windows 10 Education N, j&rsquo;ai décider de l&rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.
-Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack." />
+    <meta name="description" content="Delve est un debugger pour les programmes Go, il est même recommandé par rapport à gdb. Il est écris en Go. Pour plus d&rsquo;informations, voici son Github
+Pour l&rsquo;installer:
+go install github.com/go-delve/delve/cmd/dlv@latest Pour lancer le debug il faut utiliser la commande:
+dlv debug Si il s&rsquo;agit d&rsquo;un fichier non lié à un fichier go.mod, il est possible de lancer le debuggage d&rsquo;un fichier avec la commande:
+dlv debug nomFichier.go Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande help." />
     <meta name="author" content="" />
     
 
@@ -78,9 +81,9 @@ Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer
         <div class="max-w:700 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
-        <div class="font:40 font:extrabold">Windows 10 N et les codecs vidéos manquant</div>
+        <div class="font:40 font:extrabold">Go: Debuggage avec Delve</div>
         <div class="mt:16 f:fade-60">
-            <time>Jun 30, 2022</time>
+            <time>Oct 24, 2022</time>
             </div>
     </header><div class="
     _:where(a):hover{text-decoration-color:fade}
@@ -118,9 +121,19 @@ Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer
     _:where(ul,ol,blockquote){pl:1.5em}
     _:where(video,img){max-width:full}
     _:where(a,mark){text-underline-offset:3}
-"><p>Ayant des clés pour Windows 10 Education N, j&rsquo;ai décider de l&rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.</p>
-<p>Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack.</p>
-<p>Pour plus d&rsquo;infos, c&rsquo;est par <a href="https://support.microsoft.com/fr-fr/topic/pack-de-fonctionnalit%C3%A9s-multim%C3%A9dia-pour-windows-10-n-2020-ebbdf559-b84c-0fc2-bd51-e23c9f6a4439">ici</a></p>
+"><p>Delve est un debugger pour les programmes Go, il est même recommandé par rapport à gdb. Il est écris en Go. Pour plus d&rsquo;informations, voici <a href="https://github.com/go-delve/delve">son Github</a></p>
+<p>Pour l&rsquo;installer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>go install github.com/go-delve/delve/cmd/dlv@latest
+</span></span></code></pre></div><p>Pour lancer le debug il faut utiliser la commande:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dlv debug 
+</span></span></code></pre></div><p>Si il s&rsquo;agit d&rsquo;un fichier non lié à un fichier go.mod, il est possible de lancer le debuggage d&rsquo;un fichier avec la commande:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dlv debug nomFichier.go
+</span></span></code></pre></div><p>Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande <strong>help</strong>. Pour avoir des informations sur les différentes commandes, il faut utiliser la commande <strong>help commande</strong>.</p>
+<p>Divers liens:
+<a href="https://github.com/go-delve/delve/tree/master/Documentation/installation">Github officiel du projet</a>
+<a href="https://www.youtube.com/watch?v=r033vEzL6a4">Video tuto</a>
+<a href="https://opensource.com/article/20/6/debug-go-delve">Petit tuto de base</a>
+<a href="https://golang.cafe/blog/golang-debugging-with-delve.html">Un autre petit tuto</a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div>

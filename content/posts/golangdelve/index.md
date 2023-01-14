@@ -1,5 +1,5 @@
 ---
-title: "Go: Debuggage avec Delve"
+title: "Go: Debug avec Delve"
 date: 2022-10-24T15:06:05+02:00
 draft: false
 comment: false

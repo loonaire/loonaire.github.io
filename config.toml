@@ -25,112 +25,26 @@ defaultContentLanguage = "fr"
   #Copyright
   copyright = "copyright ©Loonaire"
 
-  # Subtitle for home
-  #homeSubtitle = "This is an example to show how cool Hugo and GitHub pages are together"
-
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  #disableReadOtherPosts = false
-
-  # Enable sharing buttons, if you like
-  #enableSharingButtons = true
-
-  # Metadata mostly used in document's head
-  #description = "Accueil de mon blog"
-  #keywords = "homepage, blog"
-  #images = [""]
-
-  [params.style]
-  
-    # Dark mode as default
-    # User preferences (site/system settings) will still have priority over it
-    # The default is false
-    #isDark = true
-
-    # Disable the use of system settings (prefers-color-scheme)
-    # The default is false
-    #ignoreSystemSettings = false
-
-    # Accent colors for dark and light mode respectively
-    #darkAccent   = "#1dbc91" # Default is "#1dbc91"
-    #lightAccent  = "#1f676b" # Default is "#1f676b"
-
-    # More colors, pick as many as you want (not really sure if there's a limit)
-    # Apparently these may not show up on every modern browser (ie. Firefox)
-    # There's no default value. Used here just as example
-    #presets = [ "#225670", "#dd587c", "#902b37", "#f3a530", "#754e85", "#7fc121", "#a8314a", "#ff7433", "#3e6728", "#c063bd", "#805080", "#9d629d", "#a064a0", "#7daa50", "#284531", "#285790", "#F5A83D", "#88aa33", "#015660", "#bf274e", "#bf4242", "#51b37c" ]
-
-    # Use an icon or text for footnote return links
-    # The default is false
-    #hasIconAsFootnoteReturnLink = true
-    
-    # For the social shortcode
-    # Use flexbox (with flex-grow) or grid (equal width)
-    # The default is false
-    #socialIsFlex = false
-    
-    # Keep anchor links hidden until it's focused/hovered
-    # The default is false
-    #hideAnchors = true
-    
-    # To make use of the custom Chroma, this should be true
-    # and "noClasses" (at markup.highlight) should be false
-    # The default is true
-    #useCustomChroma = true
-
-    # CSS animation transition when changing colors
-    # The default is ".5s ease"
-    #changeTransition = ".3s ease"
-
-
 [menu]
 
   [[menu.main]]
     identifier = "posts"
-    name = "Posts"
+    name = "Articles"
     url = "/posts/"
     weight = 1
 
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "A propos"
     url = "/about"
     weight = 3
 
   [[menu.main]]
     identifier = "other"
-    name = "Other content"
+    name = "Autre contenu"
     url = "/other/"
     weight = 2
 
-
-
-
-
 [Languages]
 [Languages.fr]
-  landingPageName = "<i class='fas fa-home'></i> Accueil"
-
-
-#[languages]
-#  [languages.en]
-#    languageName = "English"
-#    [languages.en.menu]
-#      [[languages.en.menu.main]]
-#       name = "About"
-#        weight = 1
-#        url = "about/"
-#      [[languages.en.menu.main]]
-#        name = "Posts"
-#        weight = 2
-#        url = "posts/"      
-#      [[languages.en.menu.main]]
-#        name = "Other content"
-#        weight = 3
-#        url = "other/"
-
-
-# Pour la partie des contacts, desactivé ici, contact dispo sur le about
-#[[languages.en.menu.main]]
-#  name = "Contact"
-#  weight = 3
-#  url = "contact/"
+  landingPageName = "Accueil"

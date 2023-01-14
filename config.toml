@@ -3,8 +3,10 @@ title        = "Loonaire Blog"
 author 		 = "Loonaire"
 languageCode = "fr-fr"
 theme        = "holy"
-paginate     = 10
-publishDir = "docs"
+#paginate     = 10
+#publishDir = "docs"
+canonifyURLs = true
+relativeURLs = true
 
 [taxonomies]
     category = "blog"

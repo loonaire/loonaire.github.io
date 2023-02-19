@@ -1,0 +1,248 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Gérer les erreurs en Go - Loonaire Blog</title><meta name=description content="En Go, les erreurs sont gérées de cette manière:
+// squelette d'une fonction qui renvoi une erreur func mafonction() error { if condition { return err // retourne l'erreur } return nil // retourne nil qui équivaux à aucune erreur } // code utilisé pour appeler la fonction: err := mafonction() if err != nil { // si la fonction retourne une erreur, la variable sera différente de nil } Cependant, cette manière de faire à ces limites, par exemple il n&rsquo;est pas possible de créer des erreurs personnalisées avec cette technique."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script>
+<script src=https://unpkg.com/@master/styles@1.13.0></script>
+<script src=https://unpkg.com/master-styles-group></script>
+<script src=https://unpkg.com/themes.js></script>
+<script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Gérer les erreurs en Go</div><div class="mt:16 f:fade-60"><time>19 févr. 2023</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de cette manière:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// squelette d&#39;une fonction qui renvoi une erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>mafonction</span>() <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>condition</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>err</span> <span style=color:#75715e>// retourne l&#39;erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span> <span style=color:#75715e>// retourne nil qui équivaux à aucune erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// code utilisé pour appeler la fonction:
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>mafonction</span>()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// si la fonction retourne une erreur, la variable sera différente de nil
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>Cependant, cette manière de faire à ces limites, par exemple il n&rsquo;est pas possible de créer des erreurs personnalisées avec cette technique. Pour créer des erreurs personnalisées, il faut créer ce qui est appelé des sentienelles. Il s&rsquo;agit de variables qui seront des erreurs et qui contiendront un message d&rsquo;erreur.</p><p>Voici un exemple basique d&rsquo;une sentinelle:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;errors&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>errConnexion</span> = <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;Identifiant ou mot de passe invalide&#34;</span>)
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vaildPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;pwd&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>username</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>validUsername</span>) <span style=color:#f92672>||</span> (<span style=color:#a6e22e>password</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>vaildPassword</span>) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>errConnexion</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#e6db74>&#34;name1&#34;</span>, <span style=color:#e6db74>&#34;pwd&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Dans l&rsquo;exemple précédent, on crée simplement une nouvelle erreur, la variable est déclarée comme étant une variable globale. Une bonne pratique est de nommer les variables errors de la manière suivante: ErrNomErreur, dans l&rsquo;exemple je l&rsquo;ai appelée errConnexion ce qui permet de rendre la variable seulement accessible au niveau du package.</p><h2 id=tester-une-erreur-retournée>Tester une erreur retournée</h2><p>Pour comparer une erreur retournée, on peux tester simplement avec le code suivant:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>errConnexion</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// il s&#39;agit d&#39;une erreur de connexion, on la traite
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>Ce type de code peux provoquer des problèmes, en reprendre l&rsquo;exemple de la sentinelle, voici un exemple qui intègre une bonne pratique:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;errors&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>errConnexion</span> = <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;Identifiant ou mot de passe invalide&#34;</span>)
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vaildPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;pwd&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>username</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>validUsername</span>) <span style=color:#f92672>||</span> (<span style=color:#a6e22e>password</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>vaildPassword</span>) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>errConnexion</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#e6db74>&#34;name1&#34;</span>, <span style=color:#e6db74>&#34;pwd&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>Is</span>(<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>errConnexion</span>) { <span style=color:#75715e>// ici, on test si l&#39;erreur est bien une erreur errConnexion
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Erreur inconnue&#34;</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>On remarque l&rsquo;utilisation de errors.Is() au lieu de ==, l&rsquo;opérateur == renvoi false si on le compare à l&rsquo;erreur.</p><h2 id=ajouter-du-texte-en-plus-du-message-derreur>Ajouter du texte en plus du message d&rsquo;erreur</h2><p>En Go, une erreur <strong>doit</strong> être traitée une seule fois. Il est possible d&rsquo;ajouter des informations sur une erreur en utilisation la fonction Errorf() du package fmt.</p><p>Voici un exemple:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;os&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fileOpenError</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;Impossible d&#39;ouvrir le fichier&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>loadFile</span>(<span style=color:#a6e22e>fileName</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>fileName</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;%s %w&#34;</span>, <span style=color:#a6e22e>fileOpenError</span>, <span style=color:#a6e22e>err</span>) <span style=color:#75715e>// &#34;wrap&#34; les messages d&#39;erreur: on ajoute un message au message initial
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>loadFile</span>(<span style=color:#e6db74>&#34;fichierQuiExistePas.txt&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=créer-une-structure-pour-les-erreurs>Créer une structure pour les erreurs</h2><p>Il est possible de réimplémenter le type error pour permettre ajouter des informations à une erreur, par exemple il est possible d&rsquo;ajouter un code d&rsquo;erreur à une erreur.</p><p>Voici un exemple:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>connexionError</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>message</span>       <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>originalError</span> <span style=color:#66d9ef>error</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Error</span>() <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Unwrap</span>() <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalError</span> <span style=color:#75715e>// si il y a une erreur qui proviens d&#39;un package de Go, on peux l&#39;ajouter à notre structure personnalisée
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#f92672>*</span><span style=color:#a6e22e>connexionError</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vaildPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;pwd&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>username</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>validUsername</span> {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>connexionError</span>{<span style=color:#a6e22e>message</span>: <span style=color:#e6db74>&#34;Nom d&#39;utilisateur invalide&#34;</span>, <span style=color:#a6e22e>originalError</span>: <span style=color:#66d9ef>nil</span>}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>password</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>vaildPassword</span> {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>connexionError</span>{<span style=color:#a6e22e>message</span>: <span style=color:#e6db74>&#34;Mot de passe invalide&#34;</span>, <span style=color:#a6e22e>originalError</span>: <span style=color:#66d9ef>nil</span>}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#e6db74>&#34;name&#34;</span>, <span style=color:#e6db74>&#34;pawd&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Erreur de connexion: &#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>message</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Connexion réussie&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=combiner-les-sentinelles-et-les-structures-derreurs>Combiner les sentinelles et les structures d&rsquo;erreurs</h2><p>Je ne montre que l&rsquo;exemple, il parle de lui même.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>errBadLogin</span>    <span style=color:#a6e22e>connexionError</span> = <span style=color:#a6e22e>connexionError</span>{<span style=color:#a6e22e>message</span>: <span style=color:#e6db74>&#34;Nom d&#39;utilisateur invalide&#34;</span>, <span style=color:#a6e22e>originalError</span>: <span style=color:#66d9ef>nil</span>}
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>errBadPassword</span> <span style=color:#a6e22e>connexionError</span> = <span style=color:#a6e22e>connexionError</span>{<span style=color:#a6e22e>message</span>: <span style=color:#e6db74>&#34;Mot de passe invalide&#34;</span>, <span style=color:#a6e22e>originalError</span>: <span style=color:#66d9ef>nil</span>}
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>connexionError</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>message</span>       <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>originalError</span> <span style=color:#66d9ef>error</span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Error</span>() <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#f92672>*</span><span style=color:#a6e22e>connexionError</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vaildPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;pwd&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>username</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>validUsername</span> {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>errBadLogin</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>password</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>vaildPassword</span> {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>errBadPassword</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#e6db74>&#34;name&#34;</span>, <span style=color:#e6db74>&#34;pawd&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Erreur de connexion: &#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>message</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Connexion réussie&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=sources>Sources</h2><p><a href=https://go.dev/blog/error-handling-and-go>https://go.dev/blog/error-handling-and-go</a>
+<a href=https://go.dev/blog/go1.13-errors>https://go.dev/blog/go1.13-errors</a>
+<a href=https://levelup.gitconnected.com/go-error-best-practice-f0864c5c2385>https://levelup.gitconnected.com/go-error-best-practice-f0864c5c2385</a>
+<a href=https://www.joeshaw.org/error-handling-in-go-http-applications/>https://www.joeshaw.org/error-handling-in-go-http-applications/</a>
+<a href=http://decouvric.cluster013.ovh.net/golang/gestion-des-erreurs-en-go.html>http://decouvric.cluster013.ovh.net/golang/gestion-des-erreurs-en-go.html</a>
+<a href=https://peter.bourgon.org/blog/2019/09/11/programming-with-errors.html>https://peter.bourgon.org/blog/2019/09/11/programming-with-errors.html</a>
+<a href=https://www.reddit.com/r/golang/comments/fg6527/simple_error_enum/>https://www.reddit.com/r/golang/comments/fg6527/simple_error_enum/</a>
+<a href=https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully>https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully</a></p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

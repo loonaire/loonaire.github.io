@@ -232,11 +232,11 @@ func main() {
 
 ## Sources
 
-https://go.dev/blog/error-handling-and-go  
-https://go.dev/blog/go1.13-errors  
-https://levelup.gitconnected.com/go-error-best-practice-f0864c5c2385  
-https://www.joeshaw.org/error-handling-in-go-http-applications/  
-http://decouvric.cluster013.ovh.net/golang/gestion-des-erreurs-en-go.html  
-https://peter.bourgon.org/blog/2019/09/11/programming-with-errors.html  
-https://www.reddit.com/r/golang/comments/fg6527/simple_error_enum/  
-https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully  
+- https://go.dev/blog/error-handling-and-go  
+- https://go.dev/blog/go1.13-errors  
+- https://levelup.gitconnected.com/go-error-best-practice-f0864c5c2385  
+- https://www.joeshaw.org/error-handling-in-go-http-applications/  
+- http://decouvric.cluster013.ovh.net/golang/gestion-des-erreurs-en-go.html  
+- https://peter.bourgon.org/blog/2019/09/11/programming-with-errors.html  
+- https://www.reddit.com/r/golang/comments/fg6527/simple_error_enum/  
+- https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully  

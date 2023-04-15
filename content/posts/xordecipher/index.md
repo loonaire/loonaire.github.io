@@ -129,4 +129,4 @@ Ceci crée donc une faille dans le chiffrement, il suffit de splitter la variabl
 
 ## Conclusion
 
-La formule de chiffrement est bonne, surtout pour un client Flash Player qui n'intégrait pas de fonction crypto nativement cependant l'utilisation du système de xor à quelques problèmes et impose des contraintes spécifiques (difficultées à inverser la chaine et donc obligation de garder les mots de passe en clair quelque part).
+La formule de chiffrement est bonne, surtout pour un client Flash Player qui n'intégrait pas de fonction crypto nativement cependant l'utilisation du système de xor à quelques problèmes et impose des contraintes spécifiques (difficultées à inverser la chaine et donc obligation de garder les mots de passe en clair quelque part). Je ne sais pas si l'erreur sur le déchiffrement viens de moi ou est normal, si il est normal tant mieux, sinon il faudra que je me penche sur cette erreur.

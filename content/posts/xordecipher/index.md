@@ -9,11 +9,12 @@ comment: false
 
 > Je vais analyser une fonction qui a réellement été utilisée en production pour chiffrer les mots de passes. Cette fonction comporte plusieurs faillses et problèmes qui font quelle ne serait pas réutilisable aujourd'hui.
 
- ## Introduction
+## Introduction
 
- Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j'ai décidé de regarder un peu le code du jeu et j'ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d'apprendre un peu le fonctionnement d'ActionScript et plus particulièrement de flash player. Je ne vais pas détailler ici le fonctionnement client/serveur complet, je ne m'intéresse qu'à l'algorithme de mots de passe.  
+Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j'ai décidé de regarder un peu le code du jeu et j'ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d'apprendre un peu le fonctionnement d'ActionScript et plus particulièrement de flash player. Je ne vais pas détailler ici le fonctionnement client/serveur complet, je ne m'intéresse qu'à l'algorithme de mots de passe.  
  
- La fonction qui va être étudiée est celle qui permet au client de chiffrer le mot de passe avant de l'envoyer au serveur, je suis sur quelle à été utilisée de la beta v5b du jeu (decembre 2003/janvier 2004) et quelle à été utilisée au moins jusqu'à la version 1.9.1 (septembre 2005), je pense que la fonction à changé fin 2005 avec la version 1.10 ou 1.11 qui ont apportées des modifications sur les comptes de jeu, la version 1.13 (avril 2006) possédant une autre fonction de chiffrement qui est identique à celle utilisée au moins jusqu'à la version 1.29 (sortie en 2010).
+La fonction qui va être étudiée est celle qui permet au client de chiffrer le mot de passe avant de l'envoyer au serveur, elle semble avoir été utilisée de la beta v5b du jeu (decembre 2003/janvier 2004) et quelle à été utilisée au moins jusqu'à la version 1.9.1 (septembre 2005). Attention cependant, le début de la fonction change, à ma connaissance la version 1.9.1 est la seule à utiliser la fonction exacte utilisée plus loin, les versions 1.0 et précédentes utilisent une variante.
+Je pense que la fonction à changé fin 2005 avec la version 1.10 ou 1.11 qui ont apportées des modifications sur les comptes de jeu, la version 1.13 (avril 2006) possédant une autre fonction de chiffrement qui est identique à celle utilisée au moins jusqu'à la version 1.29 (sortie en 2010).
 
  ## La fonction
 

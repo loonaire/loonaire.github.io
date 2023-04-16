@@ -1,7 +1,7 @@
 ---
 title: "Analyse d'un algorithme de chiffrement de mot de passe"
 date: 2023-04-15T10:51:13+02:00
-draft: true
+draft: false
 comment: false
 ---
 

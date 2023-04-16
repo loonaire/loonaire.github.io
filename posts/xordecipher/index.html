@@ -1,0 +1,109 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Analyse d'un algorithme de chiffrement de mot de passe - Loonaire Blog</title><meta name=description content="Disclaimer Je vais analyser une fonction qui a réellement été utilisée en production pour chiffrer les mots de passes. Cette fonction comporte plusieurs faillses et problèmes qui font quelle ne serait pas réutilisable aujourd&rsquo;hui.
+Introduction Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j&rsquo;ai décidé de regarder un peu le code du jeu et j&rsquo;ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d&rsquo;apprendre un peu le fonctionnement d&rsquo;ActionScript et plus particulièrement de flash player."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script>
+<script src=https://unpkg.com/@master/styles@1.13.0></script>
+<script src=https://unpkg.com/master-styles-group></script>
+<script src=https://unpkg.com/themes.js></script>
+<script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Analyse d'un algorithme de chiffrement de mot de passe</div><div class="mt:16 f:fade-60"><time>15 avr. 2023</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><h2 id=disclaimer>Disclaimer</h2><blockquote><p>Je vais analyser une fonction qui a réellement été utilisée en production pour chiffrer les mots de passes. Cette fonction comporte plusieurs faillses et problèmes qui font quelle ne serait pas réutilisable aujourd&rsquo;hui.</p></blockquote><h2 id=introduction>Introduction</h2><p>Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j&rsquo;ai décidé de regarder un peu le code du jeu et j&rsquo;ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d&rsquo;apprendre un peu le fonctionnement d&rsquo;ActionScript et plus particulièrement de flash player. Je ne vais pas détailler ici le fonctionnement client/serveur complet, je ne m&rsquo;intéresse qu&rsquo;à l&rsquo;algorithme de mots de passe.</p><p>La fonction qui va être étudiée est celle qui permet au client de chiffrer le mot de passe avant de l&rsquo;envoyer au serveur, elle semble avoir été utilisée de la beta v5b du jeu (decembre 2003/janvier 2004) et quelle à été utilisée au moins jusqu&rsquo;à la version 1.9.1 (septembre 2005). Attention cependant, le début de la fonction change, à ma connaissance la version 1.9.1 est la seule à utiliser la fonction exacte utilisée plus loin, les versions 1.0 et précédentes utilisent une variante.
+Je pense que la fonction à changé fin 2005 avec la version 1.10 ou 1.11 qui ont apportées des modifications sur les comptes de jeu, la version 1.13 (avril 2006) possédant une autre fonction de chiffrement qui est identique à celle utilisée au moins jusqu&rsquo;à la version 1.29 (sortie en 2010).</p><h2 id=la-fonction>La fonction</h2><p>Voici la fonction utilisée, elle est traduite en langage Go avec possiblement quelques optimisations.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span> <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>CryptPassword</span>(<span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>key</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>HASH</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>password</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;\n&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>saltPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>key</span>); <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>saltPassword</span> <span style=color:#f92672>+=</span> string(<span style=color:#a6e22e>HASH</span>[(<span style=color:#a6e22e>password</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span>len(<span style=color:#a6e22e>password</span>)]^<span style=color:#a6e22e>key</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])<span style=color:#f92672>%</span><span style=color:#ae81ff>64</span>])
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>cryptedPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>saltPassword</span>); <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>cryptedPassword</span> <span style=color:#f92672>+=</span> string(<span style=color:#a6e22e>HASH</span>[(<span style=color:#a6e22e>saltPassword</span>[len(<span style=color:#a6e22e>saltPassword</span>)<span style=color:#f92672>-</span><span style=color:#a6e22e>i</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]^<span style=color:#a6e22e>key</span>[(<span style=color:#a6e22e>i</span><span style=color:#f92672>+</span><span style=color:#ae81ff>8</span>)<span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])<span style=color:#f92672>%</span><span style=color:#ae81ff>64</span>])
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>cryptedPassword</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=démonstration-de-la-fonction><strong>Démonstration de la fonction:</strong></h3><p>Voici le résultat obtenu en utilisant la fonction ci dessus:</p><pre tabindex=0><code>Clé pour le chiffrement du mot de passe: lhyflzbhfvlsmjicxhimofqwxdkgssha  
+Mot de passe saisi: test  
+Mot de passe chiffré: d1zByfy6ClnVHIZZaUUIekqsUawRFrmr
+</code></pre><h3 id=analyse><strong>Analyse</strong></h3><p>En regardant la fonction, on peux la séparer en 3 parties:</p><ul><li>La première partie déclare un tableau HASH qui contient les caractères pour une base 64 customisée et elle ajoute à la fin du mot de passe un caractère de retour à la ligne, ce qui est que le mot de passe sera toujours de la forme: motdepasse + \n.</li><li>La seconde partie est la première boucle for, cette boucle va ajouter des caractères au mot de passe pour avoir la même taille entre le mot de passe et la clé utilisée. On remarque également qu&rsquo;une opération XOR est utilisée.</li><li>La troisième partie concerne la troisième boucle for, elle prend le mot de passse obtenu à la deuxième partie et réeffctue un XOR pour chiffrer la chaine.</li></ul><p>Les failles de cette techinque:</p><ul><li>La longueur de la clé est toujours modulo 32 ce qui veux dire que la clé est toujours de 32 caractères. De plus, il semble que la clé ne contienne que les caractères a-z.</li><li>La longueur maximale du mot de passe est de 31 caractères (surement 24 à l&rsquo;époque) car il faut ajouter le caractère \n à la fin du mot de passe.</li><li>Le caractère \n sera toujours présent et chiffré de la même manière au moment de la première boucle.</li></ul><p>Au final, la fonction ne fait qu&rsquo;utiliser un XOR cypher pour chiffrer le mot de passe, théoriquement avec une clé toujours aléatoire et sans l&rsquo;ajout du caractère \n il serait impossible de &ldquo;craquer&rdquo; l&rsquo;algorithme car la première boucle qui sale le mot de passe est une technique avec destruction des données&mldr; à condition de ne pas avoir de caractère fixe!</p><h3 id=le-problème-du-stockage-de-mot-de-passe><strong>Le problème du stockage de mot de passe</strong></h3><p>Cette fonction montre également une faiblesse: comme elle dépend de la clé utilisée pour le chiffrement, il faut à un moment avoir les mots de passe en clair coté serveur pour vérifier si le mot de passe est bon. Bien entendu, je parle ici de la période 2000-2005 qui était une période où la qualité du chiffrement n&rsquo;était pas une priorité, cependant comme le résultat dépend de la clé et si les clés étaient aléatoire, il y a plusieurs possibiltiés:</p><ul><li>Mots de passe stockés en clair dans la base de données et/ou avec un chiffrement réversible et ensuite recalculé avec la clé et le mot de passe en clair coté serveur.</li><li>Système de déchiffrement du mot de passe à partir de la clé permettrais de comparer le mot de passe obtenu (en appliquant l&rsquo;agorithme de chiffrement) à un mot de chiffré, cette option me semble possible, est mon objectif actuel et expliquerai les &ldquo;failles&rdquo; de l&rsquo;algorithme.</li></ul><h2 id=le-déchiffrement>Le déchiffrement</h2><p>Pour le déchiffrement, on opère de manière inverse au chiffrement. On commence donc par la seconde boucle puis on fait la première boucle.</p><p>Comme les 2 boucles sont similaires, les techniques sont les mêmes:</p><ul><li>On &ldquo;inverse&rdquo; l&rsquo;opération XOR, pour rappel, les opérations XOR peuvent êtres inversées pour retrouver les éléments de départ: <strong>res = mdp[i] ^ clé[i] -> mdp[i] = res ^ clé[i]</strong>.</li><li>Pour les éléments du tableau, c&rsquo;est plutot simple, comme la fonction de chiffrement renvoi le caractère à la position i, pour déchiffrer on prend le code ascii du caractère et on le xor avec la valeur asscii de la clé à la position i. Au final on obtiendra un entier qui correspond à une lettre en ascii.</li></ul><p>Ensuite, la chaine est inversée donc il faut prévoir d&rsquo;inverser la chaine.</p><p>Pour retirer le sel du mot de passe, il &ldquo;suffit&rdquo; de faire quasiment la même chose que le xor du déchiffrement.</p><h3 id=le-code-de-déchiffrement>Le code de déchiffrement</h3><p>Voici le code qui permet de déchiffrer un mode de passe, attention, il ne marche pas totalement, je doit passer à coté de quelque chose, les nombres ne sont pas bien restitués:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>decipherPassword</span>(<span style=color:#a6e22e>passwordCrypted</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>key</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>HASH</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>passwordDecipherReverse</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// décrypte le mot de passe
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>passwordCrypted</span>); <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>decryptedValue</span> <span style=color:#f92672>:=</span> (<span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Index</span>(<span style=color:#a6e22e>HASH</span>, string(<span style=color:#a6e22e>passwordCrypted</span>[<span style=color:#a6e22e>i</span>])) <span style=color:#f92672>%</span> <span style=color:#ae81ff>64</span>) ^ int(<span style=color:#a6e22e>key</span>[(<span style=color:#a6e22e>i</span><span style=color:#f92672>+</span><span style=color:#ae81ff>8</span>)<span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>passwordDecipherReverse</span> <span style=color:#f92672>+=</span> string(byte(<span style=color:#a6e22e>decryptedValue</span>))
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// on obtiens la chaine inversée, on doit donc l&#39;inversée
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>passwordDecrypted</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> len(<span style=color:#a6e22e>passwordDecipherReverse</span>) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>--</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>passwordDecrypted</span> <span style=color:#f92672>+=</span> string(<span style=color:#a6e22e>passwordDecipherReverse</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>passwordDecrypted</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Ensuite, on doit retirer le sel du mot de passe:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>unsaltPassword</span>(<span style=color:#a6e22e>passwordDecrypted</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>key</span> <span style=color:#66d9ef>string</span>) <span style=color:#66d9ef>string</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>HASH</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>unsaltPassword</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> &lt; len(<span style=color:#a6e22e>key</span>); <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>unsaltChar</span> <span style=color:#f92672>:=</span> (<span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Index</span>(<span style=color:#a6e22e>HASH</span>, string(<span style=color:#a6e22e>passwordDecrypted</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])) <span style=color:#f92672>%</span> <span style=color:#ae81ff>64</span>) ^ int(<span style=color:#a6e22e>key</span>[<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>32</span>])
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>unsaltPassword</span> <span style=color:#f92672>+=</span> string(byte(<span style=color:#a6e22e>unsaltChar</span>))
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>unsaltPassword</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=le-résultat>Le résultat</h3><p>Voici le résultat avec le mot de passe bonjour:</p><pre tabindex=0><code>Clé pour le chiffrement du mot de passe:  gnhmmotpfilgyllplqwujeuioygklyua
+Mot de passe saisi:  bonjour
+Mot de passe chiffré:  0bbdBgBEMzgtSFWgz8DCcAserjPofiww
+Mot de passe déchiffré:  fbghcAgvegcnwzEvoEzFfqhJnwjbdmhR
+Mot de passe avec retrait du sel:  bonjourebonjourebonjourJbonjourJ
+</code></pre><p>Bien entendu, le code de déchiffrement ne fonctionne pas à 100% mais le déchiffrement fonctionne bien sur les mot de passe sans chiffres. On remarque que le mot de passe est séparé par un caractère: J (même si il est séparé par des e, le vrai caractère semble être le J).</p><p>Ceci crée donc une faille dans le chiffrement, il suffit de splitter la variable avec le caractère J et la valeur nous est donnée.</p><h2 id=conclusion>Conclusion</h2><p>La formule de chiffrement est bonne, surtout pour un client Flash Player qui n&rsquo;intégrait pas de fonction crypto nativement cependant l&rsquo;utilisation du système de xor à quelques problèmes et impose des contraintes spécifiques (difficultées à inverser la chaine et donc obligation de garder les mots de passe en clair quelque part). Je ne sais pas si l&rsquo;erreur sur le déchiffrement viens de moi ou est normal, si il est normal tant mieux, sinon il faudra que je me penche sur cette erreur.</p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

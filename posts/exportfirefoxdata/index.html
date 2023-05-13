@@ -1,0 +1,64 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Importer et exporter les données de firefox - Loonaire Blog</title><meta name=description content="Voici plusieurs techniques pour récupérer les informations d&rsquo;un profil de firefox. Pour information, les profils sont stocké par défaut dans: %appdata%\Mozilla\Firefox\Profiles, si le profil n&rsquo;est pas présent dans ce dossier, il est possible de voir où est stocké le profil depuis firefox en tapant dans la barre d&rsquo;url: about:support.
+PS: je montre ici des techniques alternatives à la technique &ldquo;officielle&rdquo; de Mozilla pour le transfert de profil car je n&rsquo;ai jamais réussi à les faires fonctionner correctement, cette technique est disponible ici."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script>
+<script src=https://unpkg.com/@master/styles@1.13.0></script>
+<script src=https://unpkg.com/master-styles-group></script>
+<script src=https://unpkg.com/themes.js></script>
+<script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Importer et exporter les données de firefox</div><div class="mt:16 f:fade-60"><time>13 mai 2023</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>Voici plusieurs techniques pour récupérer les informations d&rsquo;un profil de firefox.
+Pour information, les profils sont stocké par défaut dans: <code>%appdata%\Mozilla\Firefox\Profiles</code>, si le profil n&rsquo;est pas présent dans ce dossier, il est possible de voir où est stocké le profil depuis firefox en tapant dans la barre d&rsquo;url: <code>about:support</code>.</p><blockquote><p>PS: je montre ici des techniques alternatives à la technique &ldquo;officielle&rdquo; de Mozilla pour le transfert de profil car je n&rsquo;ai jamais réussi à les faires fonctionner correctement, cette technique est disponible <a href=https://support.mozilla.org/fr/kb/sauvegarder-restaurer-informations-profils-firefox>ici</a>.</p></blockquote><blockquote><p>PS2: La méthode la plus simple est de passer par un compte Mozilla, tous se fait en restant en local sur votre réseau, il suffit de se connecter sur le premier appareil qui est celui avec les données à récuperer puis se connecter sur le second appareil qui recevra ces donnes.</p></blockquote><blockquote><p>Les techniques présentées fonctionnes avec Firefox 113</p></blockquote><h2 id=la-manière-simple>La manière simple</h2><h3 id=les-marques-pages>Les marques pages</h3><p>Pour les marques page, ils sont simplement exportable en allant dans <code>Marque-pages -> Organiser les marque-âges</code> puis dans la barre au dessus de la fenêtre qui s&rsquo;ouvre, choisir <code>Importation et sauvegarde</code>.</p><ul><li>Pour exporter (sauvegarder) les données, choisir <code>Sauvegarder...</code></li><li>Pour importer (restaurer) les données, choisir <code>Restaurer</code> puis <code>Choisir un fichier...</code></li></ul><h3 id=les-mots-de-passe>Les mots de passe</h3><blockquote><p>Attention: cette technique est déconseillé, si vous exportez les mots de passe dans un fichier csv, pensez à <strong>SUPPRIMER</strong> le fichier lorsque vous n&rsquo;en n&rsquo;avez plus besoin. Mozilla déconseille cette méthode et bloque un maximum cette fonctionnalité.</p></blockquote><p>Pour les mots de passe, il faut aller dans l&rsquo;outil <code>Mots de passe</code>.</p><ul><li><p>Pour sauvegarder les mots de passe, il faut aller sur le bouton <code>...</code> en haut à droite puis choisir <code>Exporter les identifiants...</code>.</p><blockquote><p>Attention: Pour pouvoir exporter les identifiants il faut s&rsquo;identifier avec l&rsquo;utilisateur connecter, il n&rsquo;est pas possible de le faire avec une autre session qui aurais les droits administrateur.</p></blockquote></li><li><p>Pour importer les identiifants, cela se fait en 2 étapes:</p><ul><li>Tout d&rsquo;abord, il faut aller dans <code>about:config</code> puis chercher l&rsquo;option <code>signon.management.page.fileImport.enabled</code>, cette option doit être mise à <code>true</code></li><li>En revenant dans l&rsquo;outils Mots de passe, sur le bouton <code>...</code> l&rsquo;option <code>Importer depuis un fichier...</code> est désormais disponible, il suffit de choisir le fichier et l&rsquo;import des identifiants se fera tout seul.</li></ul></li></ul><h2 id=en-récupérant-les-informations-depuis-les-fichiers-dun-profil>En Récupérant les informations depuis les fichiers d&rsquo;un profil</h2><p>Cette technique est utile si vous ne pouvez pas démarrer firefox par exemple, elle permet également de transférer les informations sans avoir besoin d&rsquo;interaction de la part de l&rsquo;utilisateur.</p><h3 id=les-marque-pages>Les marque-pages</h3><p>Pour les marque-pages, il faut copier les fichiers <code>places.sqlite</code> et <code>favicons.sqlite</code> de l&rsquo;ancien profil vers le nouveau.</p><h3 id=les-mots-de-passe-1>Les mots de passe</h3><p>Pour les mots de passe, il faut copier les fichiers <code>key4.db</code> et <code>logins.json</code> de l&rsquo;ancien profil vers le nouveau.</p><h3 id=les-autres-fichiers>Les autres fichiers</h3><p>Pour d&rsquo;autres fichiers je redirige vers la documentation de Mozilla concernant les fichiers des profils disponible <a href=https://support.mozilla.org/en-US/kb/recovering-important-data-from-an-old-profile>ici</a>.</p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

@@ -43,6 +43,7 @@ defaultContentLanguage = "fr"
     url = "/other/"
     weight = 2
 
-[Languages]
-[Languages.fr]
+[languages]
+[languages.fr]
+[languages.en.params]
   landingPageName = "Accueil"

@@ -61,3 +61,14 @@ func main() {
 
 Pour récuperer le résultat du profilage, voici un exemple qui permet de récupérer un fichier pdf du profilage:  
 ```go tool pprof -pdf fichierbuild.exe cpuprofile > cpuprofile.pdf```
+
+
+## liens utiles
+- https://www.youtube.com/watch?v=nok0aYiGiYA
+- https://shghadge.medium.com/how-i-used-pprof-to-investigate-huge-memory-consumption-issues-in-our-go-microservice-f22ff74b72ec
+- https://oswanderson.medium.com/generating-and-reading-go-golang-profiles-part-1-db33905decee
+- https://go.dev/blog/pprof
+- https://pkg.go.dev/net/http/pprof
+- https://www.benburwell.com/posts/flame-graphs-for-go-with-pprof/
+- https://www.goodwith.tech/blog/go-pprof
+- https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/

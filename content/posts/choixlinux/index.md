@@ -18,7 +18,7 @@ Je choisi de commencé par le choix de l'environnement de bureau, il conditionne
 
 - Le premier environnement est GNOME, il s'agit de l'environnement choisi par beaucoup de distributions par défaut, c'est le cas de Fedora et d'ubuntu, l'environnement prend beaucoup de consommation de RAM et je trouve son utilisation plutot orientée tactile/mobile, pour quelqu'un habitué à une tablette ou un smartphone cet environnement est intéressant. Cependant j'ai eu quelques problèmes avec GNOME, l'interface des paramètres possède peu de modifications et l'outil GNOME logiciel qui a un plutot orienté flatpak et multi-distribution, il n'utilise pas forcément l'outil de package du système. GNOME utilise la lib GTK et est la base d'autres environnements de bureau.  
 
-- Le second environnement est KDE, il utilise la lib Qt, il s'agit d'un des environnements de bureau le plus utilisé avec GNOME. L'interface est très moderne et proche de Windows 11, interface que je n'aime pas vraiment, jetrouve windows 10 bien mieux. Je n'ai pas vraiment pris le temps de m'intéresser à cette environnement, il est personnalisable et proche de Windows. Coté distribution qui l'utilisent, Manjaro semble favoriser KDE alors qu'ils favorisait XFCE auparavant. KDE permet de monter facilement les volumes au démarrage, chose que tous les environnements de bureau ne peremttent pas. Coté personnel, je trouve le terminal par défaut de KDE trop complexe ainsi que les thèmes des fenêtres trop compliqués.  
+- Le second environnement est KDE, il utilise la lib Qt, il s'agit d'un des environnements de bureau le plus utilisé avec GNOME. L'interface est très moderne et proche de Windows 11, interface que je n'aime pas vraiment, je trouve windows 10 mieux. Je n'ai pas vraiment pris le temps de m'intéresser à cette environnement, il est personnalisable et proche de Windows. Coté distribution qui l'utilisent, Manjaro semble favoriser KDE alors qu'ils favorisait XFCE auparavant. KDE permet de monter facilement les volumes au démarrage, chose que tous les environnements de bureau ne peremttent pas. Coté personnel, je trouve le terminal par défaut de KDE trop complexe ainsi que les thèmes des fenêtres trop compliqués.  
 
 - Le troisième environnement, celui qui m'intéresse le plus est XFCE, il est grandement personnalible, léger, simple à utiliser, il peux ressembler à la fois à Windows et à Mac OS avec son dock. Il est basé sur une ancienne version de GNOME, il se base sur GTK ce qui permet d'avoir une compatibilité avec les logiciels qui utilisent GTK. Il ne reçoit pas beaucoup de grosses mise à jours ce qui permet d'avoir une stabilité intéressante par rapport à d'autres environnements de bureau. A ma connaissance, il est surtout utilisé sur les distributions basées sur Arch, Manjaro l'utilise en environnement Officiel, Endeavour OS l'utilise également en environnement par défaut.  
 
@@ -36,9 +36,9 @@ Un avis rapide sur les différents gestionnaires de paquet, il est bien de les i
 
 ### Les gestionnaires des distributions
 
-- APT: le gestionnaire de Debian et ses dérivées, il est bon mais je le trouve très compliqué lorsque l'on veux apprendre à le maitriser, je le trouve également souvent instable et heureusement que dpkg est la pour le reconfigurer.
-- RPM: l'outil de RedHat, il est lié aux distributions sous redhat, je le connais très peu mais il semble très intéressant, stable et efficace.
-- Pacman: l'outil des distributions basées sur Arch ainsi que l'outil utilisé par Msys2 sur Windows. Il est plutot simple et documenté ce qui facilite son apprentissage, sa gesiton des paquets est plutot correcte.
+- apt : le gestionnaire de Debian et ses dérivées, il est bon mais je le trouve très compliqué lorsque l'on veux apprendre à le maitriser, je le trouve également souvent instable et heureusement que dpkg est la pour le reconfigurer.
+- dnf : l'outil de RedHat, il est lié aux distributions sous redhat, je le connais très peu mais il semble très intéressant, stable et efficace.
+- Pacman : l'outil des distributions basées sur Arch ainsi que l'outil utilisé par Msys2 sur Windows. Il est plutot simple et documenté ce qui facilite son apprentissage, sa gesiton des paquets est plutot correcte.
 
 ### Les gestionnaires universels
 

@@ -14,7 +14,7 @@ Pour un éventuel passage sur Linux, il me faut un maximum des habitudes que j'a
 
 ## L'environnement de bureau
 
-Je choisi de commencé par le choix de l'environnement de bureau, il conditionne en partie la distribution choisie.  
+Je choisi de commencé par le choix de l'environnement de bureau, il conditionne la distribution choisie.  
 
 - Le premier environnement est GNOME, il s'agit de l'environnement choisi par beaucoup de distributions par défaut, c'est le cas de Fedora et d'ubuntu, l'environnement prend beaucoup de consommation de RAM et je trouve son utilisation plutot orientée tactile/mobile, pour quelqu'un habitué à une tablette ou un smartphone cet environnement est intéressant. Cependant j'ai eu quelques problèmes avec GNOME, l'interface des paramètres possède peu de modifications et l'outil GNOME logiciel qui a un plutot orienté flatpak et multi-distribution, il n'utilise pas forcément l'outil de package du système. GNOME utilise la lib GTK et est la base d'autres environnements de bureau.  
 

@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>L'Oauth et les outils de gestion de ticket (redmine/glpi) - Loonaire Blog</title>
+<meta name=description content="Un petit article sur un point de vue sur l&rsquo;utilisation actuelle de l&rsquo;Outh ainsi que sur les outils hébergés en local qui l&rsquo;utilisent.
+Le contexte et l&rsquo;origine de l&rsquo;article La problématique Actuellement, je suis en charge de maintenir une VM qui utilise le logiciel Redmine. L&rsquo;outil est plutot bon, même si à l&rsquo;origine il sert plutot pour la gestion de projet, il est très simple à détourner pour le transformer en outil de gestion de ticket et récupération de ticket via mail."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">L'Oauth et les outils de gestion de ticket (redmine/glpi)</div><div class="mt:16 f:fade-60"><time>22 janv. 2024</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>Un petit article sur un point de vue sur l&rsquo;utilisation actuelle de l&rsquo;Outh ainsi que sur les outils hébergés en local qui l&rsquo;utilisent.</p><h2 id=le-contexte-et-lorigine-de-larticle>Le contexte et l&rsquo;origine de l&rsquo;article</h2><h3 id=la-problématique>La problématique</h3><p>Actuellement, je suis en charge de maintenir une VM qui utilise le logiciel Redmine. L&rsquo;outil est plutot bon, même si à l&rsquo;origine il sert plutot pour la gestion de projet, il est très simple à détourner pour le transformer en outil de gestion de ticket et récupération de ticket via mail. Cependant, suite au blocage de Microsoft de l&rsquo;authentification basique sur les services Azure, il faut passer en Oauth, c&rsquo;est pour cela qu&rsquo;il y a tout juste un an, le plugin Redmine Helpdesk a été installé, bien que payant, le plugin fonctionnait très bien et permettais de récupérer les mails via des connexion aux adresses mails en OAuth. Nous voici donc dans les 3 premières semaines de janvier 2024, avec un plugin qui ne fonctionne plus du tout et à la recherche d&rsquo;un nouveau plugin.</p><h3 id=la-résolution>La résolution</h3><p>Pour résoudre il y avais 2 choix:</p><ul><li>Corriger le problème du plugin redmine helpdesk, comme le plugin est payant, il a un support qui je suppose est effectué par une seule personne en Russie, la société a été délocalisée en Arménie pour éviter les sanctions mais la personne est Russe, en plus le plugin log mal les informations et la manière de fonctionner du plugin est très floue, ce plugin devais être changé quoi qu&rsquo;il arrive.</li><li>Le choix sélectionné a été de changé le plugin en passant à redmine_oauth, ce plugin est open source, certe nous sommes dépendant du mainteneur sur github mais on peux contribuer et nous ne dépandons pas d&rsquo;un support médiocre. Ce plugin apporte en bonus le SSO et&mldr; ne rajoute pas une surcouche à redmine comme redmine helpdesk mais s&rsquo;interface avec la manière de récupération des mails intégrée à redmine ce qui fait qu&rsquo;il suffit d&rsquo;utiliser la documentation de redmine pour comprendre comment le paramétrer, c&rsquo;est un gain de temps et de simplicité. Cette solution a un coup: le besoin de maintenir une version de redmine à jour pour permettre les mises à jour du plugin.</li></ul><h2 id=la-connexion-oauth>La connexion OAuth</h2><p>Le problème est la connexion OAuth, dans le cas de GLPI, il faut utiliser le plugin OAuth Imap avec une incription d&rsquo;applicaiton dans Azure, dans le cas de Redmine, nous avons plusieurs choix, le premier avec redmine helpdesk qui reprend GLPI, une inscription d&rsquo;application et passage via https. Le second choix est redmine_oauth qui demande inscription d&rsquo;application ainsi qu&rsquo;une autorisation spéciale dans Azure, cette méthode utilise le mode IMAP et ne demande aucun mot de passe ce qui est super intéressant.</p><h2 id=les-conséquences>Les conséquences</h2><h3 id=les-services-hébergés>Les services hébergés</h3><p>La connexion OAuth implique une mise à jour régulière, surtout avec Microsoft qui change régulièrement les protocoles. Ceci implique beaucoup de mises à jours:</p><ul><li>Mise à jour des plugins régulières et préventives</li><li>Mise à jour de l&rsquo;application régulière, les plugins suivent les dernières versions disponibles et ne sont souvent pas compatible avec les anciennes versions (c&rsquo;est le cas de beaucoup de plugins sur GLPI)</li><li>La mise à jour de l&rsquo;environnement sur lequel tourne l&rsquo;application, il faut que le système hôte puisse recevoir des mises à jours pour les runtimes et les dépendances qui permettent le fonctionnement applications.</li></ul><h3 id=le-choix-de-lhôte>Le choix de l&rsquo;hôte</h3><p>Ces éléments ont des conséquences sur le choix de l&rsquo;hôte, à l&rsquo;origine choisir une distribution très stable type Reh Hat et ses dérivées (RHEL,CentOS,AlmaLinux,RockyLinux,&mldr;) était un bon choix: seulement des mises à jour de sécurité, pas besoin de mises à jour de l&rsquo;application, ce fonctionnement est intéressant. Cependant l&rsquo;OAuth et les fournisseurs cloud changent la donne, ils évoluent rapidement, ainsi une distribution Red Hat like devient inutile: on ne peux pas faire d&rsquo;upgrade de distribution officiellement, il faut réinstaller la nouvelle version. Ce n&rsquo;est pas le cas de Debian: tous les 2 ans la distribution passe à la version suivante et met à jour en même temps les paquets. L&rsquo;avantage? 2 ans c&rsquo;est également en moyenne le temps de durée de la version de compatibilité de l&rsquo;application hébergée. Ainsi, toutes les applications qui reçoivent régulièrement des mises à jour doivent plutot passer de distribution RHEL like vers Debian.</p><h2 id=conclusion>Conclusion</h2><p>Pour conclure, le passage à l&rsquo;OAuth change beaucoup de chose sur la manière de mise en production des applications en entreprise, il faut désormais prendre en compte et anticiper ces mises à jour ce qui implique du travail en plus.</p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

@@ -6,6 +6,23 @@ comment: false
 ---
 
 Il y a peu j'ai du déployer Windows 10 sur des Surface Go 4, de manière générale Windows 10 sur les Surface Go 4 c'est compliqué, et au dela des Surface Go 4, cet article s'étend aux appareils qui utilisent la mémoire UFS.
+s
+
+## Le fonctionnement du MDT
+
+Avant de commencer, un rapide brief sur le MDT, il se compose de 3 composants distincts:
+    - Le serveur WDS qui est le serveur qui acceptera les connexions et qui va contenir l'image de démarrage pour le déploiement
+    - L'outil MDT qui est la console Deployment Workbench qui permet de générer l'image de démarrage du déploiement ainsi que la séquence de tâches à executer, les fichiers résultants sont stockés dans un répertoire partagés
+    - Le composant ADK + le module ADK winPE (à partir de windows 10 de 2019) qui sont les fichiers qui permettent la génération d'image de boot winPE
+
+Comment ca marche?
+
+Le MDT crée un dossier partagé, la console Deployment Workbench permet de gérer ce dossier, ici sera importé ce que l'on souhaitera installer et faire, il faut importer les drivers, l'os et les logiciels à installer. Une séquence de tâche liée au contenu du partage sera mise en place.  
+
+Une fois en place, il faut générer une image de déploiement dans la console, cette génération va faire appel aux fichier installés par l'ADK, une image de démarrage liteTouch sera crée.  
+
+Enfin, sur le serveur WDS, il faut importer l'image liteTouch de démarrage, ensuite sur les ordinateurs client, il faut démarrer en PXE et l'image de démarrage se chargera automatiquement et utilisera la séquence de tâche présente dans le dossier de partage du MDT. A noter que la modification de la séquence de tâches ainsi que l'ajout de contenu dans le partage du MDT n'implique pas forcément une mise à jour de l'image de démarrage.
+
 
 ## Windows sur les Surface Go 4
 

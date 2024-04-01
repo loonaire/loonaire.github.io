@@ -1,8 +1,8 @@
 <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Go: Profiler une app - Loonaire Blog</title>
-<meta name=description content="Un petit article mémo pour le profilage en Go.
+<meta name=description content='Un petit article mémo pour le profilage en Go.
 Profilage de base Dans mon cas, je développe un serveur tcp donc le logiciel reste ouvert indéfiniment, cette solution sera également pour les serveurs http et les autres développement utilisant des boucles infinies.
 Voici le code de base:
-package main import ( &#34;fmt&#34; _ &#34;net/http/pprof&#34; ) func main() { go func() { log.Println(http.ListenAndServe(&#34;localhost:6060&#34;, nil)) }() // AJOUTER ICI LE RESTE DE VOTRE CODE fmt."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+package main import ( "fmt" _ "net/http/pprof" ) func main() { go func() { log.Println(http.ListenAndServe("localhost:6060", nil)) }() // AJOUTER ICI LE RESTE DE VOTRE CODE fmt.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto

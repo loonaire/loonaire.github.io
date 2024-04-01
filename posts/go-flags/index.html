@@ -1,9 +1,9 @@
 <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Passer des arguments à un programme Go avec les flags - Loonaire Blog</title>
-<meta name=description content="Go permet de se passer de Os.args pour la gestion des arguments à l&rsquo;execution de l&rsquo;application avec le package flag.
+<meta name=description content='Go permet de se passer de Os.args pour la gestion des arguments à l&rsquo;execution de l&rsquo;application avec le package flag.
 Les arguments créeront l&rsquo;argument -h ou &ndash;help.
 Pour les arguments de type bool, il faut mettre par défaut la valeur false, sinon l&rsquo;argument sera toujours à true.
 Voici un exemple de base, chaque argument est envoyé dans un pointeur vers l&rsquo;argument:
-package main import ( &#34;flag&#34; &#34;log&#34; ) func main() { // crée les variables qui contiendront les arguments // attention: chaque paramètre est précédé d'un - boolArg := flag."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+package main import ( "flag" "log" ) func main() { // crée les variables qui contiendront les arguments // attention: chaque paramètre est précédé d&#39;un - boolArg := flag.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto

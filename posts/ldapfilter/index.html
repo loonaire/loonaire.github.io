@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Les filtes LDAP - Loonaire Blog</title>
+<meta name=description content="J&rsquo;ai découvert les filtres LDAP il y a peu suite à un besoin d&rsquo;améliorer la synchronisation entre un serveur ADDS et un serveur GLPI.
+Tester un filtre LDAP sur ADDS Pour tester un filte LDAP sur ADDS, il faut aller dans la console de gestion des utilisateurs de l&rsquo;ad puis clique droit sur le domaine et Rechercher&mldr;, choisir ensuite Recherche personnalisée puis le mode Avancé.
+Organisation d&rsquo;un filtre LDAP Un filtre LDAP s&rsquo;articule autour de conditions, les parenthèses sont importantes et très utilisées."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Les filtes LDAP</div><div class="mt:16 f:fade-60"><time>1 avr. 2024</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>J&rsquo;ai découvert les filtres LDAP il y a peu suite à un besoin d&rsquo;améliorer la synchronisation entre un serveur ADDS et un serveur GLPI.</p><h2 id=tester-un-filtre-ldap-sur-adds>Tester un filtre LDAP sur ADDS</h2><p>Pour tester un filte LDAP sur ADDS, il faut aller dans la console de gestion des utilisateurs de l&rsquo;ad puis clique droit sur le domaine et Rechercher&mldr;, choisir ensuite Recherche personnalisée puis le mode Avancé.</p><p><img src=./images/1.png></p><h2 id=organisation-dun-filtre-ldap>Organisation d&rsquo;un filtre LDAP</h2><p>Un filtre LDAP s&rsquo;articule autour de conditions, les parenthèses sont importantes et très utilisées.</p><p>Voici la forme d&rsquo;un filtre LDAP:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&lt;attribut&gt;<span style=color:#f92672>=</span>&lt;valeur&gt;<span style=color:#f92672>)</span>
+</span></span></code></pre></div><p>Nous pouvons utiliser différents opérateurs:</p><pre tabindex=0><code>&amp; : ET logique entre les conditions
+| : OU logique entre les conditions
+! : NON logique (inverse la condition)
+</code></pre><p>Opérateurs de test:</p><pre tabindex=0><code>&gt;= : supérieur ou égale
+&lt;= : inférieur ou égal
+~= : approximativement égal à
+= : égale à
+* : n&#39;importe quel élément/caractère
+</code></pre><p>Association de condition:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>([</span>&amp;|!<span style=color:#f92672>](</span>&lt;condition 1&gt;<span style=color:#f92672>)(</span>condition 2<span style=color:#f92672>))</span>
+</span></span></code></pre></div><h2 id=chemin-ldap>Chemin LDAP</h2><p>Un chemin LDAP permet de chercher des objects dans l&rsquo;AD, le chemin LDAP doit terminer par: <code>DC=&lt;nom domaine>,DC=&lt;tld></code></p><p>Un chemin LDAP est de la forme:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>CN<span style=color:#f92672>=</span>&lt;nom groupe ou user&gt;,OU<span style=color:#f92672>=</span>&lt;nom OU&gt;,DC<span style=color:#f92672>=</span>&lt;nom domaine&gt;,DC<span style=color:#f92672>=</span>&lt;tld&gt;
+</span></span></code></pre></div><h2 id=exemples-de-filtre>Exemples de filtre</h2><ul><li>Obtenir tous les éléments de l&rsquo;annuaire:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>objectClass<span style=color:#f92672>=</span>*
+</span></span></code></pre></div><ul><li>Obtenir tous éléments de class utilisateur (ordinateur ET utilisateurs):</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>objectClass<span style=color:#f92672>=</span>user
+</span></span></code></pre></div><ul><li>Obtenir tous les utilisateurs:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>))</span>
+</span></span></code></pre></div><ul><li>Obtenir tous les ordinateurs:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>((</span>&amp;<span style=color:#f92672>(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>objectCategory<span style=color:#f92672>=</span>computer<span style=color:#f92672>)))</span>
+</span></span></code></pre></div><blockquote><p>Pour l&rsquo;AD, les ordinateurs sont des utilisateurs</p></blockquote><ul><li>Obtenir un groupe:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>objectCategory<span style=color:#f92672>=</span>group<span style=color:#f92672>)</span>
+</span></span></code></pre></div><ul><li>Obtenir les membres d&rsquo;un groupe:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>)(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>memberof<span style=color:#f92672>=</span>CN<span style=color:#f92672>=</span>&lt;nom du groupe&gt;, ... ,DC<span style=color:#f92672>=</span>&lt;nom domaine&gt;,DC<span style=color:#f92672>=</span>&lt;tld&gt;<span style=color:#f92672>))</span>
+</span></span></code></pre></div><ul><li>Obtenir les ordinateurs d&rsquo;un groupe:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>)(</span>objectClass<span style=color:#f92672>=</span>computer<span style=color:#f92672>)(</span>memberof<span style=color:#f92672>=</span>CN<span style=color:#f92672>=</span>&lt;nom du groupe&gt;, ... ,DC<span style=color:#f92672>=</span>&lt;nom domaine&gt;,DC<span style=color:#f92672>=</span>&lt;tld&gt;<span style=color:#f92672>))</span>
+</span></span></code></pre></div><ul><li>Obtenir les comptes non désactivés:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>)(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>!<span style=color:#f92672>(</span>userAccountControl:1.2.840.113556.1.4.803:<span style=color:#f92672>=</span>2<span style=color:#f92672>)))</span>
+</span></span></code></pre></div><ul><li>Obtenir les utilisateurs des groupes appartenant à un groupe:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>)(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>memberOf:1.2.840.113556.1.4.1941:<span style=color:#f92672>=</span>CN<span style=color:#f92672>=</span>&lt;Nom du groupe&gt;,...,DC<span style=color:#f92672>=</span>&lt;domaine&gt;,DC<span style=color:#f92672>=</span>&lt;tld&gt;<span style=color:#f92672>))</span>
+</span></span></code></pre></div><ul><li>Tous les utilisateurs qui n&rsquo;ont pas de department:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>&amp;<span style=color:#f92672>(</span>objectClass<span style=color:#f92672>=</span>user<span style=color:#f92672>)(</span>objectCategory<span style=color:#f92672>=</span>person<span style=color:#f92672>))(</span>!<span style=color:#f92672>(</span>department<span style=color:#f92672>=</span>*<span style=color:#f92672>)))</span>
+</span></span></code></pre></div><h2 id=liens>Liens</h2><ul><li><p>Doc de google: <a href="https://support.google.com/a/answer/6126589?hl=fr#zippy=%2Crequ%C3%AAtes-ldap-de-base%2Crequ%C3%AAtes-ldap-sp%C3%A9cifiques">https://support.google.com/a/answer/6126589?hl=fr#zippy=%2Crequ%C3%AAtes-ldap-de-base%2Crequ%C3%AAtes-ldap-sp%C3%A9cifiques</a></p></li><li><p>RFC2254: <a href="https://www.ietf.org/rfc/rfc2254.txt?number=2254">https://www.ietf.org/rfc/rfc2254.txt?number=2254</a></p></li><li><p>Documentation de Microsoft: <a href="https://learn.microsoft.com/fr-fr/windows/win32/adsi/search-filter-syntax?redirectedfrom=MSDN">https://learn.microsoft.com/fr-fr/windows/win32/adsi/search-filter-syntax?redirectedfrom=MSDN</a></p></li><li><p>Une doc sur la base des chemins LDAP: <a href=https://web.archive.org/web/20240207120150/https://jean-luc-massat.pedaweb.univ-amu.fr/ens/jee/ldap.html>https://web.archive.org/web/20240207120150/https://jean-luc-massat.pedaweb.univ-amu.fr/ens/jee/ldap.html</a></p></li><li><p>Problème sur les groupes imbriqués: <a href=https://confluence.atlassian.com/crowdkb/active-directory-user-filter-does-not-search-nested-groups-715130424.html>https://confluence.atlassian.com/crowdkb/active-directory-user-filter-does-not-search-nested-groups-715130424.html</a></p></li></ul><h2 id=notes>Notes:</h2><p>Je n&rsquo;ai pas traité les filtres avec des OU mais il s&rsquo;agit d&rsquo;éléments comme les filtres avec les &</p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

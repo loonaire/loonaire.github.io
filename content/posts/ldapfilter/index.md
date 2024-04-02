@@ -125,6 +125,8 @@ objectClass=user
 
 - Problème sur les groupes imbriqués: [https://confluence.atlassian.com/crowdkb/active-directory-user-filter-does-not-search-nested-groups-715130424.html](https://confluence.atlassian.com/crowdkb/active-directory-user-filter-does-not-search-nested-groups-715130424.html)
 
+- Cours sur openLDAP: [https://mparienti.developpez.com/cours/openldap/](https://mparienti.developpez.com/cours/openldap/)
+
 ## Notes:
 
 Je n'ai pas traité les filtres avec des OU mais il s'agit d'éléments comme les filtres avec les &

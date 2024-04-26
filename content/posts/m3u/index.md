@@ -54,6 +54,9 @@ Et voila nous avons un fichier de playlist fonctionnel qui lira les musiques dos
 
 Je n'ai pas trop le temps pour faire ca mais un m3u étendu semble possible avec des outils qui peuvent lire les tags des fichiers musicaux.
 
+## La vraie solution
+
+Au final, la meilleure solution est... la création d'une playlist via VLC, cette solution est simple et efficace et fonctionne.
 
 ## Liens utiles
 - [https://docs.fileformat.com/fr/audio/m3u/](https://docs.fileformat.com/fr/audio/m3u/)

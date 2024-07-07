@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>La gestion de certificats en entreprise avec l'ADCS et openssl - Loonaire Blog</title>
+<meta name=description content="Pour un besoin pro, j&rsquo;ai eu à apprendre le fonctionnement des certificats en entreprise, j&rsquo;ai décidé d&rsquo;apprendre le fonctionnement des certificats en utilisans le role ADCS de Windows Server (surement le plus utilisé).
+Les 2 types de générations de certificats On peux dissocier les certificats en 2 catégories:
+Les certificats auto signés Ce type de certificat est plus simple à générer, sur Windows avec IIS la console IIS permet de générer des certificats auto signés, sous openssl nous pouvons utiliser la commande suivante:"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">La gestion de certificats en entreprise avec l'ADCS et openssl</div><div class="mt:16 f:fade-60"><time>7 juil. 2024</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>Pour un besoin pro, j&rsquo;ai eu à apprendre le fonctionnement des certificats en entreprise, j&rsquo;ai décidé d&rsquo;apprendre le fonctionnement des certificats en utilisans le role ADCS de Windows Server (surement le plus utilisé).</p><h2 id=les-2-types-de-générations-de-certificats>Les 2 types de générations de certificats</h2><p>On peux dissocier les certificats en 2 catégories:</p><h3 id=les-certificats-auto-signés>Les certificats auto signés</h3><p>Ce type de certificat est plus simple à générer, sur Windows avec IIS la console IIS permet de générer des certificats auto signés, sous openssl nous pouvons utiliser la commande suivante:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>openssl req -new -nodes -x509 -keyout /etc/ssl/private/domain.key -out /etc/ssl/certs-auto/domain.cert -newkey rsa:2048
+</span></span></code></pre></div><blockquote><p>Ici les chemins peuvent être changé, il en va de même pour le type de chiffrement de la clé, rsa est déprécrié et 2048bits est aujourd&rsquo;hui trop peu (mais l&rsquo;augmenter augmente le temps de génération de la clé)</p></blockquote><p>Voici le schéma suivi pour l&rsquo;autosignature de fichier:
+<img alt="alt text" src=../../posts/certificatsadcs/images/diagramme1.png></p><p>Le problème de ce fonctionne est que les clients externes à la machine qui n&rsquo;ont pas le certificat d&rsquo;installés verrons un messgae indiquant que le certificat n&rsquo;est pas valide car il n&rsquo;a pas été signé par une vraie autorité de certification, pour éviter ce problème, il faut utiliser l&rsquo;autre méthode de génération de certificat.</p><h3 id=les-certificats-générés-par-une-autorité-de-certification>Les certificats générés par une autorité de certification</h3><p>Dans cette méthode, le système de génération est globalement le même à la différence que le certificat sera validé par une autorité de certificat qui permettra la validation et la diffusion du certificat pour d&rsquo;autres utilisateurs.
+Voici dans les grandes lignes le fonctionnement de ce système (j&rsquo;ai volontairement simplifié des étapes):
+<img alt="alt text" src=../../posts/certificatsadcs/images/diagramme2.png></p><blockquote><p>Sur le schéma précedent, le certificat est généré sur la machine cible mais il peux être généré sur un autre ordinateur, la seule condition est de garder le fichier .key qui est la clé privée et qui pourra reservir en cas de besoin de regénérer de renouveler le certificat.</p></blockquote><p>Je détails cette méthode en dessous</p><h2 id=les-formats-de-fichier-de-certificat>Les formats de fichier de certificat</h2><ul><li>key : Fichier qui contient la clé privée du certificat, commence par <code>-----BEGIN ENCRYPTED PRIVATE KEY-----</code></li><li>csr : Contient une demande de création d&rsquo;un certificat, commence par <code>-----BEGIN CERTIFICATE REQUEST-----</code></li><li>pem,crt, cer, cert : Contient un certificat, ces fichiers commencent par <code>---- BEGIN CERTIFICATE----</code></li><li>pfx : Contient un certificat qui utilise la norme PKCS#12, il contient une clé privée ainsi qu&rsquo;une clé publique</li></ul><h2 id=générer-une-demande>Générer une demande</h2><blockquote><p>Pour des raisons pratique, je n&rsquo;explique que la démarche avec openssl mais la création de clé est possible avec Windows</p></blockquote><p>Avec openssl il faut utiliser la commande suivante pour générer une clé privée ET un fichier csr qui sera à envoyer à l&rsquo;authorité de certification:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>openssl req -sha256 -newkey rsa:2048 -keyout domain.key -out domain.csr
+</span></span></code></pre></div><blockquote><p>Pour retirer l&rsquo;obligation d&rsquo;ajouter une passphrase, il faut ajouter l&rsquo;argument <code>-nodes</code></p></blockquote><p>Récupérer le fichier csr généré sur l&rsquo;autorité de certificat (ou sur un autre poste qui possède une console MMC avec le composant Autorité de certification) puis aller sur le nom du serveur -> Toutes les tâches -> Soumettre une nouvelle demande</p><p><img alt="alt text" src=../../posts/certificatsadcs/images/adcs1.png></p><blockquote><p>Dans mon cas, j&rsquo;ai un message d&rsquo;erreur m&rsquo;indiquant que le certificat n&rsquo;utilise pas de modèle disponible sur l&rsquo;authorité de certification</p></blockquote><p><img alt="alt text" src=../../posts/certificatsadcs/images/adcserror.png></p><blockquote><p><strong>Eviter le message d&rsquo;erreur</strong></p><p>La solution est disponible <a href=https://vxav.fr/2020-02-18-how-to-sign-a-certificate-with-no-template-information-on-a-microsoft-ca/>via ce lien</a>. Il faut générer le certificat via l&rsquo;invite de commande.</p><ul><li>Ouvrir une invite de commande en mode administrateur</li><li>Pour afficher la liste des templates disponible et leur accès, utiliser la commande: <code>certutil -CATemplates -Config &lt;Nom de la machieb>\&lt;Nom de l'autorité de certification></code></li><li>Pour générer la réponse du certificat, on va utiliser la commande certreq en indiquant le modèle de certificat que l&rsquo;on va utiliser: <code>certreq -attrib "CertificateTemplate:WebServer"</code>, ensuite il est demander de choisir le fichier, ensuite il sera demande un nom de fichier pour le fichier .crt</li></ul></blockquote><h2 id=les-commandes-utiles-sous-openssl>Les commandes utiles sous openssl</h2><p>Convertir un certificat et sa clé en pfx:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+</span></span></code></pre></div><h2 id=liens>Liens</h2><ul><li><p><a href=https://www.it-connect.fr/comment-convertir-un-certificat-au-format-pfx/>https://www.it-connect.fr/comment-convertir-un-certificat-au-format-pfx/</a></p></li><li><p><a href=https://vxav.fr/2020-02-18-how-to-sign-a-certificate-with-no-template-information-on-a-microsoft-ca/>https://vxav.fr/2020-02-18-how-to-sign-a-certificate-with-no-template-information-on-a-microsoft-ca/</a></p></li><li><p>Créer des clés sur Windows: <a href=https://serverfault.com/questions/849766/creating-private-key-to-certificate>https://serverfault.com/questions/849766/creating-private-key-to-certificate</a></p></li><li><p>Générer un csr depuis Windows: <a href=https://www.tbs-certificats.com/FAQ/fr/windows-csr-mmc.html>https://www.tbs-certificats.com/FAQ/fr/windows-csr-mmc.html</a></p></li><li><p>Demander un certificat au gestionnaire de certificat windows <a href="https://learn.microsoft.com/fr-fr/system-center/scom/obtain-certificate-windows-server-and-operations-manager?view=sc-om-2022&tabs=Enterp%2CEnter">https://learn.microsoft.com/fr-fr/system-center/scom/obtain-certificate-windows-server-and-operations-manager?view=sc-om-2022&amp;tabs=Enterp%2CEnter</a></p></li><li><p>Générer un pfx <a href=https://www.tutos.eu/6345>https://www.tutos.eu/6345</a></p></li><li><p>Générer un certificat autosigné pour IIS <a href=https://www.it-connect.fr/comment-creer-un-certificat-auto-signe-avec-iis/>https://www.it-connect.fr/comment-creer-un-certificat-auto-signe-avec-iis/</a></p></li><li><p>Documentation Microsoft pour générer un certificat autosigné <a href=https://learn.microsoft.com/fr-fr/entra/identity-platform/howto-create-self-signed-certificate>https://learn.microsoft.com/fr-fr/entra/identity-platform/howto-create-self-signed-certificate</a></p></li><li><p>Gestion des certificats avec une authorité openssl <a href=https://www.linuxtricks.fr/wiki/openssl-creation-de-certificats-et-ca-autosignes>https://www.linuxtricks.fr/wiki/openssl-creation-de-certificats-et-ca-autosignes</a></p></li><li><p>Exporter un certificat sur une autorité Windows <a href=https://pbarth.fr/node/447>https://pbarth.fr/node/447</a></p></li><li><p>Générer un csr avec openssl <a href=https://www.it-connect.fr/generer-une-demande-de-certificat-csr-avec-openssl/>https://www.it-connect.fr/generer-une-demande-de-certificat-csr-avec-openssl/</a></p></li><li><p>Mise en place de l&rsquo;ADCS <a href=https://www.it-connect.fr/adcs-creer-une-autorite-de-certification-racine-sous-windows-server/>https://www.it-connect.fr/adcs-creer-une-autorite-de-certification-racine-sous-windows-server/</a></p></li><li><p><a href=https://pbarth.fr/node/429>https://pbarth.fr/node/429</a></p></li></ul></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

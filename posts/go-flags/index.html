@@ -3,7 +3,35 @@
 Les arguments créeront l&rsquo;argument -h ou &ndash;help.
 Pour les arguments de type bool, il faut mettre par défaut la valeur false, sinon l&rsquo;argument sera toujours à true.
 Voici un exemple de base, chaque argument est envoyé dans un pointeur vers l&rsquo;argument:
-package main import ( "flag" "log" ) func main() { // crée les variables qui contiendront les arguments // attention: chaque paramètre est précédé d&#39;un - boolArg := flag.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+package main
+
+import (
+	"flag"
+	"log"
+)
+
+func main() {
+	// crée les variables qui contiendront les arguments
+	// attention: chaque paramètre est précédé d&#39;un -
+	boolArg := flag.Bool("b", false, "Argument de type booléen")
+	stringArg := flag.String("s", "", "Argument de type chaine de caractères")
+	intArg := flag.Int("i", 0, "Argument de type entier signé")
+	uintArg := flag.Uint("u", 0, "Argument de type entier non signé")
+	floatArg := flag.Float64("f", 0.0, "Argument de type nombre décimal")
+
+	// parse les arguments saisis
+	flag.Parse()
+
+	//flag.PrintDefaults() // permet d&#39;afficher le message d&#39;aide, équivaut à ./programme --help ou ./programme -h
+
+	log.Println("Nombre d&#39;arguments: ", len(flag.Args()))
+	log.Println("boolArg value: ", *boolArg)
+	log.Println("stringArg value: ", *stringArg)
+	log.Println("intArg value: ", *intArg)
+	log.Println("uintArg value: ", *uintArg)
+	log.Println("floatArg value: ", *floatArg)
+}
+Il existe un autre moyen qui permet cette fois de récupérer directement les arguments dans des variables:'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto

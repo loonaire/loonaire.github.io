@@ -1,7 +1,38 @@
 <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Golang: Voir la mémoire utilisée par le programme - Loonaire Blog</title>
-<meta name=description content='Je cherchais un moyen d&rsquo;afficher en Go la mémoire utilisée par un programme en Go. La solution se trouve dans la librairie standard avec le package runtime.
+<meta name=description content='Je cherchais un moyen d&rsquo;afficher en Go la mémoire utilisée par un programme en Go.
+La solution se trouve dans la librairie standard avec le package runtime.
 Voici un exemple de code (l&rsquo;exemple parle de lui même):
-package main import ( "log" "runtime" "time" ) func main() { var m runtime.MemStats time.Sleep(2 * time.Second) log.Println("# goroutines: ", runtime.NumGoroutine()) runtime.ReadMemStats(&amp;m) log.Println("Memory Acquired: ", m.Sys) log.Println("Memory Acquired (MB) :", float64(m.Sys)/1000000) log.Println("Memory Used : ", m.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+package main
+
+import (
+	"log"
+	"runtime"
+	"time"
+)
+
+func main() {
+
+	var m runtime.MemStats
+	time.Sleep(2 * time.Second)
+	log.Println("# goroutines: ", runtime.NumGoroutine())
+	runtime.ReadMemStats(&amp;m)
+	log.Println("Memory Acquired: ", m.Sys)
+	log.Println("Memory Acquired (MB) :", float64(m.Sys)/1000000)
+	log.Println("Memory Used    : ", m.Alloc)
+	log.Println("Memory Used  (MB)  : ", float64(m.Alloc)/1000000)
+    log.Println("TotalAlloc :", m.TotalAlloc)
+    log.Println("TotalAlloc (MB):", float64(m.TotalAlloc)/1000000)
+	log.Println("# malloc       : ", m.Mallocs)
+	log.Println("# free         : ", m.Frees)
+	log.Println("GC enabled     : ", m.EnableGC)
+	log.Println("# GC           : ", m.NumGC)
+	log.Println("Last GC time   : ", m.LastGC)
+	log.Println("Next GC        : ", m.NextGC)
+	//runtime.GC() // retirer le commentaire pour forcer un passage du garbage collector
+    // Si vous souhaite executer ce code en boucle, mettez une boucle for{} enrre les println après le ReadMemStats(m)
+
+}
+'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto

@@ -1,6 +1,40 @@
 <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Commandes utiles pour openssl - Loonaire Blog</title>
-<meta name=description content="Commandes OpenSSL pour les conversions Issues du lien suivant: https://www.httpcs.com/fr/convertisseur-ssl
-Conversion PEM PEM en DER openssl x509 -outform der -in certificate.pem -out certificate.der PEM en P7B openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer PEM en PFX openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt Conversion DER DER(.crt .cer .der) en PEM openssl x509 -inform der -in certificate.cer -out certificate.pem DER en CER openssl x509 -inform der -in certificat-ssl."><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+<meta name=description content="Commandes OpenSSL pour les conversions
+Issues du lien suivant: https://www.httpcs.com/fr/convertisseur-ssl
+Conversion PEM
+PEM en DER
+openssl x509 -outform der -in certificate.pem -out certificate.der
+PEM en P7B
+openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
+PEM en PFX
+openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
+Conversion DER
+DER(.crt .cer .der) en PEM
+openssl x509 -inform der -in certificate.cer -out certificate.pem
+DER en CER
+openssl x509 -inform der -in certificat-ssl.der -out certificat-ssl.cer
+Conversion P7B
+P7B en PEM
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+P7B en PFX
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
+P7B en CER
+openssl pkcs7 -print_certs -in certificat-ssl.p7b -out certificat-ssl.cer
+Conversion PFX
+PFX en PEM
+openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
+Conversion CER
+CER en P7B
+openssl crl2pkcs7 -nocrl -certfile certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -out certificat-ssl.p7b
+CER en PFX
+openssl pkcs12 -in certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -inkey cle-privee.key -export -out certificat-ssl.pfx
+CER en DER
+openssl x509 -in certificat-ssl.cer -outform der -out certificat-ssl.der
+Autres conversions
+Convertir un certificat et sa clé en pfx:
+openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto

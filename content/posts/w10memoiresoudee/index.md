@@ -1,12 +1,11 @@
 ---
-title: "Déployer Windows 10 Sur une Surface Go 4"
+title: "Déployer Windows 10 sur des appareils à mémoire soudée"
 date: 2024-01-27T17:45:58+01:00
 draft: false
 comment: false
 ---
 
-Il y a peu j'ai du déployer Windows 10 sur des Surface Go 4, de manière générale Windows 10 sur les Surface Go 4 c'est compliqué, et au dela des Surface Go 4, cet article s'étend aux appareils qui utilisent la mémoire UFS.
-s
+Voici un petit rapport du déploiement de Windows 10 sur des appareils à mémoire UFS
 
 ## Le fonctionnement du MDT
 
@@ -24,9 +23,9 @@ Une fois en place, il faut générer une image de déploiement dans la console, 
 Enfin, sur le serveur WDS, il faut importer l'image liteTouch de démarrage, ensuite sur les ordinateurs client, il faut démarrer en PXE et l'image de démarrage se chargera automatiquement et utilisera la séquence de tâche présente dans le dossier de partage du MDT. A noter que la modification de la séquence de tâches ainsi que l'ajout de contenu dans le partage du MDT n'implique pas forcément une mise à jour de l'image de démarrage.
 
 
-## Windows sur les Surface Go 4
+## Windows 10 sur les nouveaux appareils à mémoire UFS
 
-Ces tablettes sont prévues pour Windows 11 en priorité mais dans mon cas, Windows 10 et 11 sont dans le même bâteau. Ces Surface utilisent de la mémoire UFS et le pilote de cette mémoire n'est pas fourni avec le package de driver de la tablette, en plus seules les iso de Windows 10 et 11 à partir de la version 22H2 de octobre 2023 intègrent ce driver.
+La mémoire UFS et le pilote de cette mémoire n'est pas fourni avec le package de driver de la tablette, en plus seules les iso de Windows 10 et 11 à partir de la version 22H2 de octobre 2023 intègrent ce driver.
 
 ## Le déploiement
 

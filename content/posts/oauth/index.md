@@ -1,7 +1,7 @@
 ---
 title: "L'Oauth et les outils de gestion de ticket (redmine/glpi)"
 date: 2024-01-22T19:07:27+01:00
-draft: false
+draft: true
 comment: false
 ---
 

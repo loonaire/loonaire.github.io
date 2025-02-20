@@ -72,19 +72,19 @@ _:where(ul){list-style-type:disc}
 _:where(ul,ol,blockquote){pl:1.5em}
 _:where(video,img){max-width:full}
 _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de cette manière:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// squelette d&#39;une fonction qui renvoi une erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>mafonction</span>() <span style=color:#66d9ef>error</span> {
+</span></span><span style=display:flex><span><span style=color:#75715e>// squelette d&#39;une fonction qui renvoi une erreur</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>mafonction</span>() <span style=color:#66d9ef>error</span> {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>condition</span> {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>err</span> <span style=color:#75715e>// retourne l&#39;erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span> <span style=color:#75715e>// retourne nil qui équivaux à aucune erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>err</span> <span style=color:#75715e>// retourne l&#39;erreur</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span> <span style=color:#75715e>// retourne nil qui équivaux à aucune erreur</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// code utilisé pour appeler la fonction:
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>mafonction</span>()
+</span></span><span style=display:flex><span><span style=color:#75715e>// code utilisé pour appeler la fonction:</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>mafonction</span>()
 </span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// si la fonction retourne une erreur, la variable sera différente de nil
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// si la fonction retourne une erreur, la variable sera différente de nil</span>
+</span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Cependant, cette manière de faire à ces limites, par exemple il n&rsquo;est pas possible de créer des erreurs personnalisées avec cette technique. Pour créer des erreurs personnalisées, il faut créer ce qui est appelé des sentienelles. Il s&rsquo;agit de variables qui seront des erreurs et qui contiendront un message d&rsquo;erreur.</p><p>Voici un exemple basique d&rsquo;une sentinelle:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
 </span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;errors&#34;</span>
@@ -108,8 +108,8 @@ _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de
 </span></span><span style=display:flex><span>	}
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Dans l&rsquo;exemple précédent, on crée simplement une nouvelle erreur, la variable est déclarée comme étant une variable globale. Une bonne pratique est de nommer les variables errors de la manière suivante: ErrNomErreur, dans l&rsquo;exemple je l&rsquo;ai appelée errConnexion ce qui permet de rendre la variable seulement accessible au niveau du package.</p><h2 id=tester-une-erreur-retournée>Tester une erreur retournée</h2><p>Pour comparer une erreur retournée, on peux tester simplement avec le code suivant:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>errConnexion</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// il s&#39;agit d&#39;une erreur de connexion, on la traite
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// il s&#39;agit d&#39;une erreur de connexion, on la traite</span>
+</span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Ce type de code peux provoquer des problèmes, en reprendre l&rsquo;exemple de la sentinelle, voici un exemple qui intègre une bonne pratique:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
@@ -132,8 +132,8 @@ _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#e6db74>&#34;name1&#34;</span>, <span style=color:#e6db74>&#34;pwd&#34;</span>)
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>Is</span>(<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>errConnexion</span>) { <span style=color:#75715e>// ici, on test si l&#39;erreur est bien une erreur errConnexion
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>Is</span>(<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>errConnexion</span>) { <span style=color:#75715e>// ici, on test si l&#39;erreur est bien une erreur errConnexion</span>
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
 </span></span><span style=display:flex><span>		}
 </span></span><span style=display:flex><span>		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Erreur inconnue&#34;</span>)
 </span></span><span style=display:flex><span>	}
@@ -155,8 +155,8 @@ _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#a6e22e>fileName</span>)
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 </span></span><span style=display:flex><span>		
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;%s %w&#34;</span>, <span style=color:#a6e22e>fileOpenError</span>, <span style=color:#a6e22e>err</span>) <span style=color:#75715e>// &#34;wrap&#34; les messages d&#39;erreur: on ajoute un message au message initial
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;%s %w&#34;</span>, <span style=color:#a6e22e>fileOpenError</span>, <span style=color:#a6e22e>err</span>) <span style=color:#75715e>// &#34;wrap&#34; les messages d&#39;erreur: on ajoute un message au message initial</span>
+</span></span><span style=display:flex><span>	}
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
@@ -176,16 +176,16 @@ _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de
 </span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>connexionError</span> <span style=color:#66d9ef>struct</span> {
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>message</span>       <span style=color:#66d9ef>string</span>
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>originalError</span> <span style=color:#66d9ef>error</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Error</span>() <span style=color:#66d9ef>string</span> {
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Unwrap</span>() <span style=color:#66d9ef>error</span> {
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalError</span> <span style=color:#75715e>// si il y a une erreur qui proviens d&#39;un package de Go, on peux l&#39;ajouter à notre structure personnalisée
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalError</span> <span style=color:#75715e>// si il y a une erreur qui proviens d&#39;un package de Go, on peux l&#39;ajouter à notre structure personnalisée</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#f92672>*</span><span style=color:#a6e22e>connexionError</span> {
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>
@@ -223,12 +223,12 @@ _:where(a,mark){text-underline-offset:3}"><p>En Go, les erreurs sont gérées de
 </span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>connexionError</span> <span style=color:#66d9ef>struct</span> {
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>message</span>       <span style=color:#66d9ef>string</span>
 </span></span><span style=display:flex><span>	<span style=color:#a6e22e>originalError</span> <span style=color:#66d9ef>error</span>
-</span></span><span style=display:flex><span>	<span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// ici il est possible d&#39;ajouter d&#39;autres champs comme un code d&#39;erreur</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>e</span> <span style=color:#a6e22e>connexionError</span>) <span style=color:#a6e22e>Error</span>() <span style=color:#66d9ef>string</span> {
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>, <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>message</span>) <span style=color:#75715e>// retourne notre message d&#39;erreur</span>
+</span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>accountConnection</span>(<span style=color:#a6e22e>username</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>password</span> <span style=color:#66d9ef>string</span>) <span style=color:#f92672>*</span><span style=color:#a6e22e>connexionError</span> {
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>validUsername</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;name&#34;</span>

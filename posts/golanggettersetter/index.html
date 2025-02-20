@@ -91,25 +91,25 @@ _:where(a,mark){text-underline-offset:3}"><p>Voici un article sur la mise en pla
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de x
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>X</span>() <span style=color:#66d9ef>int</span>{
+</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de x</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>X</span>() <span style=color:#66d9ef>int</span>{
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>x</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Setter de x
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>SetX</span>(<span style=color:#a6e22e>newValue</span> <span style=color:#66d9ef>int</span>){
+</span></span><span style=display:flex><span><span style=color:#75715e>// Setter de x</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>SetX</span>(<span style=color:#a6e22e>newValue</span> <span style=color:#66d9ef>int</span>){
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>x</span> = <span style=color:#a6e22e>newValue</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de y
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de x
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>Y</span>() <span style=color:#66d9ef>int</span>{
+</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de y</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Getter de x</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>Y</span>() <span style=color:#66d9ef>int</span>{
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>y</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Setter de x
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>SetY</span>(<span style=color:#a6e22e>newValue</span> <span style=color:#66d9ef>int</span>){
+</span></span><span style=display:flex><span><span style=color:#75715e>// Setter de x</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>p</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Point</span>) <span style=color:#a6e22e>SetY</span>(<span style=color:#a6e22e>newValue</span> <span style=color:#66d9ef>int</span>){
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>y</span> = <span style=color:#a6e22e>newValue</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Pour l&rsquo;appel cela se fera de cette manière:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=display:flex><span>

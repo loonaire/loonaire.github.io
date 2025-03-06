@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Manipulation de fichier msi avec powershell - Loonaire Blog</title>
+<meta name=description content="Installer un fichier MSI en ligne de commande
+Il faut utiliser la commande:
+msiexec /i 
+Pour une installation silencieuse:
+msiexec /i  /qn
+Récupération d&rsquo;information sur un fichier msi
+Obtenir les variables possibles pour l&rsquo;installation d&rsquo;un programme
+msiexec /package <fichier .msi> /lp! properties.txt
+Cette commande va créer un fichier properties.txt dans lequel seront affichées les propriétés utilisées pour l&rsquo;isntallation du fichier,
+il contient le nom du logiciel, sa version, son éditeur, et d&rsquo;autres éléments utilisés par Windows, il contient également une chose importante: les variables utilisable lors de l&rsquo;installation du logiciel.
+Nous pourrons ainsi personnalisé l&rsquo;installation du logiciel en utilisant une commande ressemblant à la suivante:"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Manipulation de fichier msi avec powershell</div><div class="mt:16 f:fade-60"><time>6 mars 2025</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><h2 id=installer-un-fichier-msi-en-ligne-de-commande>Installer un fichier MSI en ligne de commande</h2><p>Il faut utiliser la commande:
+msiexec /i</p><p>Pour une installation silencieuse:
+msiexec /i /qn</p><h2 id=récupération-dinformation-sur-un-fichier-msi>Récupération d&rsquo;information sur un fichier msi</h2><h3 id=obtenir-les-variables-possibles-pour-linstallation-dun-programme>Obtenir les variables possibles pour l&rsquo;installation d&rsquo;un programme</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>msiexec /package &lt;fichier .msi&gt; /lp! properties.txt
+</span></span></code></pre></div><p>Cette commande va créer un fichier properties.txt dans lequel seront affichées les propriétés utilisées pour l&rsquo;isntallation du fichier,
+il contient le nom du logiciel, sa version, son éditeur, et d&rsquo;autres éléments utilisés par Windows, il contient également une chose importante: les variables utilisable lors de l&rsquo;installation du logiciel.
+Nous pourrons ainsi personnalisé l&rsquo;installation du logiciel en utilisant une commande ressemblant à la suivante:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>msiexec /package &lt;fichier .msi&gt; &lt;nom Propriété&gt;<span style=color:#f92672>=</span>&lt;valeur&gt; 
+</span></span></code></pre></div><p>Les propriétés sont séparées par des valeurs et il n&rsquo;y a pas d&rsquo;espace de chaque coté du signe =</p><h2 id=obtenir-ces-éléments-en-powershell>Obtenir ces éléments en Powershell</h2><p>L&rsquo;élément à l&rsquo;origine de cet article.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#66d9ef>function</span> Get-MSIProperties {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>&lt;#
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    .</span><span style=color:#e6db74>SYNOPSIS</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Function to get properties from MSI file
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    .</span><span style=color:#e6db74>DESCRIPTION</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Function to get every properties of MSI file.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Return simple MSI properties like ProductName, ProductVersion, ProductLanguage
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Custom properties for installation are return in SecureCustomProperties Member 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    .PARAMETER Path
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies the full path to MSI file.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    .</span><span style=color:#e6db74>EXAMPLE</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    PS&gt; Get-MSIProperties file.msi
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    PS&gt; Get-MSIProperties -Path file.msi
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    .</span><span style=color:#e6db74>NOTES</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Inspired from https://winadminnotes.wordpress.com/2010/04/05/accessing-msi-file-as-a-database/
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    #&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span> (
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $true, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>HelpMessage</span> = <span style=color:#e6db74>&#39;Specifies path to MSI file.&#39;</span>)][ValidateScript({
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($_.EndsWith(<span style=color:#e6db74>&#39;.msi&#39;</span>)) {
+</span></span><span style=display:flex><span>            $true
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> (<span style=color:#e6db74>&#34;{0} must be an &#39;*.msi&#39; file.&#34;</span> <span style=color:#f92672>-f</span> $_)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        })]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $Path
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Avoid error with the opening of msi database</span>
+</span></span><span style=display:flex><span>    $Path = (Get-ChildItem -Path <span style=color:#e6db74>&#34;</span>$($Path)<span style=color:#e6db74>&#34;</span>).FullName
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>-not</span> (Test-Path -Path $Path)) {
+</span></span><span style=display:flex><span>        Write-Error <span style=color:#e6db74>&#34;Path is not valid </span>$Path<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $Null
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $MsiPropertiesObject = New-Object PSObject
+</span></span><span style=display:flex><span>    $WindowsInstaller = New-Object -ComObject WindowsInstaller.Installer
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        $Database = $WindowsInstaller.GetType().InvokeMember(<span style=color:#e6db74>&#34;OpenDatabase&#34;</span>, <span style=color:#e6db74>&#34;InvokeMethod&#34;</span>, $Null, $WindowsInstaller, @($Path,<span style=color:#ae81ff>0</span>))
+</span></span><span style=display:flex><span>        $View = $Database.GetType().InvokeMember(<span style=color:#e6db74>&#34;OpenView&#34;</span>, <span style=color:#e6db74>&#34;InvokeMethod&#34;</span>, $Null, $Database, (<span style=color:#e6db74>&#34;SELECT * FROM Property&#34;</span>))
+</span></span><span style=display:flex><span>        $View.GetType().InvokeMember(<span style=color:#e6db74>&#34;Execute&#34;</span>, <span style=color:#e6db74>&#34;InvokeMethod&#34;</span>, $Null, $View, $Null)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>do</span> {
+</span></span><span style=display:flex><span>            $Record = $View.GetType().InvokeMember(<span style=color:#e6db74>&#34;Fetch&#34;</span>, <span style=color:#e6db74>&#34;InvokeMethod&#34;</span>, $Null, $View, $Null)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> ($Null <span style=color:#f92672>-ne</span> $Record) {
+</span></span><span style=display:flex><span>                $PropertyName = $Record.GetType().InvokeMember(<span style=color:#e6db74>&#34;StringData&#34;</span>, <span style=color:#e6db74>&#34;GetProperty&#34;</span>, $Null, $Record, <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>                $PropertyValue = $Record.GetType().InvokeMember(<span style=color:#e6db74>&#34;StringData&#34;</span>, <span style=color:#e6db74>&#34;GetProperty&#34;</span>, $Null, $Record, <span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>                $MsiPropertiesObject | Add-Member -MemberType NoteProperty -Name <span style=color:#e6db74>&#34;</span>$PropertyName<span style=color:#e6db74>&#34;</span> -Value <span style=color:#e6db74>&#34;</span>$PropertyValue<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>while</span> ($Null <span style=color:#f92672>-ne</span> $Record)
+</span></span><span style=display:flex><span>        $View.GetType().InvokeMember(<span style=color:#e6db74>&#39;Close&#39;</span>, <span style=color:#e6db74>&#34;InvokeMethod&#34;</span>, $Null, $View, $Null)  
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> <span style=color:#e6db74>&#34;Error on loading database of MSI file </span>$_<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> $MsiPropertiesObject
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=sources>Sources</h2><p><a href=https://winaero.com/install-a-winget-app-with-custom-arguments-and-command-line-switches/></a><a href=https://stackoverflow.com/questions/72047380/powershell-get-properties-of-msi></a><a href=https://github.com/itpro-tips/PowerShell-Toolbox/blob/master/Get-MSIFileInformation.ps1></a><a href=https://winadminnotes.wordpress.com/2010/04/05/accessing-msi-file-as-a-database/></a><a href=https://powershellexplained.com/2016-10-21-powershell-installing-msi-files/></a></p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

@@ -1,0 +1,160 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Installation de redmine en 2025 sur Debian - Loonaire Blog</title>
+<meta name=description content="Comme je ne trouve aucun guide correct, voici un guide pour l&rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.
+
+Lors de l&rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo
+
+J&rsquo;utilise vi comme éditeur, si vous préférez nano, remplacez vi dans les commandes par nano"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Installation de redmine en 2025 sur Debian</div><div class="mt:16 f:fade-60"><time>6 mars 2025</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>Comme je ne trouve aucun guide correct, voici un guide pour l&rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.</p><blockquote><p>Lors de l&rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo</p></blockquote><blockquote><p>J&rsquo;utilise vi comme éditeur, si vous préférez nano, remplacez vi dans les commandes par nano</p></blockquote><blockquote><p>Mon installation utilisera postgresql pour la base de données, il s&rsquo;agit actuellement de l&rsquo;outil le plus mis en avant par l&rsquo;équipe de redmine, une installation sous mysql ou mariadb est également possible</p></blockquote><blockquote><p>Je laisse également debian installer les versions par défaut de postgresql et ruby, cela permet de simplifier les mises à jour</p></blockquote><blockquote><p>Je part du principe que nous installerons un environnement de production</p></blockquote><h2 id=préparation>Préparation</h2><p>Pour commencer, il faut une machine sous Debian 12 installée et mise à jour. Pour les ressources, 1 processeur et 1Go de ram suffisent.</p><p>Installation des paquets qui vont être nécessaires sous debian:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sudo apt install apache2 postgresql ruby imagemagick ruby-dev make patch libxslt1-dev libxml2-dev libpq-dev libcurl4-openssl-dev zlib1g-dev gcc g++ libyaml-dev libapache2-mod-passenger
+</span></span></code></pre></div><blockquote><p>Pour les autres distributions (redhat) il faut adapter le nom des paquets</p></blockquote><h3 id=préparation-de-la-base-de-données-de-postgresql>Préparation de la base de données de postgresql</h3><p>Se connecter au serveur postgre avec la commande:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sudo su - postgres
+</span></span></code></pre></div><p>Création du compte qui servira à la connexion au serveur et de la base de données</p><blockquote><p>Pensez à changer my_password par un vrai mot de passe</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>createuser redmine 
+</span></span><span style=display:flex><span>createdb redmine -O redmine 
+</span></span><span style=display:flex><span>psql -c <span style=color:#e6db74>&#34;alter user redmine with password &#39;mypassword&#39;&#34;</span> 
+</span></span></code></pre></div><p>Sortir du shell de l&rsquo;utilisateur postgresql avec la commande <code>exit</code></p><h3 id=optionnel-installer-passenger-si-libapache2-mod-passenger-nest-pas-installé>Optionnel: Installer passenger si libapache2-mod-passenger n&rsquo;est pas installé</h3><p>Installation puis configuration de passenger:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gem install passenger
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>passenger-install-apache2-module 
+</span></span></code></pre></div><p>Modifier la configuration d&rsquo;apache pour ajouter le chargement du module passenger:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>vim /etc/apache2/conf-available/passenger.conf 
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>   LoadModule passenger_module /var/lib/gems/3.1.0/gems/passenger-6.0.18/buildout/apache2/mod_passenger.so
+</span></span><span style=display:flex><span>   &lt;IfModule mod_passenger.c&gt;
+</span></span><span style=display:flex><span>     PassengerRoot /var/lib/gems/3.1.0/gems/passenger-6.0.18
+</span></span><span style=display:flex><span>     PassengerDefaultRuby /usr/bin/ruby3.1
+</span></span><span style=display:flex><span>   &lt;/IfModule&gt;
+</span></span></code></pre></div><p>Recharger Apache2:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>a2enconf passenger
+</span></span><span style=display:flex><span>systemctl restart apache2
+</span></span></code></pre></div><h2 id=installation>Installation</h2><blockquote><p>Ici je fait toutes les manipulations en tant que root pour plus de facilité et éviter les sudo, avec sudo il faut utiliser la commande sudo -i</p></blockquote><p>Télécharger la dernière version de redmine (le lien n&rsquo;est à ajout, à vous de le récupérer <a href=https://www.redmine.org/projects/redmine/wiki/Download>ici</a>):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>wget https://www.redmine.org/releases/redmine-6.0.1.tar.gz -O /tmp/redmine.tar.gz
+</span></span></code></pre></div><p>On crée le dossier qui acceuillera redmine</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>mkdir /var/www/redmine
+</span></span></code></pre></div><p>On extrait l&rsquo;archive et on déplace le contenu extrait à l&rsquo;emplacement d&rsquo;installation de redmine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>tar -xzf /tmp/redmine.tar.gz -C /var/www/redmine --strip-components<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h3 id=préparation-des-dossiers-supplémentaires>Préparation des dossiers supplémentaires</h3><p>Pour le coté pratique en cas de mise à jour et le coté sécuritaire, certains dossiers de redmine seront déplacé et ne seront pas utilisés à leurs emplacements initiaux:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>mkdir -p /var/lib/redmine/<span style=color:#f92672>{</span>files,config,tmp<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>mkdir -p /var/log/redmine
+</span></span></code></pre></div><h3 id=paramétrages-des-fichiers-de-configration>Paramétrages des fichiers de configration</h3><blockquote><p>Pour l&rsquo;utilisation d&rsquo;un autre sgdb, les configurations d&rsquo;exemple sont disponibles dans le fichier config/database.yml.example de redmine</p></blockquote><p>Fichier de configuration pour l&rsquo;installation de redmine avec postgresql:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt;EOF &gt; /var/www/redmine/config/database.yml
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>production:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  adapter: postgresql
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  database: redmine
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  host: localhost
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  username: redmine
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  password: &#34;mypassword&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span></code></pre></div><h3 id=création-de-la-configration>Création de la configration</h3><p>On commence par copier le fichier d&rsquo;exemple de la configuration:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cp /var/www/redmine/config/configuration.yml.example /var/www/redmine/config/configuration.yml
+</span></span></code></pre></div><h4 id=mise-en-place-de-lenvoi-de-mails-pour-les-notifications>Mise en place de l&rsquo;envoi de mails pour les notifications</h4><p>Je n&rsquo;utilise pas de serveur de mail pour ce guide donc les informations seront approximative</p><p>Chercher dans le nouveau fichier configration.yml la partie <code>email_delivery</code> et copier la configuration à utiliser sous la ligne <code>email_delivery:</code></p><h4 id=gérer-lemplacement-des-pièces-jointes>Gérer l&rsquo;emplacement des pièces jointes</h4><p>Par sécurité, on n&rsquo;utilisera pas le dossier files par défaut de redmine, les pièces jointes seront stockées dans /var/lib/redmine/files, ceci permet de garder les pièces jointes en cas de montée de version de redmine:
+Ligne 74: attachments_storage_path:
+remplacer par: attachments_storage_path: /var/lib/redmine/files
+cela peux être fait en une commande:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sed -i -e <span style=color:#e6db74>&#34;s|^  attachments_storage_path:</span>$<span style=color:#e6db74>|  attachments_storage_path: /var/lib/redmine/files|&#34;</span> /var/www/redmine/config/configuration.yml
+</span></span></code></pre></div><h4 id=déplacement-des-dossiers-et-création-des-liens-symboliques>Déplacement des dossiers et création des liens symboliques</h4><p>Pour simplifier les mises à jours, on va déplacer/supprimer des dossiers pour ne pas avoir à copier coller à chaque mise à jour:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>rm -r /var/www/redmine/log
+</span></span><span style=display:flex><span>mv /var/www/redmine/config/configuration.yml /var/lib/redmine/config/
+</span></span><span style=display:flex><span>mv /var/www/redmine/config/database.yml /var/lib/redmine/config/
+</span></span><span style=display:flex><span>ln -s /var/lib/redmine/config/configuration.yml /var/www/redmine/config/configuration.yml
+</span></span><span style=display:flex><span>ln -s /var/lib/redmine/config/database.yml /var/www/redmine/config/database.yml
+</span></span><span style=display:flex><span>ln -s /var/log/redmine /var/www/redmine/log 
+</span></span></code></pre></div><h4 id=gestion-des-droits-du-site>Gestion des droits du site</h4><p>Pour terminer avant de passer à l&rsquo;installation, on donne les droits à www-data sur tous les fichiers de redmine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>chown -R www-data:www-data /var/www/redmine/
+</span></span></code></pre></div><p>On change le propriétaire des autres dossiers:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>chown -R www-data:www-data /var/lib/redmine 
+</span></span><span style=display:flex><span>chown -R www-data:www-data /var/log/redmine
+</span></span></code></pre></div><h3 id=installation-de-ruby>Installation de ruby</h3><p>On se place dans notre installation de redmine:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cd /var/www/redmine
+</span></span></code></pre></div><p>On installe gem:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gem install bundler 
+</span></span></code></pre></div><p>On prépare la configuration de bundle puis on télécharge les dépendances:</p><blockquote><p>Si vous n&rsquo;utilisez pas postgresql, retirez le nom du serveur de base de données de la commande et ajoutez postgresql</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle config set --local without <span style=color:#e6db74>&#39;development test mysql sqlite&#39;</span> 
+</span></span></code></pre></div><p>On lance l&rsquo;installation:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle install
+</span></span></code></pre></div><blockquote><p>Ici je fait mon installation en tant que root mais normalement il faut le faire depuis un utilisateur classique</p></blockquote><blockquote><p>Attention: si la commande bundle install échoue, corriger l&rsquo;erreur puis relancer la commande, souvent le problème viens du manque de dépendances</p></blockquote><p>On génère le secret de l&rsquo;installation:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake generate_secret_token
+</span></span></code></pre></div><p>On génère la base de données:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake db:migrate RAILS_ENV<span style=color:#f92672>=</span>production
+</span></span></code></pre></div><p>Créer la configuration apache du site</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt;EOF &gt; /etc/apache2/sites-available/redmine.conf
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;VirtualHost *:80&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    ServerName redmine.tld
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    DocumentRoot /var/www/redmine/public
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;/VirtualHost&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;Directory &#34;/var/www/redmine/public&#34;&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Options FollowSymLinks
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    AllowOverride All
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&lt;/Directory&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span></code></pre></div><p>activer le site:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>a2dissite 000-default.conf
+</span></span><span style=display:flex><span>a2ensite redmine.conf
+</span></span></code></pre></div><p>On donne les droits à www-data sur le dossier:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>chown -R www-data:www-data /var/www/redmine 
+</span></span></code></pre></div><p>Redémarrer le serveur apache:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>systemctl reload apache2
+</span></span></code></pre></div><p>On arrive sur la page d&rsquo;accueil, les identifiants pour la connexion sont admin / admin</p><h2 id=exploitation>Exploitation</h2><p>Redmine est installé mais il reste quelques étapes utiles pour éviter les problèmes futur</p><h3 id=logrotate>Logrotate</h3><p>crée le fichier logrotate pour redmine:</p><blockquote><p>Note: Redmine log beaucoup, ici je met logrotates à weekly mais il peux être passé à daily</p></blockquote><blockquote><p>La durée de stockage pour les logs doit être d&rsquo;au moins 6mois, ce qui explique le weekly / rotate 26 (+/- 6mois), en daily le rotate serait de 180</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt;EOF &gt; /etc/logrotate.d/redmine
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>/var/log/redmine/*.log {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  weekly
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  dateext
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  dateformat .%Y-%m-%d
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  missingok
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  rotate 26
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  compress
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  delaycompress
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  notifempty
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  copytruncate
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span></code></pre></div><h3 id=mises-à-jour>Mises à jour</h3><p>On commence par arrêter le serveur web et backup l&rsquo;installation actuelle (à lancer en tant que root):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>systemctl stop apache2
+</span></span><span style=display:flex><span>tar -czvf ~/redmine-backup.tar.gz -C /var/www redmine
+</span></span><span style=display:flex><span>mv /var/www/redmine /var/www/redmine-old
+</span></span><span style=display:flex><span>mkdir /var/www/redmine
+</span></span><span style=display:flex><span>wget https://www.redmine.org/releases/redmine-6.0.3.tar.gz -O /tmp/redmine.tar.gz
+</span></span><span style=display:flex><span>tar -xzf /tmp/redmine.tar.gz -C /var/www/redmine --strip-components<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>cp -r /var/www/redmine-old/plugins /var/www/redmine/plugins
+</span></span><span style=display:flex><span>rm -r /var/www/redmine-old
+</span></span></code></pre></div><p>Recréer les liens:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>rm -r /var/www/redmine/log
+</span></span><span style=display:flex><span>ln -s /var/lib/redmine/config/configuration.yml /var/www/redmine/config/configuration.yml
+</span></span><span style=display:flex><span>ln -s /var/lib/redmine/config/database.yml /var/www/redmine/config/database.yml
+</span></span><span style=display:flex><span>ln -s /var/log/redmine /var/www/redmine/log
+</span></span></code></pre></div><p>On donne les bon droits:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>chown -R www-data:www-data /var/www/redmine
+</span></span></code></pre></div><p>On se place dans notre installation:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cd /var/www/redmine
+</span></span></code></pre></div><p>Configuration de Bundle:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle config set --local without <span style=color:#e6db74>&#39;development test mysql sqlite&#39;</span> 
+</span></span><span style=display:flex><span>bundle install
+</span></span></code></pre></div><p>Regénération du secret:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake generate_secret_token
+</span></span></code></pre></div><p>Migration de la base de données:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake db:migrate RAILS_ENV<span style=color:#f92672>=</span>production 
+</span></span></code></pre></div><p>Si des plugins sont installés:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake redmine:plugins:migrate RAILS_ENV<span style=color:#f92672>=</span>production
+</span></span></code></pre></div><p>Nettoyage du cache:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bundle exec rake tmp:cache:clear RAILS_ENV<span style=color:#f92672>=</span>production
+</span></span></code></pre></div><p>Relancer le serveur apache:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>systemctl start apache2
+</span></span></code></pre></div><h2 id=sources>Sources</h2><ul><li><a href="https://www.server-world.info/en/note?os=Debian_12&amp;p=redmine">Guide d&rsquo;installation</a></li><li><a href=https://reintech.io/blog/installing-configuring-redmine-debian-12>Installer redmine avec mysql</a></li><li><a href=https://www.redmine.org/projects/redmine/wiki/RedmineInstall>Guide officiel</a></li><li><a href=https://wiki.debian.org/Redmine>Guide d&rsquo;installation du wiki debian (paquets officiel debian)</a></li></ul></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

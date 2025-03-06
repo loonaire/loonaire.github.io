@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil on Loonaire Blog</title><link>https://loonaire.github.io/</link><description>Recent content in Accueil on Loonaire Blog</description><generator>Hugo</generator><language>fr</language><lastBuildDate>Wed, 19 Feb 2025 21:44:26 +0100</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Utiliser un arduino en tant qu'adaptateur serie-usb</title><link>https://loonaire.github.io/posts/arduinoserial/</link><pubDate>Wed, 19 Feb 2025 21:44:26 +0100</pubDate><guid>https://loonaire.github.io/posts/arduinoserial/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil on Loonaire Blog</title><link>https://loonaire.github.io/</link><description>Recent content in Accueil on Loonaire Blog</description><generator>Hugo</generator><language>fr</language><lastBuildDate>Thu, 06 Mar 2025 10:59:55 +0100</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Optimiser l'installation de Windows 10 (et 11?)</title><link>https://loonaire.github.io/posts/optiwindowsinstall/</link><pubDate>Thu, 06 Mar 2025 10:59:55 +0100</pubDate><guid>https://loonaire.github.io/posts/optiwindowsinstall/</guid><description>&lt;p>Quelques éléments à faire pour l&amp;rsquo;optimisation de windows, l&amp;rsquo;objectif n&amp;rsquo;est pas d&amp;rsquo;avoir quelque chose de super optimiser mais d&amp;rsquo;avoir quelques optimisation pour la durée de vie des composants et la réactivité du système:&lt;/p>
+&lt;h2 id="désactiver-le-mode-veille-dans-une-console-en-mode-admin">Désactiver le mode veille (dans une console en mode admin):&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>powercfg /hibernate off 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour les pc portables de 2020-2023, diminuer la fréquence du processeur pour diminuer la température du cpu:&lt;/p>
+&lt;ul>
+&lt;li>Dans options d&amp;rsquo;alimentation -&amp;gt; Modifier les paramètres du mode d&amp;rsquo;alimention -&amp;gt; Modifier les paramètres d&amp;rsquo;alimentations avancés&lt;/li>
+&lt;li>Passer la fréquence maximal à 3500MHz sur batterie et 4000MHz sur secteur, ces valeurs peuvent être plus faible si l&amp;rsquo;ordinateur continue de trop chauffer.&lt;/li>
+&lt;/ul>
+&lt;h2 id="désactiver-la-recherche-web">Désactiver la recherche web:&lt;/h2>
+&lt;p>Windows 10:&lt;/p></description></item><item><title>Installation d'archlinux avec xfce</title><link>https://loonaire.github.io/posts/installarchxfce/</link><pubDate>Thu, 06 Mar 2025 10:39:35 +0100</pubDate><guid>https://loonaire.github.io/posts/installarchxfce/</guid><description>&lt;blockquote>
+&lt;p>Ce fichier date de 2022 et n&amp;rsquo;a pas été mis à jour depuis, il n&amp;rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
+A l&amp;rsquo;origine cet installation est destinée à l&amp;rsquo;installation sur un ordinateur MSI GP72 (cpu intel, cg nvidia, ssd 128go + hdd 1to)
+Prenez le tel quel si vous souhaitez l&amp;rsquo;utiliser&lt;/p>&lt;/blockquote>
+&lt;p>Démarrer sur l&amp;rsquo;iso, passer le clavier en fr et connecter le wifi&lt;/p></description></item><item><title>Recharger les clés de pacman sur Archlinux</title><link>https://loonaire.github.io/posts/reloadarchkeys/</link><pubDate>Thu, 06 Mar 2025 10:27:11 +0100</pubDate><guid>https://loonaire.github.io/posts/reloadarchkeys/</guid><description>&lt;p>Installer le paquet:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -Sy archlinux-keyring
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Rafraichir et rechercher les mises à jour:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -Syyuu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="sources">Sources&lt;/h2>
+&lt;p>&lt;a href="https://forums.archlinux.fr/viewtopic.php?t=22604">https://forums.archlinux.fr/viewtopic.php?t=22604&lt;/a>&lt;/p></description></item><item><title>Outils utiles</title><link>https://loonaire.github.io/posts/sometools/</link><pubDate>Thu, 06 Mar 2025 10:04:39 +0100</pubDate><guid>https://loonaire.github.io/posts/sometools/</guid><description>&lt;p>Voici une liste d&amp;rsquo;outils qui peuvent être utiles, ces outlis peuvent être variés, ils sont surtout la pour rappel:&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Nom&lt;/th>
+ &lt;th style="text-align: left">Utilité&lt;/th>
+ &lt;th style="text-align: left">Lien&lt;/th>
+ &lt;th style="text-align: left">Commentaire&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">captvty&lt;/td>
+ &lt;td style="text-align: left">Regarder la télé&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://www.captvty.fr/">https://www.captvty.fr/&lt;/a>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">jq&lt;/td>
+ &lt;td style="text-align: left">Manipulation de fichier json&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://jqlang.org/">https://jqlang.org/&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">glhf pour les requêtes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">miller&lt;/td>
+ &lt;td style="text-align: left">Manipulation de json et csv&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://github.com/johnkerl/miller">https://github.com/johnkerl/miller&lt;/a>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">DIE&lt;/td>
+ &lt;td style="text-align: left">Analyse de statique de fichier binaire&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://github.com/horsicq/Detect-It-Easy">https://github.com/horsicq/Detect-It-Easy&lt;/a>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">trippy&lt;/td>
+ &lt;td style="text-align: left">fusionne ping,tracert,&amp;hellip;&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://github.com/fujiapple852/trippy">https://github.com/fujiapple852/trippy&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">Besoin des droits admin sous windows&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">screentogif&lt;/td>
+ &lt;td style="text-align: left">Crée des gifs&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://github.com/NickeManarin/ScreenToGif">https://github.com/NickeManarin/ScreenToGif&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">Windows seulement&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Réparer systemdboot sur Archlinux</title><link>https://loonaire.github.io/posts/systemdbootrepair/</link><pubDate>Thu, 06 Mar 2025 09:59:08 +0100</pubDate><guid>https://loonaire.github.io/posts/systemdbootrepair/</guid><description>&lt;h2 id="prérequis">Prérequis&lt;/h2>
+&lt;p>Démarrer l&amp;rsquo;ordinateur avec un iso archlinux&lt;/p>
+&lt;h2 id="préparer-le-chroot">Préparer le chroot:&lt;/h2>
+&lt;ul>
+&lt;li>Obtenir la liste des partitions avec la commande:
+lsblk&lt;/li>
+&lt;/ul>
+&lt;p>Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Monter ces 2 partitions (ici j&amp;rsquo;utilise sda comme disque ou est installé le système):
+mount /dev/sdaX /mnt # system partition
+mount /dev/sdaY /mnt/boot # boot partition&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>On peux maintenant chroot:
+arch-chroot /mnt&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement&lt;/p></description></item><item><title>Manipulation de fichier msi avec powershell</title><link>https://loonaire.github.io/posts/msifile/</link><pubDate>Thu, 06 Mar 2025 09:57:07 +0100</pubDate><guid>https://loonaire.github.io/posts/msifile/</guid><description>&lt;h2 id="installer-un-fichier-msi-en-ligne-de-commande">Installer un fichier MSI en ligne de commande&lt;/h2>
+&lt;p>Il faut utiliser la commande:
+msiexec /i &lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>Pour une installation silencieuse:
+msiexec /i &lt;!-- raw HTML omitted --> /qn&lt;/p>
+&lt;h2 id="récupération-dinformation-sur-un-fichier-msi">Récupération d&amp;rsquo;information sur un fichier msi&lt;/h2>
+&lt;h3 id="obtenir-les-variables-possibles-pour-linstallation-dun-programme">Obtenir les variables possibles pour l&amp;rsquo;installation d&amp;rsquo;un programme&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>msiexec /package &amp;lt;fichier .msi&amp;gt; /lp! properties.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande va créer un fichier properties.txt dans lequel seront affichées les propriétés utilisées pour l&amp;rsquo;isntallation du fichier,
+il contient le nom du logiciel, sa version, son éditeur, et d&amp;rsquo;autres éléments utilisés par Windows, il contient également une chose importante: les variables utilisable lors de l&amp;rsquo;installation du logiciel.
+Nous pourrons ainsi personnalisé l&amp;rsquo;installation du logiciel en utilisant une commande ressemblant à la suivante:&lt;/p></description></item><item><title>Miller: Un outil pour gérer des csv et des json</title><link>https://loonaire.github.io/posts/miller/</link><pubDate>Thu, 06 Mar 2025 09:55:59 +0100</pubDate><guid>https://loonaire.github.io/posts/miller/</guid><description>&lt;p>Lien officiel: &lt;a href="https://github.com/johnkerl/miller">https://github.com/johnkerl/miller&lt;/a>&lt;/p>
+&lt;h2 id="afficher-un-fichier-json">Afficher un fichier json&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mlr --from &amp;lt;nom du fichier.json&amp;gt; cat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afficher-à-laide-dun-tri">Afficher à l&amp;rsquo;aide d&amp;rsquo;un tri&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mlr --from &amp;lt;nom du fichier.json&amp;gt; sort -f &amp;lt;nom de la colonne à trier&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="formatter-laffichage-de-sortie">Formatter l&amp;rsquo;affichage de sortie&lt;/h2>
+&lt;p>Surement l&amp;rsquo;option la plus utile, on peux afficher du json en csv par exemple:&lt;/p>
+&lt;p>Pour le cas du json en csv:&lt;/p>
+&lt;pre tabindex="0">&lt;code>mlr --j2c --from &amp;lt;nom du fichier.json&amp;gt; cat
+&lt;/code>&lt;/pre>&lt;p>La commande mlr help flags permet d&amp;rsquo;afficher un tableau qui regroupe les possibilitées d&amp;rsquo;affichage de sortie.
+Les plus importantes sont:
+&amp;ndash;j2c : json to csv
+&amp;ndash;c2j : csv to json
+&amp;ndash;m2c : markdown to csv
+&amp;ndash;m2j : markdown to json
+&amp;ndash;c2m : csv to markdown
+&amp;ndash;j2m : json to markdown&lt;/p></description></item><item><title>Installation de redmine en 2025 sur Debian</title><link>https://loonaire.github.io/posts/installerredmine/</link><pubDate>Thu, 06 Mar 2025 09:54:28 +0100</pubDate><guid>https://loonaire.github.io/posts/installerredmine/</guid><description>&lt;p>Comme je ne trouve aucun guide correct, voici un guide pour l&amp;rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&amp;rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.&lt;/p>
+&lt;blockquote>
+&lt;p>Lors de l&amp;rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>J&amp;rsquo;utilise vi comme éditeur, si vous préférez nano, remplacez vi dans les commandes par nano&lt;/p></description></item><item><title>Reverse Tenda MW6 for fun</title><link>https://loonaire.github.io/posts/reversetendamw6/</link><pubDate>Thu, 27 Feb 2025 20:37:35 +0100</pubDate><guid>https://loonaire.github.io/posts/reversetendamw6/</guid><description>&lt;blockquote>
+&lt;p>Cet article n&amp;rsquo;est pas terminé, il ne s&amp;rsquo;agit que du début, la suite arrivera plus tard&lt;/p>&lt;/blockquote>
+&lt;p>Ca fait un moment que je souhaitais m&amp;rsquo;initier sérieusement au reverse d&amp;rsquo;un appareil chinois, l&amp;rsquo;objectif est de comprendre ses fonctionnements, vérifier ce qui est remonté aux serveur et aller le plus loin possible pour ce qu&amp;rsquo;on peux faire avec.&lt;/p>
+&lt;h2 id="la-cible">La cible&lt;/h2>
+&lt;p>La cible sera une borne Wifi Tenda MW6, le lien officiel du fabricant est disponible ici: &lt;a href="https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html">https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html&lt;/a>&lt;/p></description></item><item><title>Utiliser un arduino en tant qu'adaptateur serie-usb</title><link>https://loonaire.github.io/posts/arduinoserial/</link><pubDate>Wed, 19 Feb 2025 21:44:26 +0100</pubDate><guid>https://loonaire.github.io/posts/arduinoserial/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
 &lt;p>J&amp;rsquo;avais besoin d&amp;rsquo;un adaptateur serie-USB pour faire du reverse de firmware sur un appareil chinois bas de gamme, plutot qu&amp;rsquo;acheter un adaptateur usb TTL suspicieux sur internet, j&amp;rsquo;ai découvert que l&amp;rsquo;on pouvais le faire avec un arduino UNO R3.&lt;/p>
 &lt;h2 id="passer-larduino-en-convertisseur-usb-ttl">Passer l&amp;rsquo;arduino en convertisseur USB TTL&lt;/h2>
 &lt;p>Pour faire cette manipulation, il faut brancher brancher le pin RESET de l&amp;rsquo;arduino sur un port GND. Le micro controlleur de l&amp;rsquo;arduino sera ensuite bypass et les données TTL reçues sur le port RX seront envoyées à l&amp;rsquo;ordinateur.&lt;/p></description></item><item><title>Powerflasher SOS Logger</title><link>https://loonaire.github.io/posts/soslogger/</link><pubDate>Sun, 06 Oct 2024 20:33:49 +0200</pubDate><guid>https://loonaire.github.io/posts/soslogger/</guid><description>&lt;h2 id="powerflasher-sos-cest-quoi">Powerflasher SOS c&amp;rsquo;est quoi?&lt;/h2>

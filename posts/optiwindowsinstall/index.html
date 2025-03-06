@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Optimiser l'installation de Windows 10 (et 11?) - Loonaire Blog</title>
+<meta name=description content="Quelques éléments à faire pour l&rsquo;optimisation de windows, l&rsquo;objectif n&rsquo;est pas d&rsquo;avoir quelque chose de super optimiser mais d&rsquo;avoir quelques optimisation pour la durée de vie des composants et la réactivité du système:
+Désactiver le mode veille (dans une console en mode admin):
+powercfg /hibernate off 
+Pour les pc portables de 2020-2023, diminuer la fréquence du processeur pour diminuer la température du cpu:
+
+Dans options d&rsquo;alimentation -> Modifier les paramètres du mode d&rsquo;alimention -> Modifier les paramètres d&rsquo;alimentations avancés
+Passer la fréquence maximal à 3500MHz sur batterie et 4000MHz sur secteur, ces valeurs peuvent être plus faible si l&rsquo;ordinateur continue de trop chauffer.
+
+Désactiver la recherche web:
+Windows 10:"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Optimiser l'installation de Windows 10 (et 11?)</div><div class="mt:16 f:fade-60"><time>6 mars 2025</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}"><p>Quelques éléments à faire pour l&rsquo;optimisation de windows, l&rsquo;objectif n&rsquo;est pas d&rsquo;avoir quelque chose de super optimiser mais d&rsquo;avoir quelques optimisation pour la durée de vie des composants et la réactivité du système:</p><h2 id=désactiver-le-mode-veille-dans-une-console-en-mode-admin>Désactiver le mode veille (dans une console en mode admin):</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>powercfg /hibernate off 
+</span></span></code></pre></div><p>Pour les pc portables de 2020-2023, diminuer la fréquence du processeur pour diminuer la température du cpu:</p><ul><li>Dans options d&rsquo;alimentation -> Modifier les paramètres du mode d&rsquo;alimention -> Modifier les paramètres d&rsquo;alimentations avancés</li><li>Passer la fréquence maximal à 3500MHz sur batterie et 4000MHz sur secteur, ces valeurs peuvent être plus faible si l&rsquo;ordinateur continue de trop chauffer.</li></ul><h2 id=désactiver-la-recherche-web>Désactiver la recherche web:</h2><p>Windows 10:</p><p>Dans HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search crée les clés DWORD suivantes:</p><table><thead><tr><th style=text-align:center>Clé</th><th style=text-align:center>Valeur</th></tr></thead><tbody><tr><td style=text-align:center>BingSearchEnabled</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>AllowSearchToUseLocation</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>CortanaConsent</td><td style=text-align:center>0</td></tr></tbody></table><p>Windows 11:
+Dans HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer créer la clé DWORD <code>DisableSearchBoxSuggestions</code> et mettre la valeur à 1</p><h2 id=désactiver-les-applications-en-arrière-plan>Désactiver les applications en arrière plan</h2><p>Dans paramètres -> Applications choisir une application puis dans Options avancées désactiver l&rsquo;activation en arrière plan si elle n&rsquo;est pas utile</p><blockquote><p>Le solitaire qui peux se lancer en arrière plan&mldr; on peux s&rsquo;en passer x)</p></blockquote><p>Par défaut Edge se lance également en arrière plan, il faut aller dans les paramètres de Edge pour le désactiver</p><h2 id=autres-optis>Autres optis</h2><p>Activer la virtualisation pour virtualbox (à copier dans une invite en mode admin):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>bcdedit /set hypervisorlaunchtype off
+</span></span></code></pre></div></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

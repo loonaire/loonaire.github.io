@@ -63,6 +63,12 @@ Prenez le tel quel si vous souhaitez l&amp;rsquo;utiliser&lt;/p>&lt;/blockquote>
  &lt;td style="text-align: left">&lt;a href="https://github.com/NickeManarin/ScreenToGif">https://github.com/NickeManarin/ScreenToGif&lt;/a>&lt;/td>
  &lt;td style="text-align: left">Windows seulement&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">PCAPdroid&lt;/td>
+ &lt;td style="text-align: left">Sniffer réseau Android&lt;/td>
+ &lt;td style="text-align: left">&lt;a href="https://github.com/emanuele-f/PCAPdroid">&lt;/a>&lt;/td>
+ &lt;td style="text-align: left">Créer des fichiers pcap sur android sans root, idéal pour sniffer les appli&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table></description></item><item><title>Réparer systemdboot sur Archlinux</title><link>https://loonaire.github.io/posts/systemdbootrepair/</link><pubDate>Thu, 06 Mar 2025 09:59:08 +0100</pubDate><guid>https://loonaire.github.io/posts/systemdbootrepair/</guid><description>&lt;h2 id="prérequis">Prérequis&lt;/h2>
 &lt;p>Démarrer l&amp;rsquo;ordinateur avec un iso archlinux&lt;/p>
@@ -109,7 +115,7 @@ Les plus importantes sont:
 &amp;ndash;m2c : markdown to csv
 &amp;ndash;m2j : markdown to json
 &amp;ndash;c2m : csv to markdown
-&amp;ndash;j2m : json to markdown&lt;/p></description></item><item><title>Installation de redmine en 2025 sur Debian</title><link>https://loonaire.github.io/posts/installerredmine/</link><pubDate>Thu, 06 Mar 2025 09:54:28 +0100</pubDate><guid>https://loonaire.github.io/posts/installerredmine/</guid><description>&lt;p>Comme je ne trouve aucun guide correct, voici un guide pour l&amp;rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&amp;rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.&lt;/p>
+&amp;ndash;j2m : json to markdown&lt;/p></description></item><item><title>Installation de redmine en 2025 sur Debian</title><link>https://loonaire.github.io/posts/redmineinstall2025/</link><pubDate>Thu, 06 Mar 2025 09:54:28 +0100</pubDate><guid>https://loonaire.github.io/posts/redmineinstall2025/</guid><description>&lt;p>Comme je ne trouve aucun guide correct, voici un guide pour l&amp;rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&amp;rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.&lt;/p>
 &lt;blockquote>
 &lt;p>Lors de l&amp;rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo&lt;/p>&lt;/blockquote>
 &lt;blockquote>

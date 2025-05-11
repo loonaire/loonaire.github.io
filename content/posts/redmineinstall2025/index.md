@@ -33,6 +33,13 @@ sudo apt install apache2 postgresql ruby imagemagick ruby-dev make patch libxslt
 
 > Pour les autres distributions (redhat) il faut adapter le nom des paquets
 
+### Préparation du compte utilisateur
+
+Pour éviter d'utilisateur le compte root, on va créer un compte utilisateur qui servira à gérer l'installation de redmine:
+```sh
+useradd -r -m -d /opt/redmine -s /bin/bash redmine
+usermod -aG redmine www-data
+```
 
 ### Préparation de la base de données de postgresql
 
@@ -48,12 +55,10 @@ Création du compte qui servira à la connexion au serveur et de la base de donn
 createuser redmine 
 createdb redmine -O redmine 
 psql -c "alter user redmine with password 'mypassword'" 
+exit
 ```
 
-Sortir du shell de l'utilisateur postgresql avec la commande ``exit``
-
-
-### Optionnel: Installer passenger si libapache2-mod-passenger n'est pas installé
+### Debian: Installer passenger manuellement si libapache2-mod-passenger n'est pas installé
 
 Installation puis configuration de passenger:
 ```sh
@@ -91,7 +96,7 @@ systemctl restart apache2
 
 Télécharger la dernière version de redmine (le lien n'est à ajout, à vous de le récupérer [ici](https://www.redmine.org/projects/redmine/wiki/Download)):
 ```sh
-wget https://www.redmine.org/releases/redmine-6.0.1.tar.gz -O /tmp/redmine.tar.gz
+wget https://www.redmine.org/releases/redmine-6.0.5.tar.gz -O /tmp/redmine.tar.gz
 ```
 
 On crée le dossier qui acceuillera redmine
@@ -171,16 +176,21 @@ ln -s /var/log/redmine /var/www/redmine/log
 
 Pour terminer avant de passer à l'installation, on donne les droits à www-data sur tous les fichiers de redmine:
 ```sh
-chown -R www-data:www-data /var/www/redmine/
+chown -R redmine:www-data /var/www/redmine/
 ```
 
 On change le propriétaire des autres dossiers:
 ```sh
-chown -R www-data:www-data /var/lib/redmine 
-chown -R www-data:www-data /var/log/redmine
+chown -R redmine:www-data /var/lib/redmine 
+chown -R redmine:www-data /var/log/redmine
 ```
 
 ### Installation de ruby
+
+on se connecte sur l'utilisateur redmine:
+```sh
+su - redmine
+```
 
 On se place dans notre installation de redmine:
 ```sh
@@ -189,7 +199,7 @@ cd /var/www/redmine
 
 On installe gem:
 ```sh
-gem install bundler 
+sudo gem install bundler 
 ```
 
 On prépare la configuration de bundle puis on télécharge les dépendances:
@@ -198,14 +208,13 @@ On prépare la configuration de bundle puis on télécharge les dépendances:
 
 ```sh
 bundle config set --local without 'development test mysql sqlite' 
+bundle config set --local path 'vendor/bundle'
 ```
 
 On lance l'installation:
 ```sh
 bundle install
 ```
-
-> Ici je fait mon installation en tant que root mais normalement il faut le faire depuis un utilisateur classique 
 
 > Attention: si la commande bundle install échoue, corriger l'erreur puis relancer la commande, souvent le problème viens du manque de dépendances
 
@@ -219,12 +228,16 @@ On génère la base de données:
 bundle exec rake db:migrate RAILS_ENV=production
 ```
 
-Créer la configuration apache du site
+quitter la session de redmine
+```sh
+exit
+```
+En mode root, créer la configuration apache du site:
 
 ```sh
 cat <<EOF > /etc/apache2/sites-available/redmine.conf
 <VirtualHost *:80>
-    ServerName redmine.tld
+    #ServerName redmine.tld
     DocumentRoot /var/www/redmine/public
 </VirtualHost>
 
@@ -241,14 +254,9 @@ a2dissite 000-default.conf
 a2ensite redmine.conf
 ```
 
-On donne les droits à www-data sur le dossier:
-```sh
-chown -R www-data:www-data /var/www/redmine 
-```
-
 Redémarrer le serveur apache:
 ```sh
-systemctl reload apache2
+systemctl restart apache2
 ```
 
 
@@ -305,7 +313,7 @@ ln -s /var/log/redmine /var/www/redmine/log
 
 On donne les bon droits:
 ```sh
-chown -R www-data:www-data /var/www/redmine
+chown -R redmine:www-data /var/www/redmine
 ```
 
 
@@ -318,6 +326,7 @@ cd /var/www/redmine
 Configuration de Bundle:
 ```sh
 bundle config set --local without 'development test mysql sqlite' 
+bundle config set --local path 'vendor/bundle'
 bundle install
 ```
 
@@ -352,3 +361,4 @@ systemctl start apache2
 - [Installer redmine avec mysql](https://reintech.io/blog/installing-configuring-redmine-debian-12)
 - [Guide officiel](https://www.redmine.org/projects/redmine/wiki/RedmineInstall)
 - [Guide d'installation du wiki debian (paquets officiel debian)](https://wiki.debian.org/Redmine)
+- [Installation de redmine avec mariadb sur ubuntu](https://henristudio.medium.com/how-to-install-redmine-with-mysql-on-ubuntu-24-04-8bbfd858ff69)

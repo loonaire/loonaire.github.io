@@ -349,18 +349,195 @@ La prochaine étape va être le dump du firmware sans déssouder la puce.
 
 ## Dump du firmware
 
+Nous voici à la partie intéressante: faire une sauvegarde complète de la mémoire flash de l'appareil SANS déssouder la puce. 
+
+### Le principe du dump depuis le bootloader
+
+Pour récupérer les informations de la mémoire, nous aurons besoin de l'appareil démarré en mode bootloader et connecté via le port UART à notre ordinateur avec picocom. A partir de cette étape 2 commandes seront utiles:
+- FLR qui permet de charger une zone mémoire de la flash dans la ram
+- DW qui permet d'envoyer via le port UART les informations de la ram
+
+Utilisation de DW: ``dw <adresse de la mémoire à lire> <nombre d'élément à lire>``
+
+Voici un exemple de ce qui s'affiche sur le terminal:
+```sh
+<RealTek>DW 80000000 4
+80000000: 00000000 00000000 00000000 00000000
+<RealTek>
+```
+- Nous pouvons afficher les éléments sur plusieurs lignes (il faut obligatoirement indiquer un multiple de 4)
+- Les octets sont par bloc de 4
+- La première valeur est l'adresse, nous pouvons la retirer
+- Les éléments sont splitté avec une tabulation
 
 
+Utilisation de FLR: ``flr <adresse de la ram où sera stockée la mémoire> <adrese de la flash à lire> <nombre d'éléments à lire (multiple de 4)>``
+
+```sh
+<RealTek>FLR 80000000 4000 4
+Flash read from 40000 to 80000000 with 00000004 bytes         ?
+(Y)es , (N)o ? --> y
+Flash Read Successed!
+<RealTek>
+```
+- On charge les éléments dans la RAM, la commande nous demande de confirmer l'action.
+
+Algorithme général:
+```
+Pour i de 0x0 à 0x000000800000 faire:
+    Envoyer la commande: FLR 80000000 i 4
+    Envoyer la commande: y
+    Envoyer la commande: DW 80000000 4
+
+    Ajouter au fichier de dump les valeurs de la chaine reçue suite à la commande DW en faisant un split \t et en retirant le premier élément, chaque élément du tableau correspond aux valeurs des octets donc la string doit être convertie en hex (ex: str(0A) doit donner 0x0A)
+Fin pour
+```
+
+### Le dump
+
+Pour le script, je réutilise le script dump_flash.py présent sur ce lien: [https://github.com/banksy-git/lidl-gateway-freedom/tree/master/scripts](https://github.com/banksy-git/lidl-gateway-freedom/tree/master/scripts)
+
+Comme je l'ai modfiié, voici ma version:
+```python
+# Dump out flash from RTL bootloader... very slowly!
+#====================================================
+# Author: Paul Banks [https://paulbanks.org/]
+#
+
+import serial
+import struct
+import argparse
+
+def doit(s, fOut, start_addr=0, end_addr=8*1024*1024):
+    # Get a couple of prompts for sanity
+    s.write(b"\n")
+    s.read_until(b"<RealTek>")
+    s.write(b"\n")
+    s.read_until(b"<RealTek>")
+    print("Starting...")
+    step = 0x100
+    assert(step%4==0)
+    for flash_addr in range(start_addr, end_addr, step):
+        s.write(b"FLR 80000000 %X %d\n" % (flash_addr, step))
+        print(s.read_until(b"--> "))
+        s.write(b"y\r")
+        print(s.read_until(b"<RealTek>"))
+        s.write(b"DW 80000000 %d\n" % (step/4))
+        data = s.read_until(b"<RealTek>").decode("utf-8").split("\n\r")
+        for l in data:
+            parts = l.split("\t")
+            for p in parts[1:]:
+                fOut.write(struct.pack(">I", int(p, 16)))
+
+if __name__=="__main__":
+
+    parser = argparse.ArgumentParser("RTL Flash Dumper")
+    parser.add_argument("--serial-port", type=str,
+                        help="Serial port device - e.g. /dev/ttyUSB0")
+    parser.add_argument("--output-file", type=str,
+                        help="Path to file to save dump into")
+    parser.add_argument("--start-addr", type=str, help="Start address",
+                        default="0x0")
+    parser.add_argument("--end-addr", type=str, help="End address",
+                        default=hex(8*1024*1024))
+
+    args = parser.parse_args()
+
+    s = serial.Serial(args.serial_port, 115200)
+    start_addr = int(args.start_addr, 0)
+    end_addr = int(args.end_addr, 0)
+
+    with open(args.output_file,"wb") as fOut:
+        doit(s, fOut, start_addr, end_addr)
+
+```
+
+Maintenant on devrait avoir notre fichier dump... Ou pas!  
+J'ai eu beucoup de difficulté à réussir mon dump, avec le flipper zero il y avais un plantage à un moment (toujours le même, avec des variations), j'ai finalement réussi à obtenir quelque chose avec un arduino en mode adaptateur série.
 
 
+### L'analyse du dump
+
+Bon maintenant on a quelque chose, on peux regarder avec binwalk ce que contient notre firmware:
+```sh
+$ binwalk dump.bin
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+35096         0x8918          CRC32 polynomial table, big endian
+132130        0x20422         Motorola S-Record; binary data in text format, record type: data (24-bit)
+6085013       0x5CD995        LZMA compressed data, properties: 0x7E, dictionary size: 0 bytes, uncompressed size: 14336 bytes
+8260255       0x7E0A9F        AU audio data, 1886596712 sample rate, 779118858 channels
+8260559       0x7E0BCF        AU audio data, 1883072366 sample rate, 1635125870 channels
+8270060       0x7E30EC        AU audio data, 1886663276 sample rate, 1936614446 channels
+8270104       0x7E3118        AU audio data, 779104880 sample rate, 1768716147 channels
+8325791       0x7F0A9F        AU audio data, 1886596712 sample rate, 779118858 channels
+8326095       0x7F0BCF        AU audio data, 1883072366 sample rate, 1635125870 channels
+8335596       0x7F30EC        AU audio data, 1886663276 sample rate, 1936614446 channels
+8335640       0x7F3118        AU audio data, 779104880 sample rate, 1768716147 channels
+```
+
+Hum... ce n'est pas très parlant, nous devrions avoir un fichier squashfs ou quelque chose qui nous indique qu'il y a un bootloader ainsi que des fichiers de configuration et un OS.
+
+On regarde le résultat du fichier binaire:
+
+![alt text](images/hexdumpbin.png)
+
+L'adresse 007E0000 est valide, nous retrouvons correctement ce qu'il y avait d'indiqué au démarrage (nous tombons sur la partition "CFM"), les autres adresses sont également valides.  
+En regardant un peu, on tombe sur des valeurs cohérentes mais dans le mauvais ordre, je pense à un simple problème d'ordre little/big endian... En recherchant un peu sur google, on trouve une solution avec la commande xxd (l'astuce viens de [ce lien](https://web.archive.org/web/20190220222218/https://llllloooooo.blogspot.com/2017/12/convert-binary-data-files-between-big.html)):
+```sh
+xxd -e -g4 dump.bin | xxd -r > dumpv2.bin
+```
+
+On regarde de nouveau le fichier avec binwalk:
+```sh
+$ binwalk truedump.bin
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+1709          0x6AD           JBOOT STAG header, image id: 2, timestamp 0x146200, image size: 1744830464 bytes, image JBOOT checksum: 0xA200, header JBOOT checksum: 0x208F
+35096         0x8918          CRC32 polynomial table, little endian
+36192         0x8D60          gzip compressed data, maximum compression, from Unix, last modified: 2020-12-29 06:24:56
+206872        0x32818         LZMA compressed data, properties: 0x5D, dictionary size: 8388608 bytes, uncompressed size: 7462588 bytes
+3255942       0x31AE86        JBOOT STAG header, image id: 7, timestamp 0xE679B8FA, image size: 2658054926 bytes, image JBOOT checksum: 0x63D8, header JBOOT checksum: 0x3F48
+```
+
+On regarde le résultat avec un éditeur hexa:
+
+![alt text](images/hexdumpbin2.png)
+
+C'est... mieux?  
+Désormais le texte de la configuration est lisible, on peux voir les chaines de caractères dans le bon ordre, nous sommes sur la bonne voie mais il manque une chose... comment est compressé le système de fichier?  
+
+### Casser la compression de la partition RootFS
+
+Nous avons donc une image propre mais le système de fichier n'est pas détecté par binwalk ce qui veux dire qu'il utilise un système de compression propriétaire ou modifier et inconnu par binwalk. Il faut donc regarder ce qu'on obtiens sur un éditeur hexa et comprendre.  
+On commence donc par regarder les données à la position 0x244012, il s'agit de la position de départ du RootFS qui contient les fichiers du système d'exploitation:  
+
+On utilise la commande: 
+```sh
+hexdump -s 0x244012 -n 128 truedump.bin -C
+```
+On se retrouve avec ces valeurs:
+```
+00244012  6e 69 63 65 80 01 00 00  00 38 9d 80 00 00 02 00  |nice.....8......|
+00244022  36 00 00 00 04 00 11 00  e0 00 01 00 04 00 00 00  |6...............|
+00244032  5b 14 de 08 00 00 00 00  8c 99 38 00 00 00 00 00  |[.........8.....|
+00244042  84 99 38 00 00 00 00 00  ff ff ff ff ff ff ff ff  |..8.............|
+00244052  14 7a 38 00 00 00 00 00  5c 86 38 00 00 00 00 00  |.z8.....\.8.....|
+00244062  18 96 38 00 00 00 00 00  76 99 38 00 00 00 00 00  |..8.....v.8.....|
+00244072  54 65 6e 64 61 00 00 01  fd 69 95 c6 03 c0 bb 46  |Tenda....i.....F|
+00244082  e0 a2 02 21 01 0a 00 00  42 e5 34 20 e0 91 5f 23  |...!....B.4 .._#|
+```
+
+2 choses sont intéressantes:
+- le début est nice (en hexa:6e 69 63 65)
+- A un moment il y a le mot "Tenda"
+- le caractère 8 se répète, il est beaucoup d'octets à 0 et à ff
 
 
+#### La méthode naive
 
-
-
-
-
-
+La première méthode va être de confirmer ce chiffrement en trouvant un appareil similaire dont le firmware serait disponible et voir si quelqu'un à des infos ou a fait quelque chose.
 
 ## Liens qui m'ont été utiles
 
@@ -384,3 +561,6 @@ La prochaine étape va être le dump du firmware sans déssouder la puce.
 - [Bootloader realtek](https://gist.github.com/vitali2y/79ca747be49f146971b5a7fa89a0a637?permalink_comment_id=3323240)
 - [Script pour faire dump le firmware d'un SoC rtl8196/rtl8197](https://github.com/banksy-git/lidl-gateway-freedom/tree/master/scripts)
 - [Reverse d'un routeur Tenda](https://byebyesky.github.io/blog/hacking/embedded/2019/05/28/hacking-a-router-3.html)
+- [xxd pour passer de big à little endian](https://web.archive.org/web/20190220222218/https://llllloooooo.blogspot.com/2017/12/convert-binary-data-files-between-big.html)
+- [Tuto vidéo sur le hack d'un routeur](https://www.youtube.com/watch?v=I1w_HQ7soSE)
+- [Reverse routeur Tenda n301](https://github.com/bread-b4nk/reversing-tenda-n301/blob/main/README.md)

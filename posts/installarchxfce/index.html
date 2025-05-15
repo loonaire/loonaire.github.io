@@ -3,7 +3,7 @@
 Ce fichier date de 2022 et n&rsquo;a pas été mis à jour depuis, il n&rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
 A l&rsquo;origine cet installation est destinée à l&rsquo;installation sur un ordinateur MSI GP72 (cpu intel, cg nvidia, ssd 128go + hdd 1to)
 Prenez le tel quel si vous souhaitez l&rsquo;utiliser
-Démarrer sur l&rsquo;iso, passer le clavier en fr et connecter le wifi"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+Démarrer sur l&rsquo;iso, passer le clavier en fr et connecter le wifi"><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script><style>:root{--font-sans:"Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}</style></head><body class="bg:fade-84@dark font:fade-16@dark font:sans"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto
@@ -60,7 +60,8 @@ _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
 _:where(ul){list-style-type:disc}
 _:where(ul,ol,blockquote){pl:1.5em}
 _:where(video,img){max-width:full}
-_:where(a,mark){text-underline-offset:3}"><blockquote><p>Ce fichier date de 2022 et n&rsquo;a pas été mis à jour depuis, il n&rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
+_:where(a,mark){text-underline-offset:3}
+_:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}"><blockquote><p>Ce fichier date de 2022 et n&rsquo;a pas été mis à jour depuis, il n&rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
 A l&rsquo;origine cet installation est destinée à l&rsquo;installation sur un ordinateur MSI GP72 (cpu intel, cg nvidia, ssd 128go + hdd 1to)
 Prenez le tel quel si vous souhaitez l&rsquo;utiliser</p></blockquote><p>Démarrer sur l&rsquo;iso, passer le clavier en fr et connecter le wifi</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>loadkeys fr
 </span></span><span style=display:flex><span>iwctl --passphrase<span style=color:#f92672>=</span>PASSPHRASE station DEVICE connect SSID <span style=color:#75715e># Ne pas utiliser --passphrase si ca ne fonctionne pas, il sera demandé ensuite</span>

@@ -19,7 +19,7 @@ func main() {
 }
 Explications:
 L&rsquo;import _ "net/http/pprof"  force l&rsquo;import du package pprof http, ensuite il faut lancer un serveur http dans une goroutine pour pouvoir récupérer les informations de la mémoire en temps réel.
-Pour accéder aux données en temps réel, il faut se connecter avec le lien: http://localhost:6060/debug/pprof, le port 6060 est celui par défaut.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script></head><body class="bg:fade-84@dark font:fade-16@dark"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+Pour accéder aux données en temps réel, il faut se connecter avec le lien: http://localhost:6060/debug/pprof, le port 6060 est celui par défaut.'><meta name=author content><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script><style>:root{--font-sans:"Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}</style></head><body class="bg:fade-84@dark font:fade-16@dark font:sans"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
 w:full
 max-w:1200
 mx:auto
@@ -76,7 +76,8 @@ _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
 _:where(ul){list-style-type:disc}
 _:where(ul,ol,blockquote){pl:1.5em}
 _:where(video,img){max-width:full}
-_:where(a,mark){text-underline-offset:3}"><p>Un petit article mémo pour le profilage en Go.</p><h2 id=profilage-de-base>Profilage de base</h2><p>Dans mon cas, je développe un serveur tcp donc le logiciel reste ouvert indéfiniment, cette solution sera également pour les serveurs http et les autres développement utilisant des boucles infinies.</p><p>Voici le code de base:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+_:where(a,mark){text-underline-offset:3}
+_:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}"><p>Un petit article mémo pour le profilage en Go.</p><h2 id=profilage-de-base>Profilage de base</h2><p>Dans mon cas, je développe un serveur tcp donc le logiciel reste ouvert indéfiniment, cette solution sera également pour les serveurs http et les autres développement utilisant des boucles infinies.</p><p>Voici le code de base:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;fmt&#34;</span>

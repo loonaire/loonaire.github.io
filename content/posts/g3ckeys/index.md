@@ -273,11 +273,8 @@ func main() {
 	fmt.Println("Name:", inputName)
 	fmt.Println("Registration Code:", buildRegistrationCode(inputName))
 }
-
-
 ```
-
 
 ## Le mot de la fin
 
-Après plus de 5ans à y réflechir cet article est enfin rédigé! Ca fait du bien de se replonger dans tout ca. Merci à la personne qui m'a motivé à le faire, L.  
+Après plus de 5ans à y réflechir cet article est enfin rédigé! Je n'ai pas beaucoup l'occasion de faire ce genre d'exercice mais c'est très plaisant de retoucher à ca. Merci à la personne qui m'a motivé à le faire!  

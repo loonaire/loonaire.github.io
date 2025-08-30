@@ -1,498 +1,499 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil on Loonaire Blog</title><link>https://loonaire.github.io/</link><description>Recent content in Accueil on Loonaire Blog</description><generator>Hugo</generator><language>fr</language><lastBuildDate>Thu, 26 Jun 2025 20:21:40 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>L'informatique et l'écologie, en entreprise et en dehors</title><link>https://loonaire.github.io/posts/informatiqueetecologie/</link><pubDate>Thu, 26 Jun 2025 20:21:40 +0200</pubDate><guid>https://loonaire.github.io/posts/informatiqueetecologie/</guid><description>&lt;blockquote>
-&lt;p>Avertissement : Cet article est essentiellement rédigé selon une pensée et est plus une réflexion personnelle. Je fais également le lien entre sécurité des données et écologie car il y a sûrement plus de liens qu&amp;rsquo;on pourrait le penser.&lt;/p>&lt;/blockquote>
-&lt;p>Il y a quelques semaines, on m&amp;rsquo;a demandé ce qu&amp;rsquo;il serait possible de faire pour aider à l&amp;rsquo;écologie en milieu professionnel. Malheureusement, pour les personnes non IT la réponse est simple : rien. Même pour les personnes IT il peut être compliqué de faire quelque chose, à la fois pour des questions de fiabilité du matériel (garantie) ou pour des raisons de sécurité (mise à jour du matériel). Par contre, dans le milieu personnel, et même avec le matériel fourni par l&amp;rsquo;entreprise, il est possible de faire quelques efforts.&lt;/p></description></item><item><title>Debian: Remplacer le compte root par sudo</title><link>https://loonaire.github.io/posts/debianroottosudo/</link><pubDate>Thu, 15 May 2025 19:14:29 +0200</pubDate><guid>https://loonaire.github.io/posts/debianroottosudo/</guid><description>&lt;p>J&amp;rsquo;ai appris il y a peu que pour remplacer le compte root par sudo sur Debian il ne faut pas saisir de mot passe pour root au moment de l&amp;rsquo;installation. Je souhaite corriger ce problème sur certains serveur, la démarche est plutot compliquée à trouvée alors la voici:&lt;/p>
-&lt;ul>
-&lt;li>Commencer par installer sudo sur la machine: &lt;code>apt install sudo&lt;/code>&lt;/li>
-&lt;li>Ajouter l&amp;rsquo;utilisateur qui utilisera sudo pour être root: &lt;code>usermod –aG sudo loonaire&lt;/code>&lt;/li>
-&lt;li>A partir de cette étape, l&amp;rsquo;utilisateur peux utiliser sudo pour avoir accès au mode super utilisateur.&lt;/li>
-&lt;li>Pour désactiver le compte root, il faut utiliser la commande: &lt;code>usermod -p '!' root&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Pour réactiver le compte root plus tard, il faut utiliser la commande: &lt;code>sudo passwd root&lt;/code>&lt;/p></description></item><item><title>Optimiser l'installation de Windows 10 (et 11?)</title><link>https://loonaire.github.io/posts/optiwindowsinstall/</link><pubDate>Thu, 06 Mar 2025 10:59:55 +0100</pubDate><guid>https://loonaire.github.io/posts/optiwindowsinstall/</guid><description>&lt;p>Quelques éléments à faire pour l&amp;rsquo;optimisation de windows, l&amp;rsquo;objectif n&amp;rsquo;est pas d&amp;rsquo;avoir quelque chose de super optimiser mais d&amp;rsquo;avoir quelques optimisation pour la durée de vie des composants et la réactivité du système:&lt;/p>
-&lt;h2 id="désactiver-le-mode-veille-dans-une-console-en-mode-admin">Désactiver le mode veille (dans une console en mode admin):&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>powercfg /hibernate off 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour les pc portables de 2020-2023, diminuer la fréquence du processeur pour diminuer la température du cpu:&lt;/p>
-&lt;ul>
-&lt;li>Dans options d&amp;rsquo;alimentation -&amp;gt; Modifier les paramètres du mode d&amp;rsquo;alimention -&amp;gt; Modifier les paramètres d&amp;rsquo;alimentations avancés&lt;/li>
-&lt;li>Passer la fréquence maximal à 3500MHz sur batterie et 4000MHz sur secteur, ces valeurs peuvent être plus faible si l&amp;rsquo;ordinateur continue de trop chauffer.&lt;/li>
-&lt;/ul>
-&lt;h2 id="désactiver-la-recherche-web">Désactiver la recherche web:&lt;/h2>
-&lt;p>Windows 10:&lt;/p></description></item><item><title>Installation d'archlinux avec xfce</title><link>https://loonaire.github.io/posts/installarchxfce/</link><pubDate>Thu, 06 Mar 2025 10:39:35 +0100</pubDate><guid>https://loonaire.github.io/posts/installarchxfce/</guid><description>&lt;blockquote>
-&lt;p>Ce fichier date de 2022 et n&amp;rsquo;a pas été mis à jour depuis, il n&amp;rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Accueil on Loonaire Blog</title><link>https://loonaire.github.io/</link><description>Recent content in Accueil on Loonaire Blog</description><generator>Hugo</generator><language>fr</language><lastBuildDate>Thu, 28 Aug 2025 18:51:50 +0200</lastBuildDate><atom:link href="https://loonaire.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Dr. Cracklove, or: How I Learned to Stop Worrying About Abandonware and Love the Patch : La découverte du crack de logiciel</title><link>https://loonaire.github.io/posts/g3ckeys/</link><pubDate>Thu, 28 Aug 2025 18:51:50 +0200</pubDate><guid>https://loonaire.github.io/posts/g3ckeys/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Il y a quelques années, avant chatGPT et la démocratisation des plateformes d&amp;rsquo;apprentissage à la cybersécurité, 2 mois avant l&amp;rsquo;arrivée du covid, période durant laquelle je jouais de la guitare depuis environ 1 an en autodidacte. Pour mon apprentissage je me suis à la recherche d&amp;rsquo;un outil pour afficher et apprendre des accords et des gammes. Au final je n&amp;rsquo;ai jamais utilisé cet outil mais il m&amp;rsquo;a appris autre chose: Comment fonctionne l&amp;rsquo;activation d&amp;rsquo;un logiciel. Dans les mêmes moments où j&amp;rsquo;ai trouvé ce logiciel, j&amp;rsquo;apprenais la sécurité logicielle informatique et le fonctionnement des logiciel, celui ou rien n&amp;rsquo;est vrai, tout est mensonge pour l&amp;rsquo;utilisateur (et tout n&amp;rsquo;est pas permis, loin de la!). Cette petite expérience est une des raisons de ce blog, j&amp;rsquo;ai toujours souhaité publié un article sur cette expérience, la voila!&lt;/p&gt;</description></item><item><title>L'informatique et l'écologie, en entreprise et en dehors</title><link>https://loonaire.github.io/posts/informatiqueetecologie/</link><pubDate>Thu, 26 Jun 2025 20:21:40 +0200</pubDate><guid>https://loonaire.github.io/posts/informatiqueetecologie/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Avertissement : Cet article est essentiellement rédigé selon une pensée et est plus une réflexion personnelle. Je fais également le lien entre sécurité des données et écologie car il y a sûrement plus de liens qu&amp;rsquo;on pourrait le penser.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Il y a quelques semaines, on m&amp;rsquo;a demandé ce qu&amp;rsquo;il serait possible de faire pour aider à l&amp;rsquo;écologie en milieu professionnel. Malheureusement, pour les personnes non IT la réponse est simple : rien. Même pour les personnes IT il peut être compliqué de faire quelque chose, à la fois pour des questions de fiabilité du matériel (garantie) ou pour des raisons de sécurité (mise à jour du matériel). Par contre, dans le milieu personnel, et même avec le matériel fourni par l&amp;rsquo;entreprise, il est possible de faire quelques efforts.&lt;/p&gt;</description></item><item><title>Debian: Remplacer le compte root par sudo</title><link>https://loonaire.github.io/posts/debianroottosudo/</link><pubDate>Thu, 15 May 2025 19:14:29 +0200</pubDate><guid>https://loonaire.github.io/posts/debianroottosudo/</guid><description>&lt;p&gt;J&amp;rsquo;ai appris il y a peu que pour remplacer le compte root par sudo sur Debian il ne faut pas saisir de mot passe pour root au moment de l&amp;rsquo;installation. Je souhaite corriger ce problème sur certains serveur, la démarche est plutot compliquée à trouvée alors la voici:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commencer par installer sudo sur la machine: &lt;code&gt;apt install sudo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ajouter l&amp;rsquo;utilisateur qui utilisera sudo pour être root: &lt;code&gt;usermod –aG sudo loonaire&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A partir de cette étape, l&amp;rsquo;utilisateur peux utiliser sudo pour avoir accès au mode super utilisateur.&lt;/li&gt;
+&lt;li&gt;Pour désactiver le compte root, il faut utiliser la commande: &lt;code&gt;usermod -p '!' root&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pour réactiver le compte root plus tard, il faut utiliser la commande: &lt;code&gt;sudo passwd root&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Optimiser l'installation de Windows 10 (et 11?)</title><link>https://loonaire.github.io/posts/optiwindowsinstall/</link><pubDate>Thu, 06 Mar 2025 10:59:55 +0100</pubDate><guid>https://loonaire.github.io/posts/optiwindowsinstall/</guid><description>&lt;p&gt;Quelques éléments à faire pour l&amp;rsquo;optimisation de windows, l&amp;rsquo;objectif n&amp;rsquo;est pas d&amp;rsquo;avoir quelque chose de super optimiser mais d&amp;rsquo;avoir quelques optimisation pour la durée de vie des composants et la réactivité du système:&lt;/p&gt;
+&lt;h2 id="désactiver-le-mode-veille-dans-une-console-en-mode-admin"&gt;Désactiver le mode veille (dans une console en mode admin):&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;powercfg /hibernate off 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pour les pc portables de 2020-2023, diminuer la fréquence du processeur pour diminuer la température du cpu:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dans options d&amp;rsquo;alimentation -&amp;gt; Modifier les paramètres du mode d&amp;rsquo;alimention -&amp;gt; Modifier les paramètres d&amp;rsquo;alimentations avancés&lt;/li&gt;
+&lt;li&gt;Passer la fréquence maximal à 3500MHz sur batterie et 4000MHz sur secteur, ces valeurs peuvent être plus faible si l&amp;rsquo;ordinateur continue de trop chauffer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="désactiver-la-recherche-web"&gt;Désactiver la recherche web:&lt;/h2&gt;
+&lt;p&gt;Windows 10:&lt;/p&gt;</description></item><item><title>Installation d'archlinux avec xfce</title><link>https://loonaire.github.io/posts/installarchxfce/</link><pubDate>Thu, 06 Mar 2025 10:39:35 +0100</pubDate><guid>https://loonaire.github.io/posts/installarchxfce/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Ce fichier date de 2022 et n&amp;rsquo;a pas été mis à jour depuis, il n&amp;rsquo;est pas à jour et certaines pratiques utilisées ici ne sont à mon avis pas mes meilleures.
 A l&amp;rsquo;origine cet installation est destinée à l&amp;rsquo;installation sur un ordinateur MSI GP72 (cpu intel, cg nvidia, ssd 128go + hdd 1to)
-Prenez le tel quel si vous souhaitez l&amp;rsquo;utiliser&lt;/p>&lt;/blockquote>
-&lt;p>Démarrer sur l&amp;rsquo;iso, passer le clavier en fr et connecter le wifi&lt;/p></description></item><item><title>Recharger les clés de pacman sur Archlinux</title><link>https://loonaire.github.io/posts/reloadarchkeys/</link><pubDate>Thu, 06 Mar 2025 10:27:11 +0100</pubDate><guid>https://loonaire.github.io/posts/reloadarchkeys/</guid><description>&lt;p>Installer le paquet:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -Sy archlinux-keyring
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Rafraichir et rechercher les mises à jour:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pacman -Syyuu
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="sources">Sources&lt;/h2>
-&lt;p>&lt;a href="https://forums.archlinux.fr/viewtopic.php?t=22604">https://forums.archlinux.fr/viewtopic.php?t=22604&lt;/a>&lt;/p></description></item><item><title>Outils utiles</title><link>https://loonaire.github.io/posts/sometools/</link><pubDate>Thu, 06 Mar 2025 10:04:39 +0100</pubDate><guid>https://loonaire.github.io/posts/sometools/</guid><description>&lt;p>Voici une liste d&amp;rsquo;outils qui peuvent être utiles, ces outlis peuvent être variés, ils sont surtout la pour rappel:&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: center">Nom&lt;/th>
- &lt;th style="text-align: left">Utilité&lt;/th>
- &lt;th style="text-align: left">Lien&lt;/th>
- &lt;th style="text-align: left">Commentaire&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: center">captvty&lt;/td>
- &lt;td style="text-align: left">Regarder la télé&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://www.captvty.fr/">https://www.captvty.fr/&lt;/a>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">jq&lt;/td>
- &lt;td style="text-align: left">Manipulation de fichier json&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://jqlang.org/">https://jqlang.org/&lt;/a>&lt;/td>
- &lt;td style="text-align: left">glhf pour les requêtes&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">miller&lt;/td>
- &lt;td style="text-align: left">Manipulation de json et csv&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/johnkerl/miller">https://github.com/johnkerl/miller&lt;/a>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">DIE&lt;/td>
- &lt;td style="text-align: left">Analyse de statique de fichier binaire&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/horsicq/Detect-It-Easy">https://github.com/horsicq/Detect-It-Easy&lt;/a>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">trippy&lt;/td>
- &lt;td style="text-align: left">fusionne ping,tracert,&amp;hellip;&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/fujiapple852/trippy">https://github.com/fujiapple852/trippy&lt;/a>&lt;/td>
- &lt;td style="text-align: left">Besoin des droits admin sous windows&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">screentogif&lt;/td>
- &lt;td style="text-align: left">Crée des gifs&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/NickeManarin/ScreenToGif">https://github.com/NickeManarin/ScreenToGif&lt;/a>&lt;/td>
- &lt;td style="text-align: left">Windows seulement&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">PCAPdroid&lt;/td>
- &lt;td style="text-align: left">Sniffer réseau Android&lt;/td>
- &lt;td style="text-align: left">&lt;a href="https://github.com/emanuele-f/PCAPdroid">&lt;/a>&lt;/td>
- &lt;td style="text-align: left">Créer des fichiers pcap sur android sans root, idéal pour sniffer les appli&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title>Réparer systemdboot sur Archlinux</title><link>https://loonaire.github.io/posts/systemdbootrepair/</link><pubDate>Thu, 06 Mar 2025 09:59:08 +0100</pubDate><guid>https://loonaire.github.io/posts/systemdbootrepair/</guid><description>&lt;h2 id="prérequis">Prérequis&lt;/h2>
-&lt;p>Démarrer l&amp;rsquo;ordinateur avec un iso archlinux&lt;/p>
-&lt;h2 id="préparer-le-chroot">Préparer le chroot:&lt;/h2>
-&lt;ul>
-&lt;li>Obtenir la liste des partitions avec la commande:
-lsblk&lt;/li>
-&lt;/ul>
-&lt;p>Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Monter ces 2 partitions (ici j&amp;rsquo;utilise sda comme disque ou est installé le système):
+Prenez le tel quel si vous souhaitez l&amp;rsquo;utiliser&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Démarrer sur l&amp;rsquo;iso, passer le clavier en fr et connecter le wifi&lt;/p&gt;</description></item><item><title>Recharger les clés de pacman sur Archlinux</title><link>https://loonaire.github.io/posts/reloadarchkeys/</link><pubDate>Thu, 06 Mar 2025 10:27:11 +0100</pubDate><guid>https://loonaire.github.io/posts/reloadarchkeys/</guid><description>&lt;p&gt;Installer le paquet:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Sy archlinux-keyring
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Rafraichir et rechercher les mises à jour:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pacman -Syyuu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="sources"&gt;Sources&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://forums.archlinux.fr/viewtopic.php?t=22604"&gt;https://forums.archlinux.fr/viewtopic.php?t=22604&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Outils utiles</title><link>https://loonaire.github.io/posts/sometools/</link><pubDate>Thu, 06 Mar 2025 10:04:39 +0100</pubDate><guid>https://loonaire.github.io/posts/sometools/</guid><description>&lt;p&gt;Voici une liste d&amp;rsquo;outils qui peuvent être utiles, ces outlis peuvent être variés, ils sont surtout la pour rappel:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: center"&gt;Nom&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Utilité&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Lien&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Commentaire&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;captvty&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Regarder la télé&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://www.captvty.fr/"&gt;https://www.captvty.fr/&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;jq&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Manipulation de fichier json&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://jqlang.org/"&gt;https://jqlang.org/&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;glhf pour les requêtes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;miller&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Manipulation de json et csv&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://github.com/johnkerl/miller"&gt;https://github.com/johnkerl/miller&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;DIE&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Analyse de statique de fichier binaire&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://github.com/horsicq/Detect-It-Easy"&gt;https://github.com/horsicq/Detect-It-Easy&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;trippy&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;fusionne ping,tracert,&amp;hellip;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://github.com/fujiapple852/trippy"&gt;https://github.com/fujiapple852/trippy&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Besoin des droits admin sous windows&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;screentogif&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Crée des gifs&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://github.com/NickeManarin/ScreenToGif"&gt;https://github.com/NickeManarin/ScreenToGif&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Windows seulement&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;PCAPdroid&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Sniffer réseau Android&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;a href="https://github.com/emanuele-f/PCAPdroid"&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Créer des fichiers pcap sur android sans root, idéal pour sniffer les appli&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>Réparer systemdboot sur Archlinux</title><link>https://loonaire.github.io/posts/systemdbootrepair/</link><pubDate>Thu, 06 Mar 2025 09:59:08 +0100</pubDate><guid>https://loonaire.github.io/posts/systemdbootrepair/</guid><description>&lt;h2 id="prérequis"&gt;Prérequis&lt;/h2&gt;
+&lt;p&gt;Démarrer l&amp;rsquo;ordinateur avec un iso archlinux&lt;/p&gt;
+&lt;h2 id="préparer-le-chroot"&gt;Préparer le chroot:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Obtenir la liste des partitions avec la commande:
+lsblk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Monter ces 2 partitions (ici j&amp;rsquo;utilise sda comme disque ou est installé le système):
 mount /dev/sdaX /mnt # system partition
-mount /dev/sdaY /mnt/boot # boot partition&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>On peux maintenant chroot:
-arch-chroot /mnt&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement&lt;/p></description></item><item><title>Manipulation de fichier msi avec powershell</title><link>https://loonaire.github.io/posts/msifile/</link><pubDate>Thu, 06 Mar 2025 09:57:07 +0100</pubDate><guid>https://loonaire.github.io/posts/msifile/</guid><description>&lt;h2 id="installer-un-fichier-msi-en-ligne-de-commande">Installer un fichier MSI en ligne de commande&lt;/h2>
-&lt;p>Il faut utiliser la commande:
-msiexec /i &lt;!-- raw HTML omitted -->&lt;/p>
-&lt;p>Pour une installation silencieuse:
-msiexec /i &lt;!-- raw HTML omitted --> /qn&lt;/p>
-&lt;h2 id="récupération-dinformation-sur-un-fichier-msi">Récupération d&amp;rsquo;information sur un fichier msi&lt;/h2>
-&lt;h3 id="obtenir-les-variables-possibles-pour-linstallation-dun-programme">Obtenir les variables possibles pour l&amp;rsquo;installation d&amp;rsquo;un programme&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>msiexec /package &amp;lt;fichier .msi&amp;gt; /lp! properties.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande va créer un fichier properties.txt dans lequel seront affichées les propriétés utilisées pour l&amp;rsquo;isntallation du fichier,
+mount /dev/sdaY /mnt/boot # boot partition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On peux maintenant chroot:
+arch-chroot /mnt&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement&lt;/p&gt;</description></item><item><title>Manipulation de fichier msi avec powershell</title><link>https://loonaire.github.io/posts/msifile/</link><pubDate>Thu, 06 Mar 2025 09:57:07 +0100</pubDate><guid>https://loonaire.github.io/posts/msifile/</guid><description>&lt;h2 id="installer-un-fichier-msi-en-ligne-de-commande"&gt;Installer un fichier MSI en ligne de commande&lt;/h2&gt;
+&lt;p&gt;Il faut utiliser la commande:
+msiexec /i &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Pour une installation silencieuse:
+msiexec /i &lt;!-- raw HTML omitted --&gt; /qn&lt;/p&gt;
+&lt;h2 id="récupération-dinformation-sur-un-fichier-msi"&gt;Récupération d&amp;rsquo;information sur un fichier msi&lt;/h2&gt;
+&lt;h3 id="obtenir-les-variables-possibles-pour-linstallation-dun-programme"&gt;Obtenir les variables possibles pour l&amp;rsquo;installation d&amp;rsquo;un programme&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;msiexec /package &amp;lt;fichier .msi&amp;gt; /lp! properties.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cette commande va créer un fichier properties.txt dans lequel seront affichées les propriétés utilisées pour l&amp;rsquo;isntallation du fichier,
 il contient le nom du logiciel, sa version, son éditeur, et d&amp;rsquo;autres éléments utilisés par Windows, il contient également une chose importante: les variables utilisable lors de l&amp;rsquo;installation du logiciel.
-Nous pourrons ainsi personnalisé l&amp;rsquo;installation du logiciel en utilisant une commande ressemblant à la suivante:&lt;/p></description></item><item><title>Miller: Un outil pour gérer des csv et des json</title><link>https://loonaire.github.io/posts/miller/</link><pubDate>Thu, 06 Mar 2025 09:55:59 +0100</pubDate><guid>https://loonaire.github.io/posts/miller/</guid><description>&lt;p>Lien officiel: &lt;a href="https://github.com/johnkerl/miller">https://github.com/johnkerl/miller&lt;/a>&lt;/p>
-&lt;h2 id="afficher-un-fichier-json">Afficher un fichier json&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mlr --from &amp;lt;nom du fichier.json&amp;gt; cat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="afficher-à-laide-dun-tri">Afficher à l&amp;rsquo;aide d&amp;rsquo;un tri&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mlr --from &amp;lt;nom du fichier.json&amp;gt; sort -f &amp;lt;nom de la colonne à trier&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="formatter-laffichage-de-sortie">Formatter l&amp;rsquo;affichage de sortie&lt;/h2>
-&lt;p>Surement l&amp;rsquo;option la plus utile, on peux afficher du json en csv par exemple:&lt;/p>
-&lt;p>Pour le cas du json en csv:&lt;/p>
-&lt;pre tabindex="0">&lt;code>mlr --j2c --from &amp;lt;nom du fichier.json&amp;gt; cat
-&lt;/code>&lt;/pre>&lt;p>La commande mlr help flags permet d&amp;rsquo;afficher un tableau qui regroupe les possibilitées d&amp;rsquo;affichage de sortie.
+Nous pourrons ainsi personnalisé l&amp;rsquo;installation du logiciel en utilisant une commande ressemblant à la suivante:&lt;/p&gt;</description></item><item><title>Miller: Un outil pour gérer des csv et des json</title><link>https://loonaire.github.io/posts/miller/</link><pubDate>Thu, 06 Mar 2025 09:55:59 +0100</pubDate><guid>https://loonaire.github.io/posts/miller/</guid><description>&lt;p&gt;Lien officiel: &lt;a href="https://github.com/johnkerl/miller"&gt;https://github.com/johnkerl/miller&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="afficher-un-fichier-json"&gt;Afficher un fichier json&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mlr --from &amp;lt;nom du fichier.json&amp;gt; cat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="afficher-à-laide-dun-tri"&gt;Afficher à l&amp;rsquo;aide d&amp;rsquo;un tri&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mlr --from &amp;lt;nom du fichier.json&amp;gt; sort -f &amp;lt;nom de la colonne à trier&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="formatter-laffichage-de-sortie"&gt;Formatter l&amp;rsquo;affichage de sortie&lt;/h2&gt;
+&lt;p&gt;Surement l&amp;rsquo;option la plus utile, on peux afficher du json en csv par exemple:&lt;/p&gt;
+&lt;p&gt;Pour le cas du json en csv:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;mlr --j2c --from &amp;lt;nom du fichier.json&amp;gt; cat
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;La commande mlr help flags permet d&amp;rsquo;afficher un tableau qui regroupe les possibilitées d&amp;rsquo;affichage de sortie.
 Les plus importantes sont:
 &amp;ndash;j2c : json to csv
 &amp;ndash;c2j : csv to json
 &amp;ndash;m2c : markdown to csv
 &amp;ndash;m2j : markdown to json
 &amp;ndash;c2m : csv to markdown
-&amp;ndash;j2m : json to markdown&lt;/p></description></item><item><title>Installation de redmine en 2025 sur Debian</title><link>https://loonaire.github.io/posts/redmineinstall2025/</link><pubDate>Thu, 06 Mar 2025 09:54:28 +0100</pubDate><guid>https://loonaire.github.io/posts/redmineinstall2025/</guid><description>&lt;p>Comme je ne trouve aucun guide correct, voici un guide pour l&amp;rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&amp;rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.&lt;/p>
-&lt;blockquote>
-&lt;p>Lors de l&amp;rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>J&amp;rsquo;utilise vi comme éditeur, si vous préférez nano, remplacez vi dans les commandes par nano&lt;/p></description></item><item><title>Reverse Tenda MW6 for fun</title><link>https://loonaire.github.io/posts/reversetendamw6/</link><pubDate>Thu, 27 Feb 2025 20:37:35 +0100</pubDate><guid>https://loonaire.github.io/posts/reversetendamw6/</guid><description>&lt;blockquote>
-&lt;p>Cet article n&amp;rsquo;est pas terminé, il ne s&amp;rsquo;agit que du début, la suite arrivera plus tard&lt;/p>&lt;/blockquote>
-&lt;p>Ca fait un moment que je souhaitais m&amp;rsquo;initier sérieusement au reverse d&amp;rsquo;un appareil chinois, l&amp;rsquo;objectif est de comprendre ses fonctionnements, vérifier ce qui est remonté aux serveur et aller le plus loin possible pour ce qu&amp;rsquo;on peux faire avec.&lt;/p>
-&lt;h2 id="la-cible">La cible&lt;/h2>
-&lt;p>La cible sera une borne Wifi Tenda MW6, le lien officiel du fabricant est disponible ici: &lt;a href="https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html">https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html&lt;/a>&lt;/p></description></item><item><title>Utiliser un arduino en tant qu'adaptateur serie-usb</title><link>https://loonaire.github.io/posts/arduinoserial/</link><pubDate>Wed, 19 Feb 2025 21:44:26 +0100</pubDate><guid>https://loonaire.github.io/posts/arduinoserial/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
-&lt;p>J&amp;rsquo;avais besoin d&amp;rsquo;un adaptateur serie-USB pour faire du reverse de firmware sur un appareil chinois bas de gamme, plutot qu&amp;rsquo;acheter un adaptateur usb TTL suspicieux sur internet, j&amp;rsquo;ai découvert que l&amp;rsquo;on pouvais le faire avec un arduino UNO R3.&lt;/p>
-&lt;h2 id="passer-larduino-en-convertisseur-usb-ttl">Passer l&amp;rsquo;arduino en convertisseur USB TTL&lt;/h2>
-&lt;p>Pour faire cette manipulation, il faut brancher brancher le pin RESET de l&amp;rsquo;arduino sur un port GND. Le micro controlleur de l&amp;rsquo;arduino sera ensuite bypass et les données TTL reçues sur le port RX seront envoyées à l&amp;rsquo;ordinateur.&lt;/p></description></item><item><title>Powerflasher SOS Logger</title><link>https://loonaire.github.io/posts/soslogger/</link><pubDate>Sun, 06 Oct 2024 20:33:49 +0200</pubDate><guid>https://loonaire.github.io/posts/soslogger/</guid><description>&lt;h2 id="powerflasher-sos-cest-quoi">Powerflasher SOS c&amp;rsquo;est quoi?&lt;/h2>
-&lt;p>Il s&amp;rsquo;agit d&amp;rsquo;une ancienne librairie de gestion de logs avec les programmes actionscript. Le système permet de générer des logs à travers un xmlsocket ce qui veux dire que chaque paquet est du code xml.&lt;/p>
-&lt;ul>
-&lt;li>L&amp;rsquo;archive du site officiel est disponible &lt;a href="https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html">ici&lt;/a>: &lt;a href="https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html">https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html&lt;/a>.&lt;/li>
-&lt;li>La dernière version du programme fournie par Powerflasher est disponile &lt;a href="https://web.archive.org/web/20150626170422/http://sos.powerflasher.com/fileadmin/sosmax/sos_max.zip">sur ce lien&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h2 id="le-fonctionnement">Le fonctionnement&lt;/h2>
-&lt;p>Il existe 2 types de paquets, chaque message commence par la chaine &lt;code>!SOS&lt;/code> et contient ensuite du code xml.&lt;/p></description></item><item><title>Installer pamac et le thème Manjaro sur Archlinux</title><link>https://loonaire.github.io/posts/archmanjaro/</link><pubDate>Sun, 21 Jul 2024 08:15:42 +0200</pubDate><guid>https://loonaire.github.io/posts/archmanjaro/</guid><description>&lt;blockquote>
-&lt;p>Avertissement: Ces notes ont déja 2 ans et risquent de ne plus être à jour&lt;/p>&lt;/blockquote>
-&lt;h2 id="prérequis">Prérequis&lt;/h2>
-&lt;p>Avoir un Archlinux installé avec l&amp;rsquo;environnement de bureau XFCE&lt;/p>
-&lt;h2 id="installation-de-pamac">Installation de pamac&lt;/h2>
-&lt;ul>
-&lt;li>Avoir un moyen d&amp;rsquo;installer les paquets des dépots AUR, dans mon cas je privilégie Yay: &lt;a href="https://github.com/Jguer/yay">https://github.com/Jguer/yay&lt;/a>&lt;/li>
-&lt;li>Installer Pamac:
-&lt;ul>
-&lt;li>Executer la commande: &lt;code>yay install pamac-aur --edit-menu&lt;/code>&lt;/li>
-&lt;li>Choisir libpamac-aur et pamac-aur&lt;/li>
-&lt;li>Pour activer les SNAP et/ou les FLATPAK, éditer le fichier PKGBUILD ainsi:
-&lt;ul>
-&lt;li>Pour SNAP: ENABLE_SNAP=1&lt;/li>
-&lt;li>Pour FLATPAK: ENABLE_FLATPAK=1&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="installation-du-thème">Installation du thème&lt;/h2>
-&lt;ul>
-&lt;li>Installer le paquet nono-fonts et mêttre cette police par défaut&lt;/li>
-&lt;li>Installer les icones, le paquet est nommé &lt;code>papirus-icon-theme&lt;/code>
-&lt;ul>
-&lt;li>Dans apparence -&amp;gt; Icones -&amp;gt; choisir papirus-Light ou papirus-Dark&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Installer le thème depuis les dépots AUR, le paquet est nommé
-&lt;code>matcha-gtk-theme&lt;/code>
-&lt;ul>
-&lt;li>Dans Apparence -&amp;gt; Style -&amp;gt; choisir Matcha-dark-sea&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>Archlinux cinnamon: Avoir le thème de linux Mint</title><link>https://loonaire.github.io/posts/archmint/</link><pubDate>Sun, 21 Jul 2024 07:56:24 +0200</pubDate><guid>https://loonaire.github.io/posts/archmint/</guid><description>&lt;h2 id="installation">Installation&lt;/h2>
-&lt;p>Un petit tuto pour avoir le thème de linux Mint sur archlinux:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Tout d&amp;rsquo;abord, installer Archlinux normalement avec l&amp;rsquo;environ de bureau Gnome et choisir lightdm comme interface pour le login.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Installer les paquets de traduction de cinnamon: &lt;code>pacman -S cinnamon-translations&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Installer les polices d&amp;rsquo;écritures: &lt;code>pacman -S notofonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Ajouter l&amp;rsquo;accès à AUR via Yay ou un autre moyen&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Installer les paquets AUR suivants (la commande suivant est pour AUR): &lt;code>yay -S mint-themes mint-y-icons mint-x-icons&lt;/code>&lt;/p></description></item><item><title>Commandes utiles pour openssl</title><link>https://loonaire.github.io/posts/commandesopenssl/</link><pubDate>Sun, 07 Jul 2024 19:43:17 +0200</pubDate><guid>https://loonaire.github.io/posts/commandesopenssl/</guid><description>&lt;h2 id="commandes-openssl-pour-les-conversions">Commandes OpenSSL pour les conversions&lt;/h2>
-&lt;p>Issues du lien suivant: &lt;a href="https://www.httpcs.com/fr/convertisseur-ssl">https://www.httpcs.com/fr/convertisseur-ssl&lt;/a>&lt;/p>
-&lt;h3 id="conversion-pem">Conversion PEM&lt;/h3>
-&lt;h4 id="pem-en-der">PEM en DER&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl x509 -outform der -in certificate.pem -out certificate.der
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="pem-en-p7b">PEM en P7B&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="pem-en-pfx">PEM en PFX&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="conversion-der">Conversion DER&lt;/h3>
-&lt;h4 id="dercrt-cer-der-en-pem">DER(.crt .cer .der) en PEM&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl x509 -inform der -in certificate.cer -out certificate.pem
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="der-en-cer">DER en CER&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl x509 -inform der -in certificat-ssl.der -out certificat-ssl.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="conversion-p7b">Conversion P7B&lt;/h3>
-&lt;h4 id="p7b-en-pem">P7B en PEM&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="p7b-en-pfx">P7B en PFX&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="p7b-en-cer">P7B en CER&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs7 -print_certs -in certificat-ssl.p7b -out certificat-ssl.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="conversion-pfx">Conversion PFX&lt;/h3>
-&lt;h4 id="pfx-en-pem">PFX en PEM&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="conversion-cer">Conversion CER&lt;/h3>
-&lt;h4 id="cer-en-p7b">CER en P7B&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl crl2pkcs7 -nocrl -certfile certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -out certificat-ssl.p7b
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="cer-en-pfx">CER en PFX&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs12 -in certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -inkey cle-privee.key -export -out certificat-ssl.pfx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="cer-en-der">CER en DER&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl x509 -in certificat-ssl.cer -outform der -out certificat-ssl.der
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="autres-conversions">Autres conversions&lt;/h2>
-&lt;h4 id="convertir-un-certificat-et-sa-clé-en-pfx">Convertir un certificat et sa clé en pfx:&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>La gestion de certificats en entreprise avec l'ADCS et openssl</title><link>https://loonaire.github.io/posts/certificatsadcs/</link><pubDate>Sun, 07 Jul 2024 12:51:54 +0200</pubDate><guid>https://loonaire.github.io/posts/certificatsadcs/</guid><description>&lt;p>Pour un besoin pro, j&amp;rsquo;ai eu à apprendre le fonctionnement des certificats en entreprise, j&amp;rsquo;ai décidé d&amp;rsquo;apprendre le fonctionnement des certificats en utilisans le role ADCS de Windows Server (surement le plus utilisé).&lt;/p>
-&lt;h2 id="les-2-types-de-générations-de-certificats">Les 2 types de générations de certificats&lt;/h2>
-&lt;p>On peux dissocier les certificats en 2 catégories:&lt;/p>
-&lt;h3 id="les-certificats-auto-signés">Les certificats auto signés&lt;/h3>
-&lt;p>Ce type de certificat est plus simple à générer, sur Windows avec IIS la console IIS permet de générer des certificats auto signés, sous openssl nous pouvons utiliser la commande suivante:&lt;/p></description></item><item><title>Les fichiers m3u et les voitures Peugeot</title><link>https://loonaire.github.io/posts/m3u/</link><pubDate>Wed, 24 Apr 2024 20:20:00 +0200</pubDate><guid>https://loonaire.github.io/posts/m3u/</guid><description>&lt;p>Cet article fait suite à mon achat récent d&amp;rsquo;une peugeot 308. Depuis un bon moment (environ 2018), les véhicules peugeot sont équipés d&amp;rsquo;une tablette appelée NAV, cette tablette est très bien mais il y a eu une grosse regression par rapport aux tablettes précédentes: elle ne permet pas de lire les fichiers d&amp;rsquo;une clé usb dossier par dossier, au lieu de cela un mode un peu étrange est choisi, toute l&amp;rsquo;explication est disponible &lt;a href="https://www.forum-peugeot.com/Forum/threads/le-fonctionnement-du-nac-pour-lorganisation-des-fichiers-audio.8952/">sur ce lien&lt;/a>. Ici je ne vais pas détailler ce fonctionnement: je m&amp;rsquo;en moque, je veux juste charger les musiques par dossier.&lt;/p></description></item><item><title>Les filtres LDAP</title><link>https://loonaire.github.io/posts/ldapfilter/</link><pubDate>Mon, 01 Apr 2024 21:54:37 +0200</pubDate><guid>https://loonaire.github.io/posts/ldapfilter/</guid><description>&lt;p>J&amp;rsquo;ai découvert les filtres LDAP il y a peu suite à un besoin d&amp;rsquo;améliorer la synchronisation entre un serveur ADDS et un serveur GLPI.&lt;/p>
-&lt;h2 id="tester-un-filtre-ldap-sur-adds">Tester un filtre LDAP sur ADDS&lt;/h2>
-&lt;p>Pour tester un filte LDAP sur ADDS, il faut aller dans la console de gestion des utilisateurs de l&amp;rsquo;ad puis clique droit sur le domaine et Rechercher&amp;hellip;, choisir ensuite Recherche personnalisée puis le mode Avancé.&lt;/p>
-&lt;p>&lt;img src="./posts/ldapfilter/images/1.png" alt="">&lt;/p>
-&lt;h2 id="organisation-dun-filtre-ldap">Organisation d&amp;rsquo;un filtre LDAP&lt;/h2>
-&lt;p>Un filtre LDAP s&amp;rsquo;articule autour de conditions, les parenthèses sont importantes et très utilisées.&lt;/p></description></item><item><title>Ecoute réseau avec Pktmon</title><link>https://loonaire.github.io/posts/pktmon/</link><pubDate>Mon, 01 Apr 2024 21:45:27 +0200</pubDate><guid>https://loonaire.github.io/posts/pktmon/</guid><description>&lt;p>Il y a longtemps que je souhaitais créer une page sur la capture de paquet sous windows de manière native sans wireshark.&lt;/p>
-&lt;blockquote>
-&lt;p>Toutes les commandes doivent être lancées dans une invite en mode administrateur&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>Ces outils ne permettent pas de sniffer le traffic local de l&amp;rsquo;ordinateur (localhost / 127.0.0.1)&lt;/p>&lt;/blockquote>
-&lt;h2 id="netsh">netsh&lt;/h2>
-&lt;p>netsh peux servir à écouter le traffic.&lt;/p>
-&lt;p>Démarrer la capture:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>netsh trace start persistent&lt;span style="color:#f92672">=&lt;/span>yes capture&lt;span style="color:#f92672">=&lt;/span>yes tracefile&lt;span style="color:#f92672">=&lt;/span>c:&lt;span style="color:#ae81ff">\t&lt;/span>race&lt;span style="color:#ae81ff">\f&lt;/span>irsttrace.etl
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Arreter la capture:&lt;/p></description></item><item><title>Déployer Windows 10 sur des appareils à mémoire soudée</title><link>https://loonaire.github.io/posts/w10memoiresoudee/</link><pubDate>Sat, 27 Jan 2024 17:45:58 +0100</pubDate><guid>https://loonaire.github.io/posts/w10memoiresoudee/</guid><description>&lt;p>Voici un petit rapport du déploiement de Windows 10 sur des appareils à mémoire UFS&lt;/p>
-&lt;h2 id="le-fonctionnement-du-mdt">Le fonctionnement du MDT&lt;/h2>
-&lt;p>Avant de commencer, un rapide brief sur le MDT, il se compose de 3 composants distincts:
+&amp;ndash;j2m : json to markdown&lt;/p&gt;</description></item><item><title>Installation de redmine en 2025 sur Debian</title><link>https://loonaire.github.io/posts/redmineinstall2025/</link><pubDate>Thu, 06 Mar 2025 09:54:28 +0100</pubDate><guid>https://loonaire.github.io/posts/redmineinstall2025/</guid><description>&lt;p&gt;Comme je ne trouve aucun guide correct, voici un guide pour l&amp;rsquo;installation de redmine 6 sur debian sans passer par les paquets disponibles dans les dépots de la distribution. Cette méthode permet d&amp;rsquo;avoir une installation de redmine plus récente que celle proposée par les dépots.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Lors de l&amp;rsquo;installation de Debian je ne saisi pas de mot de passe pour root, il faut utiliser sudo&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;J&amp;rsquo;utilise vi comme éditeur, si vous préférez nano, remplacez vi dans les commandes par nano&lt;/p&gt;</description></item><item><title>Reverse Tenda MW6 for fun</title><link>https://loonaire.github.io/posts/reversetendamw6/</link><pubDate>Thu, 27 Feb 2025 20:37:35 +0100</pubDate><guid>https://loonaire.github.io/posts/reversetendamw6/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Cet article n&amp;rsquo;est pas terminé, il ne s&amp;rsquo;agit que du début, la suite arrivera plus tard&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Ca fait un moment que je souhaitais m&amp;rsquo;initier sérieusement au reverse d&amp;rsquo;un appareil chinois, l&amp;rsquo;objectif est de comprendre ses fonctionnements, vérifier ce qui est remonté aux serveur et aller le plus loin possible pour ce qu&amp;rsquo;on peux faire avec.&lt;/p&gt;
+&lt;h2 id="la-cible"&gt;La cible&lt;/h2&gt;
+&lt;p&gt;La cible sera une borne Wifi Tenda MW6, le lien officiel du fabricant est disponible ici: &lt;a href="https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html"&gt;https://web.archive.org/web/20220707094929/https://www.tendacn.com/fr/product/specification/mw6.html&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Utiliser un arduino en tant qu'adaptateur serie-usb</title><link>https://loonaire.github.io/posts/arduinoserial/</link><pubDate>Wed, 19 Feb 2025 21:44:26 +0100</pubDate><guid>https://loonaire.github.io/posts/arduinoserial/</guid><description>&lt;h2 id="contexte"&gt;Contexte&lt;/h2&gt;
+&lt;p&gt;J&amp;rsquo;avais besoin d&amp;rsquo;un adaptateur serie-USB pour faire du reverse de firmware sur un appareil chinois bas de gamme, plutot qu&amp;rsquo;acheter un adaptateur usb TTL suspicieux sur internet, j&amp;rsquo;ai découvert que l&amp;rsquo;on pouvais le faire avec un arduino UNO R3.&lt;/p&gt;
+&lt;h2 id="passer-larduino-en-convertisseur-usb-ttl"&gt;Passer l&amp;rsquo;arduino en convertisseur USB TTL&lt;/h2&gt;
+&lt;p&gt;Pour faire cette manipulation, il faut brancher brancher le pin RESET de l&amp;rsquo;arduino sur un port GND. Le micro controlleur de l&amp;rsquo;arduino sera ensuite bypass et les données TTL reçues sur le port RX seront envoyées à l&amp;rsquo;ordinateur.&lt;/p&gt;</description></item><item><title>Powerflasher SOS Logger</title><link>https://loonaire.github.io/posts/soslogger/</link><pubDate>Sun, 06 Oct 2024 20:33:49 +0200</pubDate><guid>https://loonaire.github.io/posts/soslogger/</guid><description>&lt;h2 id="powerflasher-sos-cest-quoi"&gt;Powerflasher SOS c&amp;rsquo;est quoi?&lt;/h2&gt;
+&lt;p&gt;Il s&amp;rsquo;agit d&amp;rsquo;une ancienne librairie de gestion de logs avec les programmes actionscript. Le système permet de générer des logs à travers un xmlsocket ce qui veux dire que chaque paquet est du code xml.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;L&amp;rsquo;archive du site officiel est disponible &lt;a href="https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html"&gt;ici&lt;/a&gt;: &lt;a href="https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html"&gt;https://web.archive.org/web/20070221123717/http://sos.powerflasher.de/english/english.html&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;La dernière version du programme fournie par Powerflasher est disponile &lt;a href="https://web.archive.org/web/20150626170422/http://sos.powerflasher.com/fileadmin/sosmax/sos_max.zip"&gt;sur ce lien&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="le-fonctionnement"&gt;Le fonctionnement&lt;/h2&gt;
+&lt;p&gt;Il existe 2 types de paquets, chaque message commence par la chaine &lt;code&gt;!SOS&lt;/code&gt; et contient ensuite du code xml.&lt;/p&gt;</description></item><item><title>Installer pamac et le thème Manjaro sur Archlinux</title><link>https://loonaire.github.io/posts/archmanjaro/</link><pubDate>Sun, 21 Jul 2024 08:15:42 +0200</pubDate><guid>https://loonaire.github.io/posts/archmanjaro/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Avertissement: Ces notes ont déja 2 ans et risquent de ne plus être à jour&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id="prérequis"&gt;Prérequis&lt;/h2&gt;
+&lt;p&gt;Avoir un Archlinux installé avec l&amp;rsquo;environnement de bureau XFCE&lt;/p&gt;
+&lt;h2 id="installation-de-pamac"&gt;Installation de pamac&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Avoir un moyen d&amp;rsquo;installer les paquets des dépots AUR, dans mon cas je privilégie Yay: &lt;a href="https://github.com/Jguer/yay"&gt;https://github.com/Jguer/yay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Installer Pamac:
+&lt;ul&gt;
+&lt;li&gt;Executer la commande: &lt;code&gt;yay install pamac-aur --edit-menu&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Choisir libpamac-aur et pamac-aur&lt;/li&gt;
+&lt;li&gt;Pour activer les SNAP et/ou les FLATPAK, éditer le fichier PKGBUILD ainsi:
+&lt;ul&gt;
+&lt;li&gt;Pour SNAP: ENABLE_SNAP=1&lt;/li&gt;
+&lt;li&gt;Pour FLATPAK: ENABLE_FLATPAK=1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="installation-du-thème"&gt;Installation du thème&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Installer le paquet nono-fonts et mêttre cette police par défaut&lt;/li&gt;
+&lt;li&gt;Installer les icones, le paquet est nommé &lt;code&gt;papirus-icon-theme&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Dans apparence -&amp;gt; Icones -&amp;gt; choisir papirus-Light ou papirus-Dark&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Installer le thème depuis les dépots AUR, le paquet est nommé
+&lt;code&gt;matcha-gtk-theme&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Dans Apparence -&amp;gt; Style -&amp;gt; choisir Matcha-dark-sea&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Archlinux cinnamon: Avoir le thème de linux Mint</title><link>https://loonaire.github.io/posts/archmint/</link><pubDate>Sun, 21 Jul 2024 07:56:24 +0200</pubDate><guid>https://loonaire.github.io/posts/archmint/</guid><description>&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Un petit tuto pour avoir le thème de linux Mint sur archlinux:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tout d&amp;rsquo;abord, installer Archlinux normalement avec l&amp;rsquo;environ de bureau Gnome et choisir lightdm comme interface pour le login.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installer les paquets de traduction de cinnamon: &lt;code&gt;pacman -S cinnamon-translations&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installer les polices d&amp;rsquo;écritures: &lt;code&gt;pacman -S notofonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ajouter l&amp;rsquo;accès à AUR via Yay ou un autre moyen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Installer les paquets AUR suivants (la commande suivant est pour AUR): &lt;code&gt;yay -S mint-themes mint-y-icons mint-x-icons&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Commandes utiles pour openssl</title><link>https://loonaire.github.io/posts/commandesopenssl/</link><pubDate>Sun, 07 Jul 2024 19:43:17 +0200</pubDate><guid>https://loonaire.github.io/posts/commandesopenssl/</guid><description>&lt;h2 id="commandes-openssl-pour-les-conversions"&gt;Commandes OpenSSL pour les conversions&lt;/h2&gt;
+&lt;p&gt;Issues du lien suivant: &lt;a href="https://www.httpcs.com/fr/convertisseur-ssl"&gt;https://www.httpcs.com/fr/convertisseur-ssl&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="conversion-pem"&gt;Conversion PEM&lt;/h3&gt;
+&lt;h4 id="pem-en-der"&gt;PEM en DER&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl x509 -outform der -in certificate.pem -out certificate.der
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="pem-en-p7b"&gt;PEM en P7B&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CACert.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="pem-en-pfx"&gt;PEM en PFX&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="conversion-der"&gt;Conversion DER&lt;/h3&gt;
+&lt;h4 id="dercrt-cer-der-en-pem"&gt;DER(.crt .cer .der) en PEM&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl x509 -inform der -in certificate.cer -out certificate.pem
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="der-en-cer"&gt;DER en CER&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl x509 -inform der -in certificat-ssl.der -out certificat-ssl.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="conversion-p7b"&gt;Conversion P7B&lt;/h3&gt;
+&lt;h4 id="p7b-en-pem"&gt;P7B en PEM&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="p7b-en-pfx"&gt;P7B en PFX&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="p7b-en-cer"&gt;P7B en CER&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs7 -print_certs -in certificat-ssl.p7b -out certificat-ssl.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="conversion-pfx"&gt;Conversion PFX&lt;/h3&gt;
+&lt;h4 id="pfx-en-pem"&gt;PFX en PEM&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="conversion-cer"&gt;Conversion CER&lt;/h3&gt;
+&lt;h4 id="cer-en-p7b"&gt;CER en P7B&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl crl2pkcs7 -nocrl -certfile certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -out certificat-ssl.p7b
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="cer-en-pfx"&gt;CER en PFX&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs12 -in certificat-ssl.cer -certfile cert-intermediaire.cer -certfile cert-racine.cer -inkey cle-privee.key -export -out certificat-ssl.pfx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="cer-en-der"&gt;CER en DER&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl x509 -in certificat-ssl.cer -outform der -out certificat-ssl.der
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="autres-conversions"&gt;Autres conversions&lt;/h2&gt;
+&lt;h4 id="convertir-un-certificat-et-sa-clé-en-pfx"&gt;Convertir un certificat et sa clé en pfx:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;openssl pkcs12 -inkey domain.key -in domain.crt -export -out domain.pfx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>La gestion de certificats en entreprise avec l'ADCS et openssl</title><link>https://loonaire.github.io/posts/certificatsadcs/</link><pubDate>Sun, 07 Jul 2024 12:51:54 +0200</pubDate><guid>https://loonaire.github.io/posts/certificatsadcs/</guid><description>&lt;p&gt;Pour un besoin pro, j&amp;rsquo;ai eu à apprendre le fonctionnement des certificats en entreprise, j&amp;rsquo;ai décidé d&amp;rsquo;apprendre le fonctionnement des certificats en utilisans le role ADCS de Windows Server (surement le plus utilisé).&lt;/p&gt;
+&lt;h2 id="les-2-types-de-générations-de-certificats"&gt;Les 2 types de générations de certificats&lt;/h2&gt;
+&lt;p&gt;On peux dissocier les certificats en 2 catégories:&lt;/p&gt;
+&lt;h3 id="les-certificats-auto-signés"&gt;Les certificats auto signés&lt;/h3&gt;
+&lt;p&gt;Ce type de certificat est plus simple à générer, sur Windows avec IIS la console IIS permet de générer des certificats auto signés, sous openssl nous pouvons utiliser la commande suivante:&lt;/p&gt;</description></item><item><title>Les fichiers m3u et les voitures Peugeot</title><link>https://loonaire.github.io/posts/m3u/</link><pubDate>Wed, 24 Apr 2024 20:20:00 +0200</pubDate><guid>https://loonaire.github.io/posts/m3u/</guid><description>&lt;p&gt;Cet article fait suite à mon achat récent d&amp;rsquo;une peugeot 308. Depuis un bon moment (environ 2018), les véhicules peugeot sont équipés d&amp;rsquo;une tablette appelée NAV, cette tablette est très bien mais il y a eu une grosse regression par rapport aux tablettes précédentes: elle ne permet pas de lire les fichiers d&amp;rsquo;une clé usb dossier par dossier, au lieu de cela un mode un peu étrange est choisi, toute l&amp;rsquo;explication est disponible &lt;a href="https://www.forum-peugeot.com/Forum/threads/le-fonctionnement-du-nac-pour-lorganisation-des-fichiers-audio.8952/"&gt;sur ce lien&lt;/a&gt;. Ici je ne vais pas détailler ce fonctionnement: je m&amp;rsquo;en moque, je veux juste charger les musiques par dossier.&lt;/p&gt;</description></item><item><title>Les filtres LDAP</title><link>https://loonaire.github.io/posts/ldapfilter/</link><pubDate>Mon, 01 Apr 2024 21:54:37 +0200</pubDate><guid>https://loonaire.github.io/posts/ldapfilter/</guid><description>&lt;p&gt;J&amp;rsquo;ai découvert les filtres LDAP il y a peu suite à un besoin d&amp;rsquo;améliorer la synchronisation entre un serveur ADDS et un serveur GLPI.&lt;/p&gt;
+&lt;h2 id="tester-un-filtre-ldap-sur-adds"&gt;Tester un filtre LDAP sur ADDS&lt;/h2&gt;
+&lt;p&gt;Pour tester un filte LDAP sur ADDS, il faut aller dans la console de gestion des utilisateurs de l&amp;rsquo;ad puis clique droit sur le domaine et Rechercher&amp;hellip;, choisir ensuite Recherche personnalisée puis le mode Avancé.&lt;/p&gt;
+&lt;p&gt;&lt;img src="./posts/ldapfilter/images/1.png" alt=""&gt;&lt;/p&gt;
+&lt;h2 id="organisation-dun-filtre-ldap"&gt;Organisation d&amp;rsquo;un filtre LDAP&lt;/h2&gt;
+&lt;p&gt;Un filtre LDAP s&amp;rsquo;articule autour de conditions, les parenthèses sont importantes et très utilisées.&lt;/p&gt;</description></item><item><title>Ecoute réseau avec Pktmon</title><link>https://loonaire.github.io/posts/pktmon/</link><pubDate>Mon, 01 Apr 2024 21:45:27 +0200</pubDate><guid>https://loonaire.github.io/posts/pktmon/</guid><description>&lt;p&gt;Il y a longtemps que je souhaitais créer une page sur la capture de paquet sous windows de manière native sans wireshark.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Toutes les commandes doivent être lancées dans une invite en mode administrateur&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ces outils ne permettent pas de sniffer le traffic local de l&amp;rsquo;ordinateur (localhost / 127.0.0.1)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id="netsh"&gt;netsh&lt;/h2&gt;
+&lt;p&gt;netsh peux servir à écouter le traffic.&lt;/p&gt;
+&lt;p&gt;Démarrer la capture:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;netsh trace start persistent&lt;span style="color:#f92672"&gt;=&lt;/span&gt;yes capture&lt;span style="color:#f92672"&gt;=&lt;/span&gt;yes tracefile&lt;span style="color:#f92672"&gt;=&lt;/span&gt;c:&lt;span style="color:#ae81ff"&gt;\t&lt;/span&gt;race&lt;span style="color:#ae81ff"&gt;\f&lt;/span&gt;irsttrace.etl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Arreter la capture:&lt;/p&gt;</description></item><item><title>Déployer Windows 10 sur des appareils à mémoire soudée</title><link>https://loonaire.github.io/posts/w10memoiresoudee/</link><pubDate>Sat, 27 Jan 2024 17:45:58 +0100</pubDate><guid>https://loonaire.github.io/posts/w10memoiresoudee/</guid><description>&lt;p&gt;Voici un petit rapport du déploiement de Windows 10 sur des appareils à mémoire UFS&lt;/p&gt;
+&lt;h2 id="le-fonctionnement-du-mdt"&gt;Le fonctionnement du MDT&lt;/h2&gt;
+&lt;p&gt;Avant de commencer, un rapide brief sur le MDT, il se compose de 3 composants distincts:
 - Le serveur WDS qui est le serveur qui acceptera les connexions et qui va contenir l&amp;rsquo;image de démarrage pour le déploiement
 - L&amp;rsquo;outil MDT qui est la console Deployment Workbench qui permet de générer l&amp;rsquo;image de démarrage du déploiement ainsi que la séquence de tâches à executer, les fichiers résultants sont stockés dans un répertoire partagés
-- Le composant ADK + le module ADK winPE (à partir de windows 10 de 2019) qui sont les fichiers qui permettent la génération d&amp;rsquo;image de boot winPE&lt;/p></description></item><item><title>Go: Profiler une app</title><link>https://loonaire.github.io/posts/golangpprof/</link><pubDate>Sat, 14 Oct 2023 17:53:13 +0200</pubDate><guid>https://loonaire.github.io/posts/golangpprof/</guid><description>&lt;p>Un petit article mémo pour le profilage en Go.&lt;/p>
-&lt;h2 id="profilage-de-base">Profilage de base&lt;/h2>
-&lt;p>Dans mon cas, je développe un serveur tcp donc le logiciel reste ouvert indéfiniment, cette solution sera également pour les serveurs http et les autres développement utilisant des boucles infinies.&lt;/p>
-&lt;p>Voici le code de base:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">_&lt;/span> &lt;span style="color:#e6db74">&amp;#34;net/http/pprof&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">go&lt;/span> &lt;span style="color:#66d9ef">func&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#a6e22e">http&lt;/span>.&lt;span style="color:#a6e22e">ListenAndServe&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;localhost:6060&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">nil&lt;/span>))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	}()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// AJOUTER ICI LE RESTE DE VOTRE CODE&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;hello&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Explications:&lt;br>
-L&amp;rsquo;import &lt;code>_ &amp;quot;net/http/pprof&amp;quot; &lt;/code> force l&amp;rsquo;import du package pprof http, ensuite il faut lancer un serveur http dans une goroutine pour pouvoir récupérer les informations de la mémoire en temps réel.&lt;br>
-Pour accéder aux données en temps réel, il faut se connecter avec le lien: &lt;code>http://localhost:6060/debug/pprof&lt;/code>, le port 6060 est celui par défaut.&lt;/p></description></item><item><title>Extraire le fichier apk d'une application Android</title><link>https://loonaire.github.io/posts/extraireapk/</link><pubDate>Sun, 27 Aug 2023 10:31:54 +0200</pubDate><guid>https://loonaire.github.io/posts/extraireapk/</guid><description>&lt;p>Pour commencer, il faut:&lt;/p>
-&lt;ul>
-&lt;li>Un smartphone Android avec les options de développeur et le mode débogage activé (taper 7 fois sur le numéro de build dans les paramètres pour activer le mode développeur puis dans le mode développeur activer le mode débogage).&lt;/li>
-&lt;li>Un ordinateur avec android platform tools installé (disponible &lt;a href="https://developer.android.com/tools/releases/platform-tools">ici&lt;/a>)&lt;/li>
-&lt;/ul>
-&lt;h2 id="localiser-lapplication">Localiser l&amp;rsquo;application&lt;/h2>
-&lt;p>Pour commencer, s&amp;rsquo;assurer sur le téléphone est reconnu par la commande suivante:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>adb devices
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ensuite Pour afficher la liste des applications installées, il faut utiliser la commande:&lt;/p></description></item><item><title>Go: les logs avec slog</title><link>https://loonaire.github.io/posts/go-slog/</link><pubDate>Mon, 21 Aug 2023 18:47:52 +0200</pubDate><guid>https://loonaire.github.io/posts/go-slog/</guid><description>&lt;p>Depuis Go 1.21, un nouveau package est disponible pour logger en Go. J&amp;rsquo;attendais ce nouveau package avec impatience, il permet beaucoup de chose et rend la lib de base de Go encore plus intéressante. le package log reste en place, cependant slog est bien plus intéressant.&lt;/p>
-&lt;p>Ce nouveau logger permet d&amp;rsquo;avoir différents niveaux de logs, un mode debug. Il permet également de gérer la sortie des logs et d&amp;rsquo;avoir différents mode, mode classique ou log en JSON.&lt;/p></description></item><item><title>Transférer les signatures Outlook d'un ordinateur vers un autre</title><link>https://loonaire.github.io/posts/outlooksignatures/</link><pubDate>Sat, 13 May 2023 14:37:01 +0200</pubDate><guid>https://loonaire.github.io/posts/outlooksignatures/</guid><description>&lt;p>Il est possible de transférer simplement les signatures d&amp;rsquo;Outlook d&amp;rsquo;un ordinateur vers un autre, pour cela il suffit de copier un dossier.&lt;/p>
-&lt;p>Le dossier se trouve dans &lt;code>%appdata%\Microsoft\&lt;/code>, il faut ensuite copier le dossier &lt;code>Signatures&lt;/code> au même endroit sur l&amp;rsquo;autre ordinateur.&lt;/p></description></item><item><title>Importer et exporter les données de firefox</title><link>https://loonaire.github.io/posts/exportfirefoxdata/</link><pubDate>Sat, 13 May 2023 14:08:22 +0200</pubDate><guid>https://loonaire.github.io/posts/exportfirefoxdata/</guid><description>&lt;p>Voici plusieurs techniques pour récupérer les informations d&amp;rsquo;un profil de firefox.
-Pour information, les profils sont stocké par défaut dans: &lt;code>%appdata%\Mozilla\Firefox\Profiles&lt;/code>, si le profil n&amp;rsquo;est pas présent dans ce dossier, il est possible de voir où est stocké le profil depuis firefox en tapant dans la barre d&amp;rsquo;url: &lt;code>about:support&lt;/code>.&lt;/p>
-&lt;blockquote>
-&lt;p>PS: je montre ici des techniques alternatives à la technique &amp;ldquo;officielle&amp;rdquo; de Mozilla pour le transfert de profil car je n&amp;rsquo;ai jamais réussi à les faires fonctionner correctement, cette technique est disponible &lt;a href="https://support.mozilla.org/fr/kb/sauvegarder-restaurer-informations-profils-firefox">ici&lt;/a>.&lt;/p></description></item><item><title>Analyse d'un algorithme de chiffrement de mot de passe</title><link>https://loonaire.github.io/posts/xordecipher/</link><pubDate>Sat, 15 Apr 2023 10:51:13 +0200</pubDate><guid>https://loonaire.github.io/posts/xordecipher/</guid><description>&lt;h2 id="disclaimer">Disclaimer&lt;/h2>
-&lt;blockquote>
-&lt;p>Je vais analyser une fonction qui a réellement été utilisée en production pour chiffrer les mots de passes. Cette fonction comporte plusieurs faillses et problèmes qui font quelle ne serait pas réutilisable aujourd&amp;rsquo;hui.&lt;/p>&lt;/blockquote>
-&lt;h2 id="introduction">Introduction&lt;/h2>
-&lt;p>Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j&amp;rsquo;ai décidé de regarder un peu le code du jeu et j&amp;rsquo;ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d&amp;rsquo;apprendre un peu le fonctionnement d&amp;rsquo;ActionScript et plus particulièrement de flash player. Je ne vais pas détailler ici le fonctionnement client/serveur complet, je ne m&amp;rsquo;intéresse qu&amp;rsquo;à l&amp;rsquo;algorithme de mots de passe.&lt;/p></description></item><item><title>Le choix d'une distribution Linux en 2023</title><link>https://loonaire.github.io/posts/choixlinux/</link><pubDate>Wed, 22 Mar 2023 09:23:48 +0100</pubDate><guid>https://loonaire.github.io/posts/choixlinux/</guid><description>&lt;p>J&amp;rsquo;écris cet article suite à mon expérience avec différentes distributions linux depuis presque 1an. L&amp;rsquo;échéance de fin de vie de Windows 10 approche et Windows 11 ne me plais pas, certains des ordinateurs dont je m&amp;rsquo;occupe sont impactés, ils sont en parfait état de fonctionnement mais Windows 11 ne peux pas être installé dessus, souvent à cause du processeur&amp;hellip; Un des autres problèmes que j&amp;rsquo;ai avec Windows 11 est un retour en arrière en terme de fonctionnalités et une avancée pas toujours très utile sur d&amp;rsquo;autres fonctionnalité, il consomme également beaucoup trop de ressources. Une de mes expériences avec Windows 11 a été le menu paramètres des mises à jour qui crash&amp;hellip; pendant l&amp;rsquo;installation des mises à jour.&lt;/p></description></item><item><title>Windows 10: Retirer une application par défaut pour un format de fichier</title><link>https://loonaire.github.io/posts/w10-retirer-app-defaut/</link><pubDate>Mon, 27 Feb 2023 17:39:41 +0100</pubDate><guid>https://loonaire.github.io/posts/w10-retirer-app-defaut/</guid><description>&lt;p>Sous Windows 10, il est impossible de retirer une application par défaut pour un type de fichier depuis les paramètres. Cette option est pourtant utilse et obligatoire pour éviter à certains logiciels de se mettre par défaut au lancement d&amp;rsquo;un fichier.&lt;/p>
-&lt;p>Pour retirer une association, il faut aller dans le registre de windows (regedit) et aller dans le dossier:&lt;/p>
-&lt;blockquote>
-&lt;p>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts&lt;/p>&lt;/blockquote>
-&lt;p>Ensuite, il suffit de supprimer le dossier de l&amp;rsquo;extension souhaitée. Enfin, pour que tous soit en ordre, il est préférable de redémarrer la session ou l&amp;rsquo;ordinateur pour prendre en compte les &amp;ldquo;nouveaux&amp;rdquo; paramètres.&lt;br>
-Si ce n&amp;rsquo;est pas possible, il faudra fermer et réouvrir les applications comme le gestionnaire de fichier pour que les modifications soient prises en compte.&lt;/p></description></item><item><title>Gérer les erreurs en Go</title><link>https://loonaire.github.io/posts/golangerreurs/</link><pubDate>Sun, 19 Feb 2023 15:58:07 +0100</pubDate><guid>https://loonaire.github.io/posts/golangerreurs/</guid><description>&lt;p>En Go, les erreurs sont gérées de cette manière:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// squelette d&amp;#39;une fonction qui renvoi une erreur&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">mafonction&lt;/span>() &lt;span style="color:#66d9ef">error&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">condition&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#75715e">// retourne l&amp;#39;erreur&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> &lt;span style="color:#75715e">// retourne nil qui équivaux à aucune erreur&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// code utilisé pour appeler la fonction:&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">mafonction&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// si la fonction retourne une erreur, la variable sera différente de nil&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cependant, cette manière de faire à ces limites, par exemple il n&amp;rsquo;est pas possible de créer des erreurs personnalisées avec cette technique. Pour créer des erreurs personnalisées, il faut créer ce qui est appelé des sentienelles. Il s&amp;rsquo;agit de variables qui seront des erreurs et qui contiendront un message d&amp;rsquo;erreur.&lt;/p></description></item><item><title>Exploiter les fichiers de l'outil PSR de Windows</title><link>https://loonaire.github.io/posts/outilpsrwindows/</link><pubDate>Sun, 05 Feb 2023 07:55:18 +0100</pubDate><guid>https://loonaire.github.io/posts/outilpsrwindows/</guid><description>&lt;p>Un tutoriel rapide crée il y a un moment sur les fichiers obtenu avec l&amp;rsquo;enregistreur d&amp;rsquo;actions utilisateur de windows. L&amp;rsquo;outil
-La sortie de l&amp;rsquo;outil est un fichier zip qui contient un fichier .mht. Le format mht est un format très proche du HTML mais il contient les images encodées en base64 plutot que de les enregistrer à coté.&lt;/p>
-&lt;p>Voici un éditeur de mth en ligne mais il ne semble pas possible de récuperer les images: &lt;a href="https://products.aspose.app/words/editor/mht">lien&lt;/a>&lt;/p></description></item><item><title>Mise à jour du firmware SSD</title><link>https://loonaire.github.io/posts/updatessdfirmware/</link><pubDate>Sat, 04 Feb 2023 09:13:29 +0100</pubDate><guid>https://loonaire.github.io/posts/updatessdfirmware/</guid><description>&lt;p>En janvier 2023, des mises à jour concernant des problèmes sur les SSD samsung 9x0 et 9x0PRO ont été détectées, ça a été l&amp;rsquo;occasion de découvrir comment se fait la mise à jour des SSD. Sans surprise, il s&amp;rsquo;agit d&amp;rsquo;une manière similaire à celle des BIOS.&lt;/p>
-&lt;p>Pour commencer, sous Windows 10, on peux voir la version du firmware du SSD à l&amp;rsquo;aide de la commande:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>WMIC diskdrive Get Caption, firmwarerevision
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>on aura ensuite les SSD disponible leur version de firmware:&lt;/p></description></item><item><title>Extraire un fichier d'un fichier .exe qui contient un installateur et créer un jdk java 8 portable</title><link>https://loonaire.github.io/posts/extractfilefromisntaller/</link><pubDate>Thu, 19 Jan 2023 15:49:17 +0100</pubDate><guid>https://loonaire.github.io/posts/extractfilefromisntaller/</guid><description>&lt;p>Dans l&amp;rsquo;optique de pouvoir lancer des logiciels qui ne se lancent que avec Java 8, j&amp;rsquo;ai cherché une version portable de java 8 or cela n&amp;rsquo;existe pas. En cherchant un peu j&amp;rsquo;ai trouvé un moyen qui permet de pouvoir créer une version &amp;ldquo;portable&amp;rdquo; de logiciels à partir du fichier .exe d&amp;rsquo;intallation. Cette technique permet également d&amp;rsquo;extraire les drivers des fcihiers exe d&amp;rsquo;installation si l&amp;rsquo;on souhaite installer seulement le driver.&lt;/p>
-&lt;h2 id="extraire-des-fichiers-dun-installateur-exe">Extraire des fichiers d&amp;rsquo;un installateur .exe&lt;/h2>
-&lt;blockquote>
-&lt;p>Attention: Il faut absolument utiliser un installateur &amp;ldquo;offline&amp;rdquo; qui contient déja les fichiers qu&amp;rsquo;il va installer, avec un installateur qui téléhcharge les fichiers, cette technique est inutile.&lt;/p></description></item><item><title>Développer en Rust sur Windows avec VSCode et sans msvc</title><link>https://loonaire.github.io/posts/setuprustwindows/</link><pubDate>Sat, 14 Jan 2023 20:50:48 +0100</pubDate><guid>https://loonaire.github.io/posts/setuprustwindows/</guid><description>&lt;p>Souhaitant retenter d&amp;rsquo;apprendre Rust, j&amp;rsquo;ai dû commencer par mettre en place mon environnement de développement. J&amp;rsquo;avais déja essayé Rust mais en utilisant ce qui étais recommandé sur le site officiel de Rust: utiliser rustup version windows et le compilateur msvc, cette version marche très bien mais a le problème d&amp;rsquo;avoir besoin du SDK Windows d&amp;rsquo;installer sur l&amp;rsquo;ordinateur et entre les outils qui ne me servirai que pour Rust et qui ont besoin d&amp;rsquo;environ 5Go d&amp;rsquo;espace, je trouve ca beaucoup trop, surtout que j&amp;rsquo;ai déja un environnement de compilation prêt grâce à MSYS2.&lt;/p></description></item><item><title>La découverte des flux rss</title><link>https://loonaire.github.io/posts/fluxrss/</link><pubDate>Tue, 08 Nov 2022 09:35:08 +0100</pubDate><guid>https://loonaire.github.io/posts/fluxrss/</guid><description>&lt;p>Face à la quantité de sites à surveiller et à Twitter qui commence poser problème, j&amp;rsquo;ai décider de mettre en place agrégateur pour les flux rss. Un des agréagteurs conseillé est freshRSS mais il demande d&amp;rsquo;avoir un serveur ouvert en permanence sur l&amp;rsquo;ordinateur et ça ne m&amp;rsquo;arrange pas. Il existe également des sites web agrégateurs mais l&amp;rsquo;idée de faire un compte et d&amp;rsquo;aller sur un site précis ne me plait pas non plus. Une autre alternative aurais pu être d&amp;rsquo;utiliser thunderbird mais je trouve le logiciel trop proche de firefox et bien que la lecture de flux rss ai été retirée de firefox, une fusion firefox-thunderbird en un logiciel serait je pense, quelque chose d&amp;rsquo;intéressant (vivaldi le fait déja).&lt;/p></description></item><item><title>Les droits de fichiers et répertoire linux</title><link>https://loonaire.github.io/posts/droitslinux/</link><pubDate>Fri, 28 Oct 2022 10:58:29 +0200</pubDate><guid>https://loonaire.github.io/posts/droitslinux/</guid><description>&lt;h2 id="les-droits">Les droits&lt;/h2>
-&lt;h3 id="les-droits-de-base">Les droits de base&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: center">Lettre&lt;/th>
- &lt;th style="text-align: center">Valeur en Octal&lt;/th>
- &lt;th style="text-align: center">Nom du mode&lt;/th>
- &lt;th style="text-align: center">Effet sur un dossier&lt;/th>
- &lt;th style="text-align: center">Effet sur fichier&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: center">x&lt;/td>
- &lt;td style="text-align: center">1&lt;/td>
- &lt;td style="text-align: center">Execution&lt;/td>
- &lt;td style="text-align: center">Permet de se déplacer dans un dossier&lt;/td>
- &lt;td style="text-align: center">Permet de rendre executable le fichier, utiliser seul ne permet rien&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">w&lt;/td>
- &lt;td style="text-align: center">2&lt;/td>
- &lt;td style="text-align: center">Ecriture&lt;/td>
- &lt;td style="text-align: center">Permet la création de fichier et dossier&lt;/td>
- &lt;td style="text-align: center">Autorise la modification du fichier&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: center">r&lt;/td>
- &lt;td style="text-align: center">4&lt;/td>
- &lt;td style="text-align: center">Lecture&lt;/td>
- &lt;td style="text-align: center">Permet de voir le contenu d&amp;rsquo;un dossier&lt;/td>
- &lt;td style="text-align: center">permet de lire le contenu du fichier, ce droit doit être présent pour permettre l&amp;rsquo;éxecution du fichier&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="les-droits-spéciaux">Les droits spéciaux&lt;/h3>
-&lt;p>Ces droits donnent des droits supplémentaires, dans le cas lors de l&amp;rsquo;utilisation de la commande ls -l, le x sera remplacé par un autre caractère.&lt;/p></description></item><item><title>Go: Debug avec Delve</title><link>https://loonaire.github.io/posts/golangdelve/</link><pubDate>Mon, 24 Oct 2022 15:06:05 +0200</pubDate><guid>https://loonaire.github.io/posts/golangdelve/</guid><description>&lt;p>Delve est un debugger pour les programmes Go, il est même recommandé par rapport à gdb. Il est écris en Go. Pour plus d&amp;rsquo;informations, voici &lt;a href="https://github.com/go-delve/delve">son Github&lt;/a>&lt;/p>
-&lt;p>Pour l&amp;rsquo;installer:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>go install github.com/go-delve/delve/cmd/dlv@latest
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour lancer le debug il faut utiliser la commande:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>dlv debug 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Si il s&amp;rsquo;agit d&amp;rsquo;un fichier non lié à un fichier go.mod, il est possible de lancer le debuggage d&amp;rsquo;un fichier avec la commande:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>dlv debug nomFichier.go
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande &lt;strong>help&lt;/strong>. Pour avoir des informations sur les différentes commandes, il faut utiliser la commande &lt;strong>help commande&lt;/strong>.&lt;/p></description></item><item><title>Créer ou dumper un iso sur cd/dvd sur Linux</title><link>https://loonaire.github.io/posts/linuxisodumporcreate/</link><pubDate>Sun, 23 Oct 2022 12:06:18 +0200</pubDate><guid>https://loonaire.github.io/posts/linuxisodumporcreate/</guid><description>&lt;p>Je me suis longtemps demander comment dumper un fichier iso d&amp;rsquo;un cd ou dvd ou créer ce même fichier iso.
-Sous Windows, il existe le logiciel imgburn qui permet d&amp;rsquo;extraire des isos ou d&amp;rsquo;en créer simplement, je souhaite aller un peu plus loin ici, surtout en le faisant manuellement, sous linux il suffit d&amp;rsquo;une commande pour extraire des fichiers iso.&lt;/p>
-&lt;h2 id="0-prérequis">0. Prérequis&lt;/h2>
-&lt;p>Pour la suite du tutoriel, il faut installer le paquet qui contiendra les commandes que je vais utiliser:&lt;/p></description></item><item><title>Désactiver Edge au démarrage de Windows</title><link>https://loonaire.github.io/posts/disableedgeonstartup/</link><pubDate>Sun, 23 Oct 2022 10:43:15 +0200</pubDate><guid>https://loonaire.github.io/posts/disableedgeonstartup/</guid><description>&lt;p>Depuis quelques versions de Edge (mi 2022), Edge se lance automatiquement au démarrage de Windows, désactiver simplement le service ne suffit pas.&lt;/p>
-&lt;p>Pour désactiver le démarrage automatique de Edge, il faut aller dans les paramètres de Edge puis &lt;strong>Système et performances&lt;/strong>, catégorie &lt;strong>Système&lt;/strong>, désactiver les options &lt;strong>Démarrage rapide&lt;/strong> et &lt;strong>Continuer à exécuter les extensions et les applications en arrière-plan lorsque Microsoft Edge est fermé&lt;/strong>.&lt;/p>
-&lt;p>Il y a d&amp;rsquo;autres manières de faire, notamment via le registre, plus d&amp;rsquo;information &lt;a href="https://www.journaldugeek.com/2022/09/29/si-edge-tourne-en-arriere-plan-sans-votre-accord-voici-comment-len-empecher/">ici&lt;/a>&lt;/p></description></item><item><title>Go: Les fonction Get et Set des structs</title><link>https://loonaire.github.io/posts/golanggettersetter/</link><pubDate>Fri, 21 Oct 2022 15:57:16 +0200</pubDate><guid>https://loonaire.github.io/posts/golanggettersetter/</guid><description>&lt;p>Voici un article sur la mise en place de Getter et setter en Go. Go à un fonctionnement spécifique concernant ces fonctions, pour les setters, les fonctions doivent être nommées SetAttribut, pour les getter, il faut nommer les fonctions Attribut sans utiliser le mot Get.&lt;/p>
-&lt;p>Un exemple avec la classe Point:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">type&lt;/span> &lt;span style="color:#a6e22e">Point&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Getter de x&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#a6e22e">Point&lt;/span>) &lt;span style="color:#a6e22e">X&lt;/span>() &lt;span style="color:#66d9ef">int&lt;/span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">x&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Setter de x&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">Point&lt;/span>) &lt;span style="color:#a6e22e">SetX&lt;/span>(&lt;span style="color:#a6e22e">newValue&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">x&lt;/span> = &lt;span style="color:#a6e22e">newValue&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Getter de y&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Getter de x&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#a6e22e">Point&lt;/span>) &lt;span style="color:#a6e22e">Y&lt;/span>() &lt;span style="color:#66d9ef">int&lt;/span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">y&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// Setter de x&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> (&lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">Point&lt;/span>) &lt;span style="color:#a6e22e">SetY&lt;/span>(&lt;span style="color:#a6e22e">newValue&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">y&lt;/span> = &lt;span style="color:#a6e22e">newValue&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour l&amp;rsquo;appel cela se fera de cette manière:&lt;/p></description></item><item><title>Windows 10: Demander le mot de passe lors de la sortie de la veille</title><link>https://loonaire.github.io/posts/w10sleeppassword/</link><pubDate>Fri, 21 Oct 2022 15:11:37 +0200</pubDate><guid>https://loonaire.github.io/posts/w10sleeppassword/</guid><description>&lt;p>Sur Windows 10 Pro / Education, par défaut le mode veille ne verouille pas l&amp;rsquo;ordinateur, sur Windows 11 il y a le même problème, cependant le menu des paramètres à changer.&lt;/p>
-&lt;h2 id="dans-les-paramètres">Dans les paramètres&lt;/h2>
-&lt;p>Dans les paramètres de l&amp;rsquo;ordinateur, il faut aller dans &lt;strong>Comptes -&amp;gt; Options de connexion -&amp;gt; Exiger une connexion&lt;/strong>, il faut ensuite mettre sur &lt;strong>A chaque fois&lt;/strong>&lt;/p>
-&lt;h2 id="la-potentielle-gpo-associée">La potentielle GPO associée&lt;/h2>
-&lt;p>Je n&amp;rsquo;ai pas pu tester les GPO cependant voici 2 liens qui peuvent répondre a cette question:&lt;/p></description></item><item><title>Linux: Installer les lib en 32bits sur les architectures 64bits</title><link>https://loonaire.github.io/posts/linuxinstallerlib32bits/</link><pubDate>Thu, 22 Sep 2022 20:32:38 +0200</pubDate><guid>https://loonaire.github.io/posts/linuxinstallerlib32bits/</guid><description>&lt;p>Ayant eu besoin d&amp;rsquo;utiliser le lecteur Flash Player 9 en StandAlone sur linux, j&amp;rsquo;ai dû apprendre un peu l&amp;rsquo;architecture des systèmes linux.&lt;/p>
-&lt;p>Pour les personnes ayant l&amp;rsquo;habitude de Windows, dans la version 64bits il y a un mode de compatibilité pour les applications 32bits intégrée, Windows peux executer nativement les applications 32bits, mais les architectures 32 et 64bits sont différentes.&lt;/p>
-&lt;p>Sur les architectures 64bits, Linux installe seulement les versions 64bits des paquets, si on souhaite installer les versions 32bits il faut ajouter la possibilité d&amp;rsquo;installet les paquets 32bits.&lt;/p></description></item><item><title>Manjaro xfce: Erreur de la variable LANG de locale</title><link>https://loonaire.github.io/posts/manjaroxfcelocaleserrors/</link><pubDate>Thu, 22 Sep 2022 20:09:00 +0200</pubDate><guid>https://loonaire.github.io/posts/manjaroxfcelocaleserrors/</guid><description>&lt;p>Un des obstable à mon éventuel passage de Windows 10 à Manjaro XFCE est le support de certains logiciels. J&amp;rsquo;avais une demande particulière qui était qu&amp;rsquo;il fallais que Flash Player 9 StandAlone fonctionne sur Linux en français. Problème: le lecteur démarrais en anglais.&lt;/p>
-&lt;p>Après test sur Manjaro KDE ainsi que Mint et Debian XFCE, le problème semblais venir précisement de Manjaro avec l&amp;rsquo;environnement XFCE.&lt;/p>
-&lt;p>Sur Manjaro XFCE, la valeur par défaut de la variable d&amp;rsquo;environnement LANG est fr_FR.utf8 (obtenu avec la commande &lt;strong>locale&lt;/strong>). Cet encodage est inconnu de Flash Player 9 mais est compatible avec les version à partir de Flash Player 10 (précisément la version 10.1 ou 10.2). Une solution temporaire consiste à changer la valeur de la variable LANG dans un terminal puis d&amp;rsquo;éxecuter le lecteur Flash Player depuis ce terminal, ces manipulations peuvent se faire en une ligne de commande:&lt;/p></description></item><item><title>Manjaro: Corriger le problème de mise à jour des clés de signatures</title><link>https://loonaire.github.io/posts/manjaropacmansignature/</link><pubDate>Thu, 22 Sep 2022 19:53:44 +0200</pubDate><guid>https://loonaire.github.io/posts/manjaropacmansignature/</guid><description>&lt;p>En réalisant une installation de Manjaro XFCE à partir d&amp;rsquo;un iso ayant quelques mois, je me suis retrouvé dans l&amp;rsquo;impossibilité de mettre à jour le système car les clés de signature des paquets n&amp;rsquo;étaient plus valide. Pour débloquer ces mises à jours, il faut recharger la liste des clés mises à jour.&lt;/p>
-&lt;p>Voici les commandes à saisir:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Force la mise à jour de la base de données des paquets&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pacman -Syy 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Charge la liste des clés la plus récent&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pacman-key --refresh-keys
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Indique quelles clés doivent être utilisées&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pacman-key --populate archlinux manjaro
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Vide le cache des paquets&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pacman -Sc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il suffit ensuite de relancer une mise à jour des paquets.&lt;/p></description></item><item><title>Activer l'accès aux partages smb sans mot de passe sur Windows 10 Pro / Education</title><link>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</link><pubDate>Fri, 16 Sep 2022 18:01:15 +0200</pubDate><guid>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</guid><description>&lt;p>En voulant mettre en place un partage accessible sans mot de passe, je me suis retrouvé face à un problème d&amp;rsquo;accès avec Windows 10 Education. Le partage était situé sur un Windows 10 Famille, un autre ordinateur pouvais accéder à ce partage mais impossible depuis un Windows 10 Education.
-Le problème viens de la désactivation de l&amp;rsquo;accès aux partages sans mot de passe, ce problème est résolu en modifiant les GPO de l&amp;rsquo;ordinateur.&lt;/p></description></item><item><title>Passer des arguments à un programme Go avec les flags</title><link>https://loonaire.github.io/posts/go-flags/</link><pubDate>Thu, 04 Aug 2022 14:08:36 +0200</pubDate><guid>https://loonaire.github.io/posts/go-flags/</guid><description>&lt;p>Go permet de se passer de Os.args pour la gestion des arguments à l&amp;rsquo;execution de l&amp;rsquo;application avec le package flag.&lt;/p>
-&lt;p>Les arguments créeront l&amp;rsquo;argument -h ou &amp;ndash;help.&lt;/p>
-&lt;p>Pour les arguments de type bool, il faut mettre par défaut la valeur false, sinon l&amp;rsquo;argument sera toujours à true.&lt;/p>
-&lt;p>Voici un exemple de base, chaque argument est envoyé dans un pointeur vers l&amp;rsquo;argument:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;flag&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;log&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#75715e">// crée les variables qui contiendront les arguments&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#75715e">// attention: chaque paramètre est précédé d&amp;#39;un -&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">boolArg&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Bool&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;b&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">false&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Argument de type booléen&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">stringArg&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">String&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;s&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Argument de type chaine de caractères&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">intArg&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Int&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;i&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Argument de type entier signé&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">uintArg&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Uint&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;u&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Argument de type entier non signé&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">floatArg&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Float64&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;f&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">0.0&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Argument de type nombre décimal&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#75715e">// parse les arguments saisis&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Parse&lt;/span>()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#75715e">//flag.PrintDefaults() // permet d&amp;#39;afficher le message d&amp;#39;aide, équivaut à ./programme --help ou ./programme -h&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Nombre d&amp;#39;arguments: &amp;#34;&lt;/span>, len(&lt;span style="color:#a6e22e">flag&lt;/span>.&lt;span style="color:#a6e22e">Args&lt;/span>()))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;boolArg value: &amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">boolArg&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;stringArg value: &amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">stringArg&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;intArg value: &amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">intArg&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;uintArg value: &amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">uintArg&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;floatArg value: &amp;#34;&lt;/span>, &lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">floatArg&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il existe un autre moyen qui permet cette fois de récupérer directement les arguments dans des variables:&lt;/p></description></item><item><title>Golang: Voir la mémoire utilisée par le programme</title><link>https://loonaire.github.io/posts/go-runtime/</link><pubDate>Wed, 03 Aug 2022 20:06:58 +0200</pubDate><guid>https://loonaire.github.io/posts/go-runtime/</guid><description>&lt;p>Je cherchais un moyen d&amp;rsquo;afficher en Go la mémoire utilisée par un programme en Go.
-La solution se trouve dans la librairie standard avec le package runtime.&lt;/p>
-&lt;p>Voici un exemple de code (l&amp;rsquo;exemple parle de lui même):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;log&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;runtime&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;time&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#a6e22e">runtime&lt;/span>.&lt;span style="color:#a6e22e">MemStats&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">time&lt;/span>.&lt;span style="color:#a6e22e">Sleep&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">time&lt;/span>.&lt;span style="color:#a6e22e">Second&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;# goroutines: &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">runtime&lt;/span>.&lt;span style="color:#a6e22e">NumGoroutine&lt;/span>())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">runtime&lt;/span>.&lt;span style="color:#a6e22e">ReadMemStats&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">m&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Memory Acquired: &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Sys&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Memory Acquired (MB) :&amp;#34;&lt;/span>, float64(&lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Sys&lt;/span>)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">1000000&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Memory Used : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Alloc&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Memory Used (MB) : &amp;#34;&lt;/span>, float64(&lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Alloc&lt;/span>)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">1000000&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;TotalAlloc :&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">TotalAlloc&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;TotalAlloc (MB):&amp;#34;&lt;/span>, float64(&lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">TotalAlloc&lt;/span>)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">1000000&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;# malloc : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Mallocs&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;# free : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">Frees&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;GC enabled : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">EnableGC&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;# GC : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">NumGC&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Last GC time : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">LastGC&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Next GC : &amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">m&lt;/span>.&lt;span style="color:#a6e22e">NextGC&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#75715e">//runtime.GC() // retirer le commentaire pour forcer un passage du garbage collector&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Si vous souhaite executer ce code en boucle, mettez une boucle for{} enrre les println après le ReadMemStats(m)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Utiliser Flash Player en 2022</title><link>https://loonaire.github.io/posts/flashplayer2022/</link><pubDate>Wed, 03 Aug 2022 12:18:27 +0200</pubDate><guid>https://loonaire.github.io/posts/flashplayer2022/</guid><description>&lt;p>Flash player est aujourd&amp;rsquo;hui totalement mort, même adobe a retirer les liens vers Flash. Pour les applications AIR, une entreprise à repris le support, &lt;a href="https://airsdk.harman.com/runtime">plus d&amp;rsquo;infos par ici.&lt;/a>&lt;/p>
-&lt;p>Dans mon cas, je cherchais surtout sur les applications Flash.&lt;/p>
-&lt;h2 id="lancer-une-application-flash-player">&lt;strong>Lancer une application Flash player&lt;/strong>&lt;/h2>
-&lt;p>Lancer une application est plutot simple, il suffit de se munir du fichier swf de l&amp;rsquo;application ainsi que d&amp;rsquo;un lecteur flash player standalone.&lt;/p>
-&lt;p>Le lecteur flash player peux être trouver sur archive.org, par exemple &lt;a href="https://archive.org/details/standaloneflashplayers">par ici.&lt;/a>&lt;/p></description></item><item><title>Windows 10 N et les codecs vidéos manquant</title><link>https://loonaire.github.io/posts/win10n/</link><pubDate>Thu, 30 Jun 2022 20:42:14 +0200</pubDate><guid>https://loonaire.github.io/posts/win10n/</guid><description>&lt;p>Ayant des clés pour Windows 10 Education N, j&amp;rsquo;ai décider de l&amp;rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.&lt;/p>
-&lt;p>Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack.&lt;/p></description></item><item><title>Cheatsheet pour gohugo</title><link>https://loonaire.github.io/posts/cheatsheetgohugo/</link><pubDate>Sun, 26 Jun 2022 20:42:44 +0200</pubDate><guid>https://loonaire.github.io/posts/cheatsheetgohugo/</guid><description>&lt;p>Voici un rapide mémo pour l&amp;rsquo;utilisation de gohugo pour la création et l&amp;rsquo;ajout de contenu.&lt;/p>
-&lt;h2 id="création-dun-site">Création d&amp;rsquo;un site&lt;/h2>
-&lt;h3 id="crée-un-projet">Crée un projet&lt;/h3>
-&lt;p>Pour créer un projet avec gohugo:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>hugo new site ./
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Si le dossier n&amp;rsquo;est pas vide, il faut utiliser la commande:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>hugo new site ./ --force
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="utiliser-un-thème">Utiliser un thème&lt;/h3>
-&lt;p>Pour ajouter un thème à notre projet, il faut récupérer les fichier d&amp;rsquo;un thème et le placer dans le dossier themes du projet. Ensuite, il faut modifier le fichier config.toml en ajoutant la ligne theme = &amp;ldquo;nom-du-theme&amp;rdquo;&lt;/p></description></item><item><title>Retour Experience Laptop de 2021</title><link>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</link><pubDate>Sun, 26 Jun 2022 20:00:47 +0200</pubDate><guid>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</guid><description>&lt;p>J&amp;rsquo;ai récemment fait l&amp;rsquo;acquisition d&amp;rsquo;un nouvel ordinateur portable, il s&amp;rsquo;agit d&amp;rsquo;un Asus TUF706HM, coté composant, il possède un processeur intel core i5 11400h avec une carte graphique nvidia RTX3060 Max-q.
-Le chassis est en plastique complet et en pleine charge le ventilateur est très bruyant et s&amp;rsquo;entend de loin. Ce problème semble commun aux processeurs intel core iX depuis la gen 10, il semble également un peu présent sur les ordinateurs avec des processeurs AMD Ryzen 5xxxx, en charge le processeur et la carte graphique montent beaucoup en température. Cette température tourne autour de 90-100°C pour le processeur et la carte graphique arrive facilement à 80-90°C, c&amp;rsquo;est clairement trop et malheureusement le seul moyen de limiter cette température est de brider le processeur, ce qui permet de gagner quelques degrés.&lt;/p></description></item><item><title>Premier article</title><link>https://loonaire.github.io/posts/premierpost/</link><pubDate>Mon, 20 Jun 2022 20:02:25 +0200</pubDate><guid>https://loonaire.github.io/posts/premierpost/</guid><description>&lt;p>Salut!&lt;/p>
-&lt;p>Comme il faut bien un premier poste, j&amp;rsquo;ai décidé de créer ce blog pour centraliser mes contenus et mes retours sur mes exprériences, il y aura également de la documentation sur la mise en place de certains outils et de la configuration.&lt;/p>
-&lt;p>Pour ce blog, j&amp;rsquo;ai choisi de l&amp;rsquo;héberger sur github grâce aux github pages, cela me permet de gérer simplement la mise en page et je n&amp;rsquo;ai pas besoin du tout de gérer le coté serveur. J&amp;rsquo;utilise l&amp;rsquo;outil gohugo pour la génération du site, jekyll semble intéressant mais le fait qu&amp;rsquo;il soit en ruby pose trop de problème avec certains OS, en plus gohugo est développer en Go qui est un langage que j&amp;rsquo;ai découvert récemment et qui est très intéressant. Pour le thème, il s&amp;rsquo;agit de color-your-world, il est simple et efficace: ca me suffit!&lt;/p></description></item><item><title>A propos</title><link>https://loonaire.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://loonaire.github.io/about/</guid><description>&lt;p>Suite à ma formation TSSR auprès de l&amp;rsquo;ENI, j&amp;rsquo;ai ressenti le besoin de mettre en place un endroit ou je poste mes différentes procédures et expériences, ce blog servira à ça.&lt;/p>
-&lt;p>Il y aura tout type de contenu sur l&amp;rsquo;informatique, du dev, de l&amp;rsquo;administration systèmes, du réseau.&lt;/p></description></item><item><title>Other</title><link>https://loonaire.github.io/other/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://loonaire.github.io/other/</guid><description>&lt;blockquote>
-&lt;p>Section à venir, l&amp;rsquo;objectif est d&amp;rsquo;intégré le dépot de procédures ici un jour.&lt;/p>&lt;/blockquote></description></item></channel></rss>
+- Le composant ADK + le module ADK winPE (à partir de windows 10 de 2019) qui sont les fichiers qui permettent la génération d&amp;rsquo;image de boot winPE&lt;/p&gt;</description></item><item><title>Go: Profiler une app</title><link>https://loonaire.github.io/posts/golangpprof/</link><pubDate>Sat, 14 Oct 2023 17:53:13 +0200</pubDate><guid>https://loonaire.github.io/posts/golangpprof/</guid><description>&lt;p&gt;Un petit article mémo pour le profilage en Go.&lt;/p&gt;
+&lt;h2 id="profilage-de-base"&gt;Profilage de base&lt;/h2&gt;
+&lt;p&gt;Dans mon cas, je développe un serveur tcp donc le logiciel reste ouvert indéfiniment, cette solution sera également pour les serveurs http et les autres développement utilisant des boucles infinies.&lt;/p&gt;
+&lt;p&gt;Voici le code de base:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;_&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;net/http/pprof&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#66d9ef"&gt;go&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;func&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;http&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ListenAndServe&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;localhost:6060&amp;#34;&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	}()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// AJOUTER ICI LE RESTE DE VOTRE CODE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fmt&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Explications:&lt;br&gt;
+L&amp;rsquo;import &lt;code&gt;_ &amp;quot;net/http/pprof&amp;quot; &lt;/code&gt; force l&amp;rsquo;import du package pprof http, ensuite il faut lancer un serveur http dans une goroutine pour pouvoir récupérer les informations de la mémoire en temps réel.&lt;br&gt;
+Pour accéder aux données en temps réel, il faut se connecter avec le lien: &lt;code&gt;http://localhost:6060/debug/pprof&lt;/code&gt;, le port 6060 est celui par défaut.&lt;/p&gt;</description></item><item><title>Extraire le fichier apk d'une application Android</title><link>https://loonaire.github.io/posts/extraireapk/</link><pubDate>Sun, 27 Aug 2023 10:31:54 +0200</pubDate><guid>https://loonaire.github.io/posts/extraireapk/</guid><description>&lt;p&gt;Pour commencer, il faut:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un smartphone Android avec les options de développeur et le mode débogage activé (taper 7 fois sur le numéro de build dans les paramètres pour activer le mode développeur puis dans le mode développeur activer le mode débogage).&lt;/li&gt;
+&lt;li&gt;Un ordinateur avec android platform tools installé (disponible &lt;a href="https://developer.android.com/tools/releases/platform-tools"&gt;ici&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="localiser-lapplication"&gt;Localiser l&amp;rsquo;application&lt;/h2&gt;
+&lt;p&gt;Pour commencer, s&amp;rsquo;assurer sur le téléphone est reconnu par la commande suivante:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;adb devices
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ensuite Pour afficher la liste des applications installées, il faut utiliser la commande:&lt;/p&gt;</description></item><item><title>Go: les logs avec slog</title><link>https://loonaire.github.io/posts/go-slog/</link><pubDate>Mon, 21 Aug 2023 18:47:52 +0200</pubDate><guid>https://loonaire.github.io/posts/go-slog/</guid><description>&lt;p&gt;Depuis Go 1.21, un nouveau package est disponible pour logger en Go. J&amp;rsquo;attendais ce nouveau package avec impatience, il permet beaucoup de chose et rend la lib de base de Go encore plus intéressante. le package log reste en place, cependant slog est bien plus intéressant.&lt;/p&gt;
+&lt;p&gt;Ce nouveau logger permet d&amp;rsquo;avoir différents niveaux de logs, un mode debug. Il permet également de gérer la sortie des logs et d&amp;rsquo;avoir différents mode, mode classique ou log en JSON.&lt;/p&gt;</description></item><item><title>Transférer les signatures Outlook d'un ordinateur vers un autre</title><link>https://loonaire.github.io/posts/outlooksignatures/</link><pubDate>Sat, 13 May 2023 14:37:01 +0200</pubDate><guid>https://loonaire.github.io/posts/outlooksignatures/</guid><description>&lt;p&gt;Il est possible de transférer simplement les signatures d&amp;rsquo;Outlook d&amp;rsquo;un ordinateur vers un autre, pour cela il suffit de copier un dossier.&lt;/p&gt;
+&lt;p&gt;Le dossier se trouve dans &lt;code&gt;%appdata%\Microsoft\&lt;/code&gt;, il faut ensuite copier le dossier &lt;code&gt;Signatures&lt;/code&gt; au même endroit sur l&amp;rsquo;autre ordinateur.&lt;/p&gt;</description></item><item><title>Importer et exporter les données de firefox</title><link>https://loonaire.github.io/posts/exportfirefoxdata/</link><pubDate>Sat, 13 May 2023 14:08:22 +0200</pubDate><guid>https://loonaire.github.io/posts/exportfirefoxdata/</guid><description>&lt;p&gt;Voici plusieurs techniques pour récupérer les informations d&amp;rsquo;un profil de firefox.
+Pour information, les profils sont stocké par défaut dans: &lt;code&gt;%appdata%\Mozilla\Firefox\Profiles&lt;/code&gt;, si le profil n&amp;rsquo;est pas présent dans ce dossier, il est possible de voir où est stocké le profil depuis firefox en tapant dans la barre d&amp;rsquo;url: &lt;code&gt;about:support&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS: je montre ici des techniques alternatives à la technique &amp;ldquo;officielle&amp;rdquo; de Mozilla pour le transfert de profil car je n&amp;rsquo;ai jamais réussi à les faires fonctionner correctement, cette technique est disponible &lt;a href="https://support.mozilla.org/fr/kb/sauvegarder-restaurer-informations-profils-firefox"&gt;ici&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Analyse d'un algorithme de chiffrement de mot de passe</title><link>https://loonaire.github.io/posts/xordecipher/</link><pubDate>Sat, 15 Apr 2023 10:51:13 +0200</pubDate><guid>https://loonaire.github.io/posts/xordecipher/</guid><description>&lt;h2 id="disclaimer"&gt;Disclaimer&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Je vais analyser une fonction qui a réellement été utilisée en production pour chiffrer les mots de passes. Cette fonction comporte plusieurs faillses et problèmes qui font quelle ne serait pas réutilisable aujourd&amp;rsquo;hui.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Récemment en cherchant des informations sur le jeu Dofus entre 2003-2006, j&amp;rsquo;ai décidé de regarder un peu le code du jeu et j&amp;rsquo;ai également eu besoin de comprendre le fonctionnement du code, cela ma permis d&amp;rsquo;apprendre un peu le fonctionnement d&amp;rsquo;ActionScript et plus particulièrement de flash player. Je ne vais pas détailler ici le fonctionnement client/serveur complet, je ne m&amp;rsquo;intéresse qu&amp;rsquo;à l&amp;rsquo;algorithme de mots de passe.&lt;/p&gt;</description></item><item><title>Le choix d'une distribution Linux en 2023</title><link>https://loonaire.github.io/posts/choixlinux/</link><pubDate>Wed, 22 Mar 2023 09:23:48 +0100</pubDate><guid>https://loonaire.github.io/posts/choixlinux/</guid><description>&lt;p&gt;J&amp;rsquo;écris cet article suite à mon expérience avec différentes distributions linux depuis presque 1an. L&amp;rsquo;échéance de fin de vie de Windows 10 approche et Windows 11 ne me plais pas, certains des ordinateurs dont je m&amp;rsquo;occupe sont impactés, ils sont en parfait état de fonctionnement mais Windows 11 ne peux pas être installé dessus, souvent à cause du processeur&amp;hellip; Un des autres problèmes que j&amp;rsquo;ai avec Windows 11 est un retour en arrière en terme de fonctionnalités et une avancée pas toujours très utile sur d&amp;rsquo;autres fonctionnalité, il consomme également beaucoup trop de ressources. Une de mes expériences avec Windows 11 a été le menu paramètres des mises à jour qui crash&amp;hellip; pendant l&amp;rsquo;installation des mises à jour.&lt;/p&gt;</description></item><item><title>Windows 10: Retirer une application par défaut pour un format de fichier</title><link>https://loonaire.github.io/posts/w10-retirer-app-defaut/</link><pubDate>Mon, 27 Feb 2023 17:39:41 +0100</pubDate><guid>https://loonaire.github.io/posts/w10-retirer-app-defaut/</guid><description>&lt;p&gt;Sous Windows 10, il est impossible de retirer une application par défaut pour un type de fichier depuis les paramètres. Cette option est pourtant utilse et obligatoire pour éviter à certains logiciels de se mettre par défaut au lancement d&amp;rsquo;un fichier.&lt;/p&gt;
+&lt;p&gt;Pour retirer une association, il faut aller dans le registre de windows (regedit) et aller dans le dossier:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Ensuite, il suffit de supprimer le dossier de l&amp;rsquo;extension souhaitée. Enfin, pour que tous soit en ordre, il est préférable de redémarrer la session ou l&amp;rsquo;ordinateur pour prendre en compte les &amp;ldquo;nouveaux&amp;rdquo; paramètres.&lt;br&gt;
+Si ce n&amp;rsquo;est pas possible, il faudra fermer et réouvrir les applications comme le gestionnaire de fichier pour que les modifications soient prises en compte.&lt;/p&gt;</description></item><item><title>Gérer les erreurs en Go</title><link>https://loonaire.github.io/posts/golangerreurs/</link><pubDate>Sun, 19 Feb 2023 15:58:07 +0100</pubDate><guid>https://loonaire.github.io/posts/golangerreurs/</guid><description>&lt;p&gt;En Go, les erreurs sont gérées de cette manière:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-golang" data-lang="golang"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// squelette d&amp;#39;une fonction qui renvoi une erreur&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;mafonction&lt;/span&gt;() &lt;span style="color:#66d9ef"&gt;error&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;condition&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#75715e"&gt;// retourne l&amp;#39;erreur&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; &lt;span style="color:#75715e"&gt;// retourne nil qui équivaux à aucune erreur&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// code utilisé pour appeler la fonction:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;mafonction&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// si la fonction retourne une erreur, la variable sera différente de nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cependant, cette manière de faire à ces limites, par exemple il n&amp;rsquo;est pas possible de créer des erreurs personnalisées avec cette technique. Pour créer des erreurs personnalisées, il faut créer ce qui est appelé des sentienelles. Il s&amp;rsquo;agit de variables qui seront des erreurs et qui contiendront un message d&amp;rsquo;erreur.&lt;/p&gt;</description></item><item><title>Exploiter les fichiers de l'outil PSR de Windows</title><link>https://loonaire.github.io/posts/outilpsrwindows/</link><pubDate>Sun, 05 Feb 2023 07:55:18 +0100</pubDate><guid>https://loonaire.github.io/posts/outilpsrwindows/</guid><description>&lt;p&gt;Un tutoriel rapide crée il y a un moment sur les fichiers obtenu avec l&amp;rsquo;enregistreur d&amp;rsquo;actions utilisateur de windows. L&amp;rsquo;outil
+La sortie de l&amp;rsquo;outil est un fichier zip qui contient un fichier .mht. Le format mht est un format très proche du HTML mais il contient les images encodées en base64 plutot que de les enregistrer à coté.&lt;/p&gt;
+&lt;p&gt;Voici un éditeur de mth en ligne mais il ne semble pas possible de récuperer les images: &lt;a href="https://products.aspose.app/words/editor/mht"&gt;lien&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Mise à jour du firmware SSD</title><link>https://loonaire.github.io/posts/updatessdfirmware/</link><pubDate>Sat, 04 Feb 2023 09:13:29 +0100</pubDate><guid>https://loonaire.github.io/posts/updatessdfirmware/</guid><description>&lt;p&gt;En janvier 2023, des mises à jour concernant des problèmes sur les SSD samsung 9x0 et 9x0PRO ont été détectées, ça a été l&amp;rsquo;occasion de découvrir comment se fait la mise à jour des SSD. Sans surprise, il s&amp;rsquo;agit d&amp;rsquo;une manière similaire à celle des BIOS.&lt;/p&gt;
+&lt;p&gt;Pour commencer, sous Windows 10, on peux voir la version du firmware du SSD à l&amp;rsquo;aide de la commande:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;WMIC diskdrive Get Caption, firmwarerevision
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;on aura ensuite les SSD disponible leur version de firmware:&lt;/p&gt;</description></item><item><title>Extraire un fichier d'un fichier .exe qui contient un installateur et créer un jdk java 8 portable</title><link>https://loonaire.github.io/posts/extractfilefromisntaller/</link><pubDate>Thu, 19 Jan 2023 15:49:17 +0100</pubDate><guid>https://loonaire.github.io/posts/extractfilefromisntaller/</guid><description>&lt;p&gt;Dans l&amp;rsquo;optique de pouvoir lancer des logiciels qui ne se lancent que avec Java 8, j&amp;rsquo;ai cherché une version portable de java 8 or cela n&amp;rsquo;existe pas. En cherchant un peu j&amp;rsquo;ai trouvé un moyen qui permet de pouvoir créer une version &amp;ldquo;portable&amp;rdquo; de logiciels à partir du fichier .exe d&amp;rsquo;intallation. Cette technique permet également d&amp;rsquo;extraire les drivers des fcihiers exe d&amp;rsquo;installation si l&amp;rsquo;on souhaite installer seulement le driver.&lt;/p&gt;
+&lt;h2 id="extraire-des-fichiers-dun-installateur-exe"&gt;Extraire des fichiers d&amp;rsquo;un installateur .exe&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Attention: Il faut absolument utiliser un installateur &amp;ldquo;offline&amp;rdquo; qui contient déja les fichiers qu&amp;rsquo;il va installer, avec un installateur qui téléhcharge les fichiers, cette technique est inutile.&lt;/p&gt;</description></item><item><title>Développer en Rust sur Windows avec VSCode et sans msvc</title><link>https://loonaire.github.io/posts/setuprustwindows/</link><pubDate>Sat, 14 Jan 2023 20:50:48 +0100</pubDate><guid>https://loonaire.github.io/posts/setuprustwindows/</guid><description>&lt;p&gt;Souhaitant retenter d&amp;rsquo;apprendre Rust, j&amp;rsquo;ai dû commencer par mettre en place mon environnement de développement. J&amp;rsquo;avais déja essayé Rust mais en utilisant ce qui étais recommandé sur le site officiel de Rust: utiliser rustup version windows et le compilateur msvc, cette version marche très bien mais a le problème d&amp;rsquo;avoir besoin du SDK Windows d&amp;rsquo;installer sur l&amp;rsquo;ordinateur et entre les outils qui ne me servirai que pour Rust et qui ont besoin d&amp;rsquo;environ 5Go d&amp;rsquo;espace, je trouve ca beaucoup trop, surtout que j&amp;rsquo;ai déja un environnement de compilation prêt grâce à MSYS2.&lt;/p&gt;</description></item><item><title>La découverte des flux rss</title><link>https://loonaire.github.io/posts/fluxrss/</link><pubDate>Tue, 08 Nov 2022 09:35:08 +0100</pubDate><guid>https://loonaire.github.io/posts/fluxrss/</guid><description>&lt;p&gt;Face à la quantité de sites à surveiller et à Twitter qui commence poser problème, j&amp;rsquo;ai décider de mettre en place agrégateur pour les flux rss. Un des agréagteurs conseillé est freshRSS mais il demande d&amp;rsquo;avoir un serveur ouvert en permanence sur l&amp;rsquo;ordinateur et ça ne m&amp;rsquo;arrange pas. Il existe également des sites web agrégateurs mais l&amp;rsquo;idée de faire un compte et d&amp;rsquo;aller sur un site précis ne me plait pas non plus. Une autre alternative aurais pu être d&amp;rsquo;utiliser thunderbird mais je trouve le logiciel trop proche de firefox et bien que la lecture de flux rss ai été retirée de firefox, une fusion firefox-thunderbird en un logiciel serait je pense, quelque chose d&amp;rsquo;intéressant (vivaldi le fait déja).&lt;/p&gt;</description></item><item><title>Les droits de fichiers et répertoire linux</title><link>https://loonaire.github.io/posts/droitslinux/</link><pubDate>Fri, 28 Oct 2022 10:58:29 +0200</pubDate><guid>https://loonaire.github.io/posts/droitslinux/</guid><description>&lt;h2 id="les-droits"&gt;Les droits&lt;/h2&gt;
+&lt;h3 id="les-droits-de-base"&gt;Les droits de base&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: center"&gt;Lettre&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;Valeur en Octal&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;Nom du mode&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;Effet sur un dossier&lt;/th&gt;
+ &lt;th style="text-align: center"&gt;Effet sur fichier&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;x&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;1&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Execution&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Permet de se déplacer dans un dossier&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Permet de rendre executable le fichier, utiliser seul ne permet rien&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;w&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;2&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Ecriture&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Permet la création de fichier et dossier&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Autorise la modification du fichier&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: center"&gt;r&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;4&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Lecture&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;Permet de voir le contenu d&amp;rsquo;un dossier&lt;/td&gt;
+ &lt;td style="text-align: center"&gt;permet de lire le contenu du fichier, ce droit doit être présent pour permettre l&amp;rsquo;éxecution du fichier&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="les-droits-spéciaux"&gt;Les droits spéciaux&lt;/h3&gt;
+&lt;p&gt;Ces droits donnent des droits supplémentaires, dans le cas lors de l&amp;rsquo;utilisation de la commande ls -l, le x sera remplacé par un autre caractère.&lt;/p&gt;</description></item><item><title>Go: Debug avec Delve</title><link>https://loonaire.github.io/posts/golangdelve/</link><pubDate>Mon, 24 Oct 2022 15:06:05 +0200</pubDate><guid>https://loonaire.github.io/posts/golangdelve/</guid><description>&lt;p&gt;Delve est un debugger pour les programmes Go, il est même recommandé par rapport à gdb. Il est écris en Go. Pour plus d&amp;rsquo;informations, voici &lt;a href="https://github.com/go-delve/delve"&gt;son Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pour l&amp;rsquo;installer:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;go install github.com/go-delve/delve/cmd/dlv@latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pour lancer le debug il faut utiliser la commande:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dlv debug 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si il s&amp;rsquo;agit d&amp;rsquo;un fichier non lié à un fichier go.mod, il est possible de lancer le debuggage d&amp;rsquo;un fichier avec la commande:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dlv debug nomFichier.go
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ensuite, pour afficher les commandes disponibles dans delve, il faut utiliser la commande &lt;strong&gt;help&lt;/strong&gt;. Pour avoir des informations sur les différentes commandes, il faut utiliser la commande &lt;strong&gt;help commande&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Créer ou dumper un iso sur cd/dvd sur Linux</title><link>https://loonaire.github.io/posts/linuxisodumporcreate/</link><pubDate>Sun, 23 Oct 2022 12:06:18 +0200</pubDate><guid>https://loonaire.github.io/posts/linuxisodumporcreate/</guid><description>&lt;p&gt;Je me suis longtemps demander comment dumper un fichier iso d&amp;rsquo;un cd ou dvd ou créer ce même fichier iso.
+Sous Windows, il existe le logiciel imgburn qui permet d&amp;rsquo;extraire des isos ou d&amp;rsquo;en créer simplement, je souhaite aller un peu plus loin ici, surtout en le faisant manuellement, sous linux il suffit d&amp;rsquo;une commande pour extraire des fichiers iso.&lt;/p&gt;
+&lt;h2 id="0-prérequis"&gt;0. Prérequis&lt;/h2&gt;
+&lt;p&gt;Pour la suite du tutoriel, il faut installer le paquet qui contiendra les commandes que je vais utiliser:&lt;/p&gt;</description></item><item><title>Désactiver Edge au démarrage de Windows</title><link>https://loonaire.github.io/posts/disableedgeonstartup/</link><pubDate>Sun, 23 Oct 2022 10:43:15 +0200</pubDate><guid>https://loonaire.github.io/posts/disableedgeonstartup/</guid><description>&lt;p&gt;Depuis quelques versions de Edge (mi 2022), Edge se lance automatiquement au démarrage de Windows, désactiver simplement le service ne suffit pas.&lt;/p&gt;
+&lt;p&gt;Pour désactiver le démarrage automatique de Edge, il faut aller dans les paramètres de Edge puis &lt;strong&gt;Système et performances&lt;/strong&gt;, catégorie &lt;strong&gt;Système&lt;/strong&gt;, désactiver les options &lt;strong&gt;Démarrage rapide&lt;/strong&gt; et &lt;strong&gt;Continuer à exécuter les extensions et les applications en arrière-plan lorsque Microsoft Edge est fermé&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Il y a d&amp;rsquo;autres manières de faire, notamment via le registre, plus d&amp;rsquo;information &lt;a href="https://www.journaldugeek.com/2022/09/29/si-edge-tourne-en-arriere-plan-sans-votre-accord-voici-comment-len-empecher/"&gt;ici&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Go: Les fonction Get et Set des structs</title><link>https://loonaire.github.io/posts/golanggettersetter/</link><pubDate>Fri, 21 Oct 2022 15:57:16 +0200</pubDate><guid>https://loonaire.github.io/posts/golanggettersetter/</guid><description>&lt;p&gt;Voici un article sur la mise en place de Getter et setter en Go. Go à un fonctionnement spécifique concernant ces fonctions, pour les setters, les fonctions doivent être nommées SetAttribut, pour les getter, il faut nommer les fonctions Attribut sans utiliser le mot Get.&lt;/p&gt;
+&lt;p&gt;Un exemple avec la classe Point:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-golang" data-lang="golang"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;type&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Point&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;x&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;y&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Getter de x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;p&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Point&lt;/span&gt;) &lt;span style="color:#a6e22e"&gt;X&lt;/span&gt;() &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;p&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Setter de x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;p&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;Point&lt;/span&gt;) &lt;span style="color:#a6e22e"&gt;SetX&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;newValue&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;p&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;x&lt;/span&gt; = &lt;span style="color:#a6e22e"&gt;newValue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Getter de y&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Getter de x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;p&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Point&lt;/span&gt;) &lt;span style="color:#a6e22e"&gt;Y&lt;/span&gt;() &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;p&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;y&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;// Setter de x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;p&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;Point&lt;/span&gt;) &lt;span style="color:#a6e22e"&gt;SetY&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;newValue&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;p&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;y&lt;/span&gt; = &lt;span style="color:#a6e22e"&gt;newValue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pour l&amp;rsquo;appel cela se fera de cette manière:&lt;/p&gt;</description></item><item><title>Windows 10: Demander le mot de passe lors de la sortie de la veille</title><link>https://loonaire.github.io/posts/w10sleeppassword/</link><pubDate>Fri, 21 Oct 2022 15:11:37 +0200</pubDate><guid>https://loonaire.github.io/posts/w10sleeppassword/</guid><description>&lt;p&gt;Sur Windows 10 Pro / Education, par défaut le mode veille ne verouille pas l&amp;rsquo;ordinateur, sur Windows 11 il y a le même problème, cependant le menu des paramètres à changer.&lt;/p&gt;
+&lt;h2 id="dans-les-paramètres"&gt;Dans les paramètres&lt;/h2&gt;
+&lt;p&gt;Dans les paramètres de l&amp;rsquo;ordinateur, il faut aller dans &lt;strong&gt;Comptes -&amp;gt; Options de connexion -&amp;gt; Exiger une connexion&lt;/strong&gt;, il faut ensuite mettre sur &lt;strong&gt;A chaque fois&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="la-potentielle-gpo-associée"&gt;La potentielle GPO associée&lt;/h2&gt;
+&lt;p&gt;Je n&amp;rsquo;ai pas pu tester les GPO cependant voici 2 liens qui peuvent répondre a cette question:&lt;/p&gt;</description></item><item><title>Linux: Installer les lib en 32bits sur les architectures 64bits</title><link>https://loonaire.github.io/posts/linuxinstallerlib32bits/</link><pubDate>Thu, 22 Sep 2022 20:32:38 +0200</pubDate><guid>https://loonaire.github.io/posts/linuxinstallerlib32bits/</guid><description>&lt;p&gt;Ayant eu besoin d&amp;rsquo;utiliser le lecteur Flash Player 9 en StandAlone sur linux, j&amp;rsquo;ai dû apprendre un peu l&amp;rsquo;architecture des systèmes linux.&lt;/p&gt;
+&lt;p&gt;Pour les personnes ayant l&amp;rsquo;habitude de Windows, dans la version 64bits il y a un mode de compatibilité pour les applications 32bits intégrée, Windows peux executer nativement les applications 32bits, mais les architectures 32 et 64bits sont différentes.&lt;/p&gt;
+&lt;p&gt;Sur les architectures 64bits, Linux installe seulement les versions 64bits des paquets, si on souhaite installer les versions 32bits il faut ajouter la possibilité d&amp;rsquo;installet les paquets 32bits.&lt;/p&gt;</description></item><item><title>Manjaro xfce: Erreur de la variable LANG de locale</title><link>https://loonaire.github.io/posts/manjaroxfcelocaleserrors/</link><pubDate>Thu, 22 Sep 2022 20:09:00 +0200</pubDate><guid>https://loonaire.github.io/posts/manjaroxfcelocaleserrors/</guid><description>&lt;p&gt;Un des obstable à mon éventuel passage de Windows 10 à Manjaro XFCE est le support de certains logiciels. J&amp;rsquo;avais une demande particulière qui était qu&amp;rsquo;il fallais que Flash Player 9 StandAlone fonctionne sur Linux en français. Problème: le lecteur démarrais en anglais.&lt;/p&gt;
+&lt;p&gt;Après test sur Manjaro KDE ainsi que Mint et Debian XFCE, le problème semblais venir précisement de Manjaro avec l&amp;rsquo;environnement XFCE.&lt;/p&gt;
+&lt;p&gt;Sur Manjaro XFCE, la valeur par défaut de la variable d&amp;rsquo;environnement LANG est fr_FR.utf8 (obtenu avec la commande &lt;strong&gt;locale&lt;/strong&gt;). Cet encodage est inconnu de Flash Player 9 mais est compatible avec les version à partir de Flash Player 10 (précisément la version 10.1 ou 10.2). Une solution temporaire consiste à changer la valeur de la variable LANG dans un terminal puis d&amp;rsquo;éxecuter le lecteur Flash Player depuis ce terminal, ces manipulations peuvent se faire en une ligne de commande:&lt;/p&gt;</description></item><item><title>Manjaro: Corriger le problème de mise à jour des clés de signatures</title><link>https://loonaire.github.io/posts/manjaropacmansignature/</link><pubDate>Thu, 22 Sep 2022 19:53:44 +0200</pubDate><guid>https://loonaire.github.io/posts/manjaropacmansignature/</guid><description>&lt;p&gt;En réalisant une installation de Manjaro XFCE à partir d&amp;rsquo;un iso ayant quelques mois, je me suis retrouvé dans l&amp;rsquo;impossibilité de mettre à jour le système car les clés de signature des paquets n&amp;rsquo;étaient plus valide. Pour débloquer ces mises à jours, il faut recharger la liste des clés mises à jour.&lt;/p&gt;
+&lt;p&gt;Voici les commandes à saisir:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Force la mise à jour de la base de données des paquets&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -Syy 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Charge la liste des clés la plus récent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman-key --refresh-keys
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Indique quelles clés doivent être utilisées&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman-key --populate archlinux manjaro
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Vide le cache des paquets&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Il suffit ensuite de relancer une mise à jour des paquets.&lt;/p&gt;</description></item><item><title>Activer l'accès aux partages smb sans mot de passe sur Windows 10 Pro / Education</title><link>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</link><pubDate>Fri, 16 Sep 2022 18:01:15 +0200</pubDate><guid>https://loonaire.github.io/posts/w10proenablepublicshareaccess/</guid><description>&lt;p&gt;En voulant mettre en place un partage accessible sans mot de passe, je me suis retrouvé face à un problème d&amp;rsquo;accès avec Windows 10 Education. Le partage était situé sur un Windows 10 Famille, un autre ordinateur pouvais accéder à ce partage mais impossible depuis un Windows 10 Education.
+Le problème viens de la désactivation de l&amp;rsquo;accès aux partages sans mot de passe, ce problème est résolu en modifiant les GPO de l&amp;rsquo;ordinateur.&lt;/p&gt;</description></item><item><title>Passer des arguments à un programme Go avec les flags</title><link>https://loonaire.github.io/posts/go-flags/</link><pubDate>Thu, 04 Aug 2022 14:08:36 +0200</pubDate><guid>https://loonaire.github.io/posts/go-flags/</guid><description>&lt;p&gt;Go permet de se passer de Os.args pour la gestion des arguments à l&amp;rsquo;execution de l&amp;rsquo;application avec le package flag.&lt;/p&gt;
+&lt;p&gt;Les arguments créeront l&amp;rsquo;argument -h ou &amp;ndash;help.&lt;/p&gt;
+&lt;p&gt;Pour les arguments de type bool, il faut mettre par défaut la valeur false, sinon l&amp;rsquo;argument sera toujours à true.&lt;/p&gt;
+&lt;p&gt;Voici un exemple de base, chaque argument est envoyé dans un pointeur vers l&amp;rsquo;argument:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-golang" data-lang="golang"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e6db74"&gt;&amp;#34;flag&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e6db74"&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#75715e"&gt;// crée les variables qui contiendront les arguments&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#75715e"&gt;// attention: chaque paramètre est précédé d&amp;#39;un -&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;boolArg&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Bool&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;b&amp;#34;&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Argument de type booléen&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;stringArg&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;String&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;s&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Argument de type chaine de caractères&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;intArg&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Int&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;i&amp;#34;&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Argument de type entier signé&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;uintArg&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Uint&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;u&amp;#34;&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Argument de type entier non signé&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;floatArg&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Float64&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;f&amp;#34;&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0.0&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;Argument de type nombre décimal&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#75715e"&gt;// parse les arguments saisis&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Parse&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#75715e"&gt;//flag.PrintDefaults() // permet d&amp;#39;afficher le message d&amp;#39;aide, équivaut à ./programme --help ou ./programme -h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Nombre d&amp;#39;arguments: &amp;#34;&lt;/span&gt;, len(&lt;span style="color:#a6e22e"&gt;flag&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Args&lt;/span&gt;()))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;boolArg value: &amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;boolArg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;stringArg value: &amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;stringArg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;intArg value: &amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;intArg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;uintArg value: &amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;uintArg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;floatArg value: &amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;floatArg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Il existe un autre moyen qui permet cette fois de récupérer directement les arguments dans des variables:&lt;/p&gt;</description></item><item><title>Golang: Voir la mémoire utilisée par le programme</title><link>https://loonaire.github.io/posts/go-runtime/</link><pubDate>Wed, 03 Aug 2022 20:06:58 +0200</pubDate><guid>https://loonaire.github.io/posts/go-runtime/</guid><description>&lt;p&gt;Je cherchais un moyen d&amp;rsquo;afficher en Go la mémoire utilisée par un programme en Go.
+La solution se trouve dans la librairie standard avec le package runtime.&lt;/p&gt;
+&lt;p&gt;Voici un exemple de code (l&amp;rsquo;exemple parle de lui même):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-golang" data-lang="golang"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;package&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e6db74"&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e6db74"&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#e6db74"&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;func&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;runtime&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;MemStats&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;time&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Sleep&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;time&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Second&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;# goroutines: &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;runtime&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NumGoroutine&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;runtime&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;ReadMemStats&lt;/span&gt;(&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Memory Acquired: &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Sys&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Memory Acquired (MB) :&amp;#34;&lt;/span&gt;, float64(&lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Sys&lt;/span&gt;)&lt;span style="color:#f92672"&gt;/&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1000000&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Memory Used : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Alloc&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Memory Used (MB) : &amp;#34;&lt;/span&gt;, float64(&lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Alloc&lt;/span&gt;)&lt;span style="color:#f92672"&gt;/&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1000000&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;TotalAlloc :&amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;TotalAlloc&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;TotalAlloc (MB):&amp;#34;&lt;/span&gt;, float64(&lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;TotalAlloc&lt;/span&gt;)&lt;span style="color:#f92672"&gt;/&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1000000&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;# malloc : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Mallocs&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;# free : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Frees&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;GC enabled : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;EnableGC&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;# GC : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NumGC&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Last GC time : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;LastGC&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Println&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Next GC : &amp;#34;&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;m&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;NextGC&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#75715e"&gt;//runtime.GC() // retirer le commentaire pour forcer un passage du garbage collector&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// Si vous souhaite executer ce code en boucle, mettez une boucle for{} enrre les println après le ReadMemStats(m)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Utiliser Flash Player en 2022</title><link>https://loonaire.github.io/posts/flashplayer2022/</link><pubDate>Wed, 03 Aug 2022 12:18:27 +0200</pubDate><guid>https://loonaire.github.io/posts/flashplayer2022/</guid><description>&lt;p&gt;Flash player est aujourd&amp;rsquo;hui totalement mort, même adobe a retirer les liens vers Flash. Pour les applications AIR, une entreprise à repris le support, &lt;a href="https://airsdk.harman.com/runtime"&gt;plus d&amp;rsquo;infos par ici.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dans mon cas, je cherchais surtout sur les applications Flash.&lt;/p&gt;
+&lt;h2 id="lancer-une-application-flash-player"&gt;&lt;strong&gt;Lancer une application Flash player&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Lancer une application est plutot simple, il suffit de se munir du fichier swf de l&amp;rsquo;application ainsi que d&amp;rsquo;un lecteur flash player standalone.&lt;/p&gt;
+&lt;p&gt;Le lecteur flash player peux être trouver sur archive.org, par exemple &lt;a href="https://archive.org/details/standaloneflashplayers"&gt;par ici.&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Windows 10 N et les codecs vidéos manquant</title><link>https://loonaire.github.io/posts/win10n/</link><pubDate>Thu, 30 Jun 2022 20:42:14 +0200</pubDate><guid>https://loonaire.github.io/posts/win10n/</guid><description>&lt;p&gt;Ayant des clés pour Windows 10 Education N, j&amp;rsquo;ai décider de l&amp;rsquo;installer sur un ordinateur, cependant cette version de Windows ne contient pas certains logiciels comme les lecteurs audio / vidéos ainsi que Skype, plus important il manque les codecs de flux vidéo indispensable pour lire certains flux comme ceux de twitch.&lt;/p&gt;
+&lt;p&gt;Pour ajouter la possiblité de lire les flux vidéos manquant, il faut installer la fonctionnalité Media feature pack.&lt;/p&gt;</description></item><item><title>Cheatsheet pour gohugo</title><link>https://loonaire.github.io/posts/cheatsheetgohugo/</link><pubDate>Sun, 26 Jun 2022 20:42:44 +0200</pubDate><guid>https://loonaire.github.io/posts/cheatsheetgohugo/</guid><description>&lt;p&gt;Voici un rapide mémo pour l&amp;rsquo;utilisation de gohugo pour la création et l&amp;rsquo;ajout de contenu.&lt;/p&gt;
+&lt;h2 id="création-dun-site"&gt;Création d&amp;rsquo;un site&lt;/h2&gt;
+&lt;h3 id="crée-un-projet"&gt;Crée un projet&lt;/h3&gt;
+&lt;p&gt;Pour créer un projet avec gohugo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo new site ./
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si le dossier n&amp;rsquo;est pas vide, il faut utiliser la commande:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo new site ./ --force
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="utiliser-un-thème"&gt;Utiliser un thème&lt;/h3&gt;
+&lt;p&gt;Pour ajouter un thème à notre projet, il faut récupérer les fichier d&amp;rsquo;un thème et le placer dans le dossier themes du projet. Ensuite, il faut modifier le fichier config.toml en ajoutant la ligne theme = &amp;ldquo;nom-du-theme&amp;rdquo;&lt;/p&gt;</description></item><item><title>Retour Experience Laptop de 2021</title><link>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</link><pubDate>Sun, 26 Jun 2022 20:00:47 +0200</pubDate><guid>https://loonaire.github.io/posts/experiences-nouveaux-laptop/</guid><description>&lt;p&gt;J&amp;rsquo;ai récemment fait l&amp;rsquo;acquisition d&amp;rsquo;un nouvel ordinateur portable, il s&amp;rsquo;agit d&amp;rsquo;un Asus TUF706HM, coté composant, il possède un processeur intel core i5 11400h avec une carte graphique nvidia RTX3060 Max-q.
+Le chassis est en plastique complet et en pleine charge le ventilateur est très bruyant et s&amp;rsquo;entend de loin. Ce problème semble commun aux processeurs intel core iX depuis la gen 10, il semble également un peu présent sur les ordinateurs avec des processeurs AMD Ryzen 5xxxx, en charge le processeur et la carte graphique montent beaucoup en température. Cette température tourne autour de 90-100°C pour le processeur et la carte graphique arrive facilement à 80-90°C, c&amp;rsquo;est clairement trop et malheureusement le seul moyen de limiter cette température est de brider le processeur, ce qui permet de gagner quelques degrés.&lt;/p&gt;</description></item><item><title>Premier article</title><link>https://loonaire.github.io/posts/premierpost/</link><pubDate>Mon, 20 Jun 2022 20:02:25 +0200</pubDate><guid>https://loonaire.github.io/posts/premierpost/</guid><description>&lt;p&gt;Salut!&lt;/p&gt;
+&lt;p&gt;Comme il faut bien un premier poste, j&amp;rsquo;ai décidé de créer ce blog pour centraliser mes contenus et mes retours sur mes exprériences, il y aura également de la documentation sur la mise en place de certains outils et de la configuration.&lt;/p&gt;
+&lt;p&gt;Pour ce blog, j&amp;rsquo;ai choisi de l&amp;rsquo;héberger sur github grâce aux github pages, cela me permet de gérer simplement la mise en page et je n&amp;rsquo;ai pas besoin du tout de gérer le coté serveur. J&amp;rsquo;utilise l&amp;rsquo;outil gohugo pour la génération du site, jekyll semble intéressant mais le fait qu&amp;rsquo;il soit en ruby pose trop de problème avec certains OS, en plus gohugo est développer en Go qui est un langage que j&amp;rsquo;ai découvert récemment et qui est très intéressant. Pour le thème, il s&amp;rsquo;agit de color-your-world, il est simple et efficace: ca me suffit!&lt;/p&gt;</description></item><item><title>A propos</title><link>https://loonaire.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://loonaire.github.io/about/</guid><description>&lt;p&gt;Suite à ma formation TSSR auprès de l&amp;rsquo;ENI, j&amp;rsquo;ai ressenti le besoin de mettre en place un endroit ou je poste mes différentes procédures et expériences, ce blog servira à ça.&lt;/p&gt;
+&lt;p&gt;Il y aura tout type de contenu sur l&amp;rsquo;informatique, du dev, de l&amp;rsquo;administration systèmes, du réseau.&lt;/p&gt;</description></item><item><title>Other</title><link>https://loonaire.github.io/other/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://loonaire.github.io/other/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Section à venir, l&amp;rsquo;objectif est d&amp;rsquo;intégré le dépot de procédures ici un jour.&lt;/p&gt;&lt;/blockquote&gt;</description></item></channel></rss>

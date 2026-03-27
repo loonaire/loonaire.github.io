@@ -47,3 +47,7 @@ Puis redémarrer:
 ```sh
 reboot
 ```
+
+## Sources
+
+ [https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr](https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr)

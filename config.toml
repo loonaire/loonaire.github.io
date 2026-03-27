@@ -1,15 +1,11 @@
 baseurl      = "https://loonaire.github.io/"
 title        = "Loonaire Blog"
-Author 		 = "Loonaire"
+author 		 = "Loonaire"
 languageCode = "fr-fr"
 theme        = "holy"
 canonifyURLs = true
 relativeURLs = true
 defaultContentLanguage = "fr"
-
-[author]
-  name = "Loonaire"
-
 
 [taxonomies]
     category = "blog"

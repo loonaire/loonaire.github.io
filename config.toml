@@ -1,19 +1,20 @@
 baseurl      = "https://loonaire.github.io/"
 title        = "Loonaire Blog"
-author 		 = "Loonaire"
+Author 		 = "Loonaire"
 languageCode = "fr-fr"
 theme        = "holy"
 canonifyURLs = true
 relativeURLs = true
 defaultContentLanguage = "fr"
 
+[author]
+  name = "Loonaire"
+
 
 [taxonomies]
     category = "blog"
     tag      = "tags"
     series   = "series"
-
-
 [params]
   dateform        = "2 January 2006"
   dateformShort   = "2 January"
@@ -22,6 +23,9 @@ defaultContentLanguage = "fr"
   
   #Copyright
   copyright = "copyright ©Loonaire"
+  [params.Author]
+    name = "Loonaire"
+    homepage = "https://loonaire.github.io"
 
 [menu]
 
@@ -42,6 +46,8 @@ defaultContentLanguage = "fr"
     name = "Autre contenu"
     url = "/other/"
     weight = 2
+
+# Customize for the theme which is not updated...
 
 [languages]
 [languages.fr]

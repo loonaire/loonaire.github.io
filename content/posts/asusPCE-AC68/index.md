@@ -5,6 +5,8 @@ draft: false
 comment: false
 ---
 
+## Solution
+
 En voulant passer un ordinateur sur linux j'ai eu une galère avec la carte wifi interne PCI Asus PCE-AC68.
 La version USB de la carte est plus documentée et des drivers sont disponible, cependant pour la version PCI il n'y a rien, aucun driver pour linux. Même pour windows les drivers sont difficiles à trouver.
 Les drivers broadcom sont compliqués à gérer par linux, il n'y a pas de version opensource de ces drivers disponible.
@@ -40,7 +42,7 @@ m-a build broadcom-sta
 
 il faut ensuite installer le paquet généré par la commande précédente:
 ```sh
-dpkg -i /usr/src/<nom du paquet compilé>.deb
+dpkg -i /usr/src/nom_du_paquet_compilé.deb
 ```
 
 Puis redémarrer:
@@ -48,6 +50,13 @@ Puis redémarrer:
 reboot
 ```
 
+## Les réseaux 5Ghz n'apparaissent pas
+
+Il faut passer sur le canal wifi 5Ghz 40 dans les paramètres du point d'accès wifi.
+
 ## Sources
 
- [https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr](https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr)
+ [https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr](https://www.reddit.com/r/debian/comments/9nlpsw/help_installing_wifi_device_drivers_asus_pceac68/?tl=fr)  
+ [https://bugs.launchpad.net/ubuntu/+source/bcmwl/+bug/1574196](https://bugs.launchpad.net/ubuntu/+source/bcmwl/+bug/1574196)
+[https://askubuntu.com/questions/749420/wireless-lost-ability-to-use-5ghz-pce-ac68](https://askubuntu.com/questions/749420/wireless-lost-ability-to-use-5ghz-pce-ac68)
+ 

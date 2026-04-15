@@ -17,9 +17,6 @@ lsblk
 ```
 
 Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot
-
-
-
 - Monter ces 2 partitions (ici j'utilise sda comme disque ou est installé le système): 
 ```sh
 mount /dev/sdaX /mnt # system partition
@@ -35,12 +32,26 @@ Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système
 
 ## Réparer le boot de systemdboot
 
+### Systemd < 258
 Il faut lancer la commande:
 ```sh
 bootctl --path=/boot install
 ```
 
+### Systemd > 258
+A partir de systemd 258 il y a un problème avec la commande bootctl et archlinux.
+Il faut lancer la commande:
+```sh
+efibootmgr --create --disk /dev/sdX --part Y --loader '\EFI\systemd\systemd-bootx64.efi' --label "Linux Boot Manager" --unicode
+```
+Où:
+- ``sdX`` le X correspond à la lettre du disque qui contient la partition /boot
+- ``Y`` est la partition qui contient ``/boot``
+
+
 Ensuite un message nous indique qu'une nouvelle entrée de démarrage a été crée, elle apparais désormais dans notre bios (si elle n'apparassait plus)
+> Created EFI boot entry "Linux Boot Manager"
+
 Nous pouvons ensuite sortir du chroot:
 
 ```sh

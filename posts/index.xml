@@ -92,22 +92,20 @@ Prenez le tel quel si vous souhaitez l&amp;rsquo;utiliser&lt;/p&gt;
 &lt;p&gt;Démarrer l&amp;rsquo;ordinateur avec un iso archlinux&lt;/p&gt;
 &lt;h2 id="préparer-le-chroot"&gt;Préparer le chroot:&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Obtenir la liste des partitions avec la commande:
-lsblk&lt;/li&gt;
+&lt;li&gt;Obtenir la liste des partitions avec la commande:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Monter ces 2 partitions (ici j&amp;rsquo;utilise sda comme disque ou est installé le système):
-mount /dev/sdaX /mnt # system partition
-mount /dev/sdaY /mnt/boot # boot partition&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;On peux maintenant chroot:
-arch-chroot /mnt&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;Monter ces 2 partitions (ici j&amp;rsquo;utilise sda comme disque ou est installé le système):&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement&lt;/p&gt;</description></item><item><title>Manipulation de fichier msi avec powershell</title><link>https://loonaire.github.io/posts/msifile/</link><pubDate>Thu, 06 Mar 2025 09:57:07 +0100</pubDate><guid>https://loonaire.github.io/posts/msifile/</guid><description>&lt;h2 id="installer-un-fichier-msi-en-ligne-de-commande"&gt;Installer un fichier MSI en ligne de commande&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mount /dev/sdaX /mnt &lt;span style="color:#75715e"&gt;# system partition&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mount /dev/sdaY /mnt/boot &lt;span style="color:#75715e"&gt;# boot partition&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;On peux maintenant chroot:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;arch-chroot /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement&lt;/p&gt;</description></item><item><title>Manipulation de fichier msi avec powershell</title><link>https://loonaire.github.io/posts/msifile/</link><pubDate>Thu, 06 Mar 2025 09:57:07 +0100</pubDate><guid>https://loonaire.github.io/posts/msifile/</guid><description>&lt;h2 id="installer-un-fichier-msi-en-ligne-de-commande"&gt;Installer un fichier MSI en ligne de commande&lt;/h2&gt;
 &lt;p&gt;Il faut utiliser la commande:
 msiexec /i &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;Pour une installation silencieuse:

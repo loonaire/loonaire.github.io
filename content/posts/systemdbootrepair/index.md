@@ -12,39 +12,45 @@ Démarrer l'ordinateur avec un iso archlinux
 ## Préparer le chroot:
 
 - Obtenir la liste des partitions avec la commande:
+```sh
 lsblk
+```
 
 Il faut la partition qui contient le système ainsi que la partition qui contient les fichiers de boot
 
 
 
 - Monter ces 2 partitions (ici j'utilise sda comme disque ou est installé le système): 
+```sh
 mount /dev/sdaX /mnt # system partition
 mount /dev/sdaY /mnt/boot # boot partition
+```
 
 - On peux maintenant chroot:
+```sh
 arch-chroot /mnt
+```
 
 Nous sommes maintenant dans le chroot et nous pouvons intéragir sur le système installer comme si il était installé normalement
 
 ## Réparer le boot de systemdboot
 
 Il faut lancer la commande:
+```sh
 bootctl --path=/boot install
+```
 
 Ensuite un message nous indique qu'une nouvelle entrée de démarrage a été crée, elle apparais désormais dans notre bios (si elle n'apparassait plus)
-
 Nous pouvons ensuite sortir du chroot:
 
-```
+```sh
 exit # Sortie du chroot
 unmount -R /mnt # Démonte les partitions montées
 reboot
 ```
 
 Au moment du reboot, remettre le disque qui contient le système en premier dans le bios ou retirer la clé ou le cd d'archlinux.
-
-Notre Archlinux est réparé
+Notre Archlinux est réparé.
 
 ## L'entrée est valide mais le kernel n'est pas disponible
 

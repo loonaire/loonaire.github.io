@@ -1,5 +1,5 @@
 ---
-title: "Déployer Windows 10 sur des appareils à mémoire soudée"
+title: "Déployer Windows 10 sur des appareils à mémoire soudée via le MDT"
 date: 2024-01-27T17:45:58+01:00
 draft: false
 comment: false

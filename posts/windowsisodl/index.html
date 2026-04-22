@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Télécharger un iso de Windows 11 pour n'importe quelle édition avec le media creation tools - Loonaire Blog</title><meta name=description content="Le problème: l&rsquo;obtention d&rsquo;un iso de windows entreprise se faire obligatoirement via le portail visual studio, or si on n&rsquo;a pas accès à ce portail ca peux être compliqué de l&rsquo;obtenir.
+L&rsquo;outil de création de media
+Pour l&rsquo;obtenir, on passe par l&rsquo;outil mediacreationtool fourni pour télécharger l&rsquo;iso de windows et crée des clés usb de windows. L&rsquo;outil est disponible ici. La procédure classique est de simplement le lancer et suivre les instructions. Attention: il faut le lancer en étant connecter avec un compte qui a les droits administrateurs locaux sur la machine."><meta name=author content="Loonaire"><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script><style>:root{--font-sans:"Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}</style></head><body class="bg:fade-84@dark font:fade-16@dark font:sans"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Télécharger un iso de Windows 11 pour n'importe quelle édition avec le media creation tools</div><div class="mt:16 f:fade-60"><time>22 avr. 2026</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}
+_:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}"><p>Le problème: l&rsquo;obtention d&rsquo;un iso de windows entreprise se faire obligatoirement via le portail visual studio, or si on n&rsquo;a pas accès à ce portail ca peux être compliqué de l&rsquo;obtenir.</p><h2 id=loutil-de-création-de-media>L&rsquo;outil de création de media</h2><p>Pour l&rsquo;obtenir, on passe par l&rsquo;outil mediacreationtool fourni pour télécharger l&rsquo;iso de windows et crée des clés usb de windows. L&rsquo;outil est disponible <a href=https://www.microsoft.com/fr-fr/software-download/windows11>ici</a>. La procédure classique est de simplement le lancer et suivre les instructions. Attention: il faut le lancer en étant <strong>connecter avec un compte qui a les droits administrateurs locaux sur la machine</strong>.</p><h2 id=la-méthode>La méthode</h2><p>En étant connecté avec un compte administrateur local, on peux utiliser les arguments de la ligne de commande pour récupérer un iso spécifique.</p><p>Voici les arguments importants:</p><ul><li>MediaArch : l&rsquo;architecture de processeur pour l&rsquo;iso, pour intel il faut indiquer la valeur x64, pour arm indiquer arm64</li><li>/MediaLangCode : la langue de l&rsquo;iso, fr-FR pour la langue française, en-US pour l&rsquo;anglais américain,&mldr;</li><li>/MediaEdition : L&rsquo;edition de windows souhaitée: Enterprise, Education, Home, &mldr;</li></ul><p>Pour l&rsquo;édition enteprise pour processeur intel/amd 64bit il faut saisir la commande suivante:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>MediaCreationTool.exe /Eula Accept /Retail /MediaArch x64 /MediaLangCode fr-FR /MediaEdition Enterprise
+</span></span></code></pre></div><p>Pour l&rsquo;édition education:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>MediaCreationTool.exe /Eula Accept /Retail /MediaArch x64 /MediaLangCode fr-FR /MediaEdition Education
+</span></span></code></pre></div><h2 id=utiliser-dism-pour-vérifier-un-iso>Utiliser DISM pour vérifier un iso</h2><p>Pour vérifier si un iso contient la bonne édition il faut utiliser la commande suivante (avec l&rsquo;iso monter sur un lecteur):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>dism /Get-WimInfo /WimFile:X:<span style=color:#ae81ff>\s</span>ources<span style=color:#ae81ff>\i</span>nstall.esd
+</span></span></code></pre></div><p>Pour un fichier wim:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>dism /Get-WimInfo /WimFile:X:<span style=color:#ae81ff>\s</span>ources<span style=color:#ae81ff>\i</span>nstall.wim
+</span></span></code></pre></div><p>S&rsquo;affichera ensuite la liste des éditions disponible, l&rsquo;index est important à avoir pour l&rsquo;extraction d&rsquo;une version pour la conversion de fichier esd vers wim.</p><h2 id=convertir-un-installesd-en-installwim>Convertir un install.esd en install.wim</h2><p>Les chemins sont à adapter, en utilisant des antislash (\) pour les chemins et en adaptant la valeur de l&rsquo;index:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>dism /Export-Image /SourceImageFile:install.esd /SourceIndex:1 /DestinationImageFile:install.wim /Compress:Max
+</span></span></code></pre></div></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>

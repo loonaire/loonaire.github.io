@@ -52,3 +52,6 @@ Les chemins sont à adapter, en utilisant des antislash (\\) pour les chemins et
 ```sh
 dism /Export-Image /SourceImageFile:install.esd /SourceIndex:1 /DestinationImageFile:install.wim /Compress:Max
 ```
+
+## Sources
+[https://windowsforum.com/threads/get-windows-11-enterprise-iso-fast-with-media-creation-tool-cli.391435/](https://windowsforum.com/threads/get-windows-11-enterprise-iso-fast-with-media-creation-tool-cli.391435/)

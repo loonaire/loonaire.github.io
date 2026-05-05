@@ -1,0 +1,90 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Docker: Partie 1 l'installation sur linux - Loonaire Blog</title><meta name=description content="Pourquoi cette série
+Ca fait longtemps que je souhaite faire une série d&rsquo;article sur docker, avec mes besoins croissant pour cette techno, j&rsquo;ai décidé d&rsquo;en faire une série et comment l&rsquo;utiliser dans un environnement en prenant en compte l&rsquo;aspect sécurité.
+
+Attention: Ici je ne vais parler que de Docker et non des modules d&rsquo;adaption de podman aux conteneurs Docker par exemple.
+
+Les différentes versions de Docker sous linux
+Sur Debian et Ubuntu, Docker est disponible en 2 versions différentes sur certaines distributions:"><meta name=author content="Loonaire"><link href=https://unpkg.com/@master/normal.css rel=stylesheet><script src=https://unpkg.com/@master/style@1.5.0></script><script src=https://unpkg.com/@master/styles@1.13.0></script><script src=https://unpkg.com/master-styles-group></script><script src=https://unpkg.com/themes.js></script><script>window.themes=window.themes||new window.Themes</script><style>:root{--font-sans:"Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji}</style></head><body class="bg:fade-84@dark font:fade-16@dark font:sans"><nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000"><div class="h:full
+w:full
+max-w:1200
+mx:auto
+px:32
+d:flex
+align-items:center"><div><a href=../../ class="mr-3 font:extralight">Loonaire Blog</a></div><div class=ml:auto><a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../posts/ title>Articles</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../other/ title>Autre contenu</a>
+<a class="font:semibold
+font:fade
+font:fade-10:hover
+font:fade-30.active
+px:8
+transition:150ms;ease-in" href=../../about title>A propos</a></div></div></nav><div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word"><div class="max-w:700 w:full box:content-box"><article class="box:border-box pt:32"><header class=mb:32><div class="font:40 font:extrabold">Docker: Partie 1 l'installation sur linux</div><div class="mt:16 f:fade-60"><time>24 avr. 2026</time></div></header><div class="_:where(a):hover{text-decoration-color:fade}
+_:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+_:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+_:where(code){font:90%;_v:middle}
+_:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+_:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+_:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+_:where(h1){font:40;_font:extrabold}
+_:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+_:where(h1,h2,h3,h4,h5,h6){mt:2em}
+_:where(h2){mb:1em;_font:32}
+_:where(h3){font:24}
+_:where(h4){font:20}
+_:where(h5){font:16}
+_:where(h6){font:14}
+_:where(li)::marker{font:fade-44;_font:fade-68@dark}
+_:where(li){pl:.375em}
+_:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+_:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+_:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+>:first-child{mt:0!}
+_:where(pre){p:20;_r:8;_overflow:auto}
+_:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+_:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+_:where(table){width:full;_border-spacing:0}
+_:where(td){v:baseline}
+_:where(td,th):first-child{pl:0}
+_:where(td,th):last-child{pr:0}
+_:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+_:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+_:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+_:where(ul){list-style-type:disc}
+_:where(ul,ol,blockquote){pl:1.5em}
+_:where(video,img){max-width:full}
+_:where(a,mark){text-underline-offset:3}
+_:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}"><h2 id=pourquoi-cette-série>Pourquoi cette série</h2><p>Ca fait longtemps que je souhaite faire une série d&rsquo;article sur docker, avec mes besoins croissant pour cette techno, j&rsquo;ai décidé d&rsquo;en faire une série et comment l&rsquo;utiliser dans un environnement en prenant en compte l&rsquo;aspect sécurité.</p><blockquote><p>Attention: Ici je ne vais parler que de Docker et non des modules d&rsquo;adaption de podman aux conteneurs Docker par exemple.</p></blockquote><h2 id=les-différentes-versions-de-docker-sous-linux>Les différentes versions de Docker sous linux</h2><p>Sur Debian et Ubuntu, Docker est disponible en 2 versions différentes sur certaines distributions:</p><ul><li>Le paquet docker.io qui est nativement disponible sur la distribution, ce paquet est rendu disponible via le dépot de paquet par défaut de la distribution et suivant le cycle de mises à jours, la version peux varier et ne pas être à jour. De plus, cette version à des dépendances avec les librairies fournies par les dépots de base de la distribution. Ces dépendances peuvent entrainer des conflits entre docker et la version de la lib fournie par la distribution (ce problème est un des princpaux problèmes de linux pour moi, essayez par exemple de lancer un ancien flash player linux sur linux aujourd&rsquo;hui&mldr;). De plus la distribution ne suit pas les versions LTS de Docker ce qui peux poser des problèmes</li><li>L&rsquo;ajout du dépot qui package ses propres dépendances</li></ul><p>Le plus simple est d&rsquo;utiliser la version du dépot fourni par Docker. Mais j&rsquo;ai tout de même un doute, la version fournie dans les dépots doit tout de même être aussi bien, pourquoi utiliser celle des dépots Docker? est-ce qu&rsquo;il y a vraiment besoin de toujours avoir la dernière version et dupliquer les dépendances sur le système hote en production?
+Le problème est à la fois lié à Golang et à Debian. Ubuntu à moins de problème de décalage de version.<br>Se pose également l&rsquo;interet d&rsquo;utiliser Docker sur un système de base RedHat (hors Fedora), même si podman est à privilégier sur ces système, Docker est installable mais est-ce vraiment une bonne idée? Je ne pense pas.<br>Au final, la meilleur distribution pour installer Docker dessus est&mldr; Alpine linux, même si ici je serais sur une base ubuntu. Pourquoi?</p><ul><li>Le système est en semi &ldquo;rolling release&rdquo;, les nouvelles releases sont fréquentes, les upgrades très simple et à ma connaissance il n&rsquo;y a quasiment aucune casse suite aux mises à jour.</li><li>Le système est la base de beaucoup de conteneurs car léger donc en hote avoir quelque chose de très légé est interesssant</li><li>Docker est disponible nativement dans les dépots, il n&rsquo;y a pas de dépot supplémentaire à installer<br>En revanche l&rsquo;utilisation est un peu plus complexe et il faut configurer manuellement Docker, peux être dans un futur article.</li></ul><p>A noter également: Docker nécessite iptable et iptable doit être correctement configurer pour éviter les problèmes de sécurité avec Docker.</p><h2 id=installation>Installation</h2><p>Pour l&rsquo;instant, l&rsquo;objectif est de faire une simple installation. Le guide est disponible sur <a href=https://docs.docker.com/engine/install/>https://docs.docker.com/engine/install/</a> et suivre les étapes.</p><h2 id=le-post-install>Le post-install</h2><p>Après l&rsquo;installation, il faut démarrer le service avec la commande:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo systemctl start docker
+</span></span></code></pre></div><p>Ensuite la commande suivante lance un container et permet de tester l&rsquo;installation:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo docker run hello-world
+</span></span></code></pre></div><p>Si on ne souhaite pas que docker démarre automatiquement, lancer la commande:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo systemctl disable docker
+</span></span><span style=display:flex><span>sudo systemctl disable containerd
+</span></span></code></pre></div><p>Par défaut, une interface est crée sur le réseau 172.17.x.x, on reviendra sur ce sujet plus tard avec la gestion des interfaces réseaux.</p><h2 id=le-post-install-1>Le post install</h2><p>La documentation officielle est diponible <a href=https://docs.docker.com/engine/install/linux-postinstall>ici</a>.</p><h3 id=le-passage-en-rootless>Le passage en rootless</h3><p>Cette étape est discutable mais très importante pour éviter les problèmes d&rsquo;évasions de conteneurs. Le passage en rootless permet de lancer docker sur l&rsquo;hote sans avoir besoin des droits root (avec sudo ou connexion au compte root via su). Dans les inconvénients, il ne sera plus possible de rediriger les ports inférieurs à 1024 sur l&rsquo;hote, il faudra passer par un reverse proxy ou une autre ruse comme des règles de pare feu, nous verrons ca plus tard. L&rsquo;accès au matériel peux également devenir plus compliqué à cause du fonctionnement de certains driver, faire tourner du matériel spécifique dans un conteneur (surtout docker) peu être très compliqué et devient impossible avec le mode rootless (un conteneur ne doit pas remplacer un système de gestion de paquet, si il faut faire tourner du matériel spécifique il faut plutot être en installation native ou éventuellement en vm avec un bypass).</p><blockquote><p>les instructions sont disponibles <a href=https://docs.docker.com/engine/security/rootless/>ici</a></p></blockquote><p>On va commencer par arrêter docker et coupeur le socket:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo systemctl disable --now docker.service docker.socket
+</span></span><span style=display:flex><span>sudo rm /var/run/docker.sock
+</span></span></code></pre></div><p>Il faut installer le packet uidmap pour avoir accès aux outils nécessaires pour la gestion des permissions gid et uid:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo apt install uidmap
+</span></span></code></pre></div><p>Sur Debian et les distributions redhat et leurs dérivées, un script est diponible, il suffit de le lancer:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>/usr/bin/dockerd-rootless-setuptool.sh install
+</span></span></code></pre></div><p>Après le lancement du script, avec la commande ```docker info``, on obtient les lignes suivantes (le context doit être en rootless):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>Client: Docker Engine - Community
+</span></span><span style=display:flex><span> Version:    29.4.2
+</span></span><span style=display:flex><span> Context:    rootless
+</span></span><span style=display:flex><span> Debug Mode: false
+</span></span></code></pre></div><blockquote><p>Désormais docker sera executé en tant que service pour l&rsquo;utilisateur qui a executé le script.</p></blockquote><p>L&rsquo;état du service peux être vérifier avec la commande:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>systemctl --user status docker
+</span></span></code></pre></div><blockquote><p>Attention: <code>systemctl status docker</code> renvois vers la version de base de l&rsquo;installation qui se lance en tant que root, ce service doit être évité le plus possible.</p></blockquote><h2 id=le-fichier-daemonjson>Le fichier daemon.json</h2><p>Le fichier daemon.json correspond au fichier de configuration de docker, il permet de configurer des paramètres par défaut pour les conteneurs.<br>En fonction de l&rsquo;installation, il y a 2 emplacements pour ce fichier qui sera à créer:</p><ul><li>En installation de base non rootless : <code>/etc/docker/daemon.json</code></li><li>En rootless : <code>~/.config/docker/daemon.json</code></li></ul><p>Le conseil de base est de configurer au minimum les logs en json-file;</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;log-driver&#34;</span>: <span style=color:#e6db74>&#34;json-file&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;log-opts&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;max-size&#34;</span>: <span style=color:#e6db74>&#34;10m&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;max-file&#34;</span>: <span style=color:#e6db74>&#34;3&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><a href=https://docs.docker.com/engine/logging/configure/#configure-the-default-logging-driver>Lien pour la documentation de gestion des logs de docker</a></p><blockquote><p>Pour rappel, les logs doivent normalement être gardés pendant minimum 6 mois d&rsquo;après les guides de l&rsquo;ANSSI</p></blockquote><h3 id=changer-la-plage-par-défaut-du-bridge>Changer la plage par défaut du bridge</h3><p>En cas de problème, par exemple si le réseau utilise la plage 172.17.0.0/16, les conteneurs Docker ne redirigeront pas correctement vers les ip du réseau.
+Par exemple si un ordinateur avec l&rsquo;ip 172.17.255.250 se connecte à un conteneur qui contient un service web qui a pour ip 172.17.0.2 et que le conteneur est en mode bridge, la machine hote du conteneur peux avoir une autre ip et être dans un autre VLAN sans problème. Cependant lorsque l&rsquo;ordinateur se connectera, il initiera la connexion vers le service web mais le service web ne lui renverra aucun paquet (pas d&rsquo;initialisation de la connexion TCP), l&rsquo;accès au service web sera inaccessible car le conteneur pensera que l&rsquo;ip de l&rsquo;ordinateur sur trouve sur son bridge et est donc un autre conteneur.</p><p>Pour changer la valeur, dans le fichier <code>daemon.json</code> il faut ajouter la ligne suivante en adaptant les valeurs et le masque (il faut saisir la première ip du réseau), ici un exemple pour passer les ip dans la plage d&rsquo;adresse privée 192.168.0.X/24:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#f92672>&#34;bip&#34;</span>:<span style=color:#e6db74>&#34;192.168.0.1/24&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><blockquote><p>Si le fichier n&rsquo;est pas vide, il faut ajouter la ligne dans les accolades du fichier déja existant.</p></blockquote><h2 id=conclusion>Conclusion</h2><p>Voici un rapide résumé de l&rsquo;installation de Docker, idéalement à reproduire sur un environnement de production. Il y aura d&rsquo;autres articles sur l&rsquo;utilisation.</p></div></article><footer class=py:24><div class="f:fade-30 f:14 mb:8">copyright ©Loonaire</div><div class="f:fade-60 f:12">Theme <a class=f:bold href=https://github.com/serkodev/holy _target=_blank>Holy</a></div></footer></div></div></body></html>
